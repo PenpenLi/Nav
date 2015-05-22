@@ -1,0 +1,44 @@
+{"frames": {
+
+"ani_paodan_01.png":
+{
+	"frame": {"x":2,"y":42,"w":48,"h":46},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":4,"w":48,"h":46},
+	"sourceSize": {"w":50,"h":50}
+},
+"ani_paodan_02.png":
+{
+	"frame": {"x":54,"y":2,"w":48,"h":48},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":2,"w":48,"h":48},
+	"sourceSize": {"w":50,"h":50}
+},
+"ani_paodan_03.png":
+{
+	"frame": {"x":2,"y":2,"w":50,"h":38},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":6,"w":50,"h":38},
+	"sourceSize": {"w":50,"h":50}
+},
+"ani_paodan_04.png":
+{
+	"frame": {"x":52,"y":52,"w":48,"h":38},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":8,"w":48,"h":38},
+	"sourceSize": {"w":50,"h":50}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "Shell.png",
+	"format": "RGBA8888",
+	"size": {"w":128,"h":128},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:a274bc9860e4727a5f83d4b1baab1a77$"
+}
+}
