@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class ShipFight : MonoBehaviour {
+	public GameObject FightPt;
 
 	// Use this for initialization
 	void Start () {
