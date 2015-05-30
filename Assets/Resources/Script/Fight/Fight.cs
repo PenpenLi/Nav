@@ -68,6 +68,11 @@ public class Fight : MonoBehaviour {
 		return false;
     }
 
+    bool LoadShipData(int Index)
+    {
+        return true;
+    }
+
 	//初始化双方的战船，根据阵型数据来设置船体数据
 	bool InitShips(List<int> shipIDList){
 		Debug.Log ("InitShips---------------------");
