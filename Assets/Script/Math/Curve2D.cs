@@ -6,6 +6,7 @@ public class Curve2D {
 	protected Vector3 m_middlePoint1 = new Vector3();
 	protected Vector3 m_middlePoint2 = new Vector3();
 	protected Vector3 m_endPoint = new Vector3();
+    protected float m_Scale{set;get;}
 
 	public virtual void SetCubicCurve(Vector3 startPoint,Vector3 endPoint)
 	{
@@ -35,10 +36,16 @@ public class Curve2D {
 		m_middlePoint2 = middlePoint2;
 	}
 
-	public virtual Vector3 GetPos(float scale)
+    public float GetPos()
+    {
+        return m_Scale;
+    }
+
+	public virtual Vector3 SetPos(float scale)
 	{
 		//float scale =(x-m_startPoint.x)/(m_endPoint.x-m_endPoint.x);
 		scale=Mathf.Clamp01 (scale);
+        m_Scale = scale;
 		//Debug.Log (scale.ToString ());
 
 		Vector3 pos = m_startPoint * (1 - scale) * (1 - scale) * (1 - scale) +
@@ -48,5 +55,12 @@ public class Curve2D {
 		return pos;
 	}
 
+
+    public int GetLength(Vector3 p1, Vector3 p2)
+    {
+
+        return 0;
+
+    }
 }
 

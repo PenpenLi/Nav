@@ -7,7 +7,7 @@ public class Formation : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Vector3 vec3 = GetIndexPos(0);
-        Debug.Log("vec3 = " + vec3);
+        //Debug.Log("vec3 = " + vec3);
 	}
 	
 	// Update is called once per frame
@@ -24,7 +24,7 @@ public class Formation : MonoBehaviour {
         }
         for (int i = 0; i < m_PosList.Count; i++)
         {
-            Debug.Log("m_PosList[i].transform.localPosition = " + m_PosList[i].transform.localPosition);
+            //Debug.Log("m_PosList[i].transform.localPosition = " + m_PosList[i].transform.localPosition);
             if (Index == i)
             {
                 Vector3 pos = m_PosList[i].transform.localPosition;
