@@ -144,7 +144,4 @@ QualitySettings:
     maximumLODLevel: 0
     particleRaycastBudget: 4096
     excludedTargetPlatforms: []
-  m_PerPlatformDefaultQuality:
-    FlashPlayer: 0
-    Standalone: 0
-    Web: 3
+  m_PerPlatformDefaultQuality: {}
