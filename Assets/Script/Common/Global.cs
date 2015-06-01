@@ -10,6 +10,7 @@ public class GlobalVar {
     public static GlobalVar instance = null;
     public int m_fightProgress = 1;//当前的战斗索引
     public int m_maxShips = 5;//每组最大的舰船数量
+    public bool m_finishShell = true;//是否完成此次射击
 
     public static GlobalVar GetInstance()
     {
@@ -37,6 +38,16 @@ public class GlobalVar {
     public int GetMaxShips()
     {
         return m_maxShips;
+    }
+
+    public bool GetFinishShell()
+    {
+        return m_finishShell;
+    }
+
+    public void SetFinishShell(bool bFinish)
+    {
+        m_finishShell = bFinish;
     }
 
 }

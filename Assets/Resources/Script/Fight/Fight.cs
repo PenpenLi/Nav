@@ -5,9 +5,12 @@ using System.Collections.Generic;
 
 public class Fight : MonoBehaviour {
     public GameObject m_AttackTeam1;
+    public GameObject m_Sheel;
     GameObject m_AttackFormation;
 	GameObject m_DefenceFormation;
-    public GameObject m_TestFire;
+    private int m_CurShipIndex = 0;
+    public float FireSpeed = 1.0f / 600.0f;//攻击速度
+    private List<GameObject> m_shipList = new List<GameObject>();
 	// Use this for initialization
 	void Start () {
 		LoadFormation(1,0);//加载进攻阵型
@@ -20,7 +23,7 @@ public class Fight : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+        AttackLoop();
 	}
 
 	//测试函数
@@ -69,8 +72,8 @@ public class Fight : MonoBehaviour {
 
     bool LoadShipData(int id)
     {
-        Vector3 test = new Vector3(525, -51,0);
-        m_TestFire.GetComponent<ShipFight>().OpenFire(test, 1);
+        //Vector3 test = new Vector3(525, -51,0);
+        //m_TestFire.GetComponent<ShipFight>().OpenFire(test, 1);
         return true;
     }
 
@@ -95,11 +98,54 @@ public class Fight : MonoBehaviour {
         //    Debug.Log ("shipIDList = " + shipIDList[i] + " i = " + i);
         //    m_DefenceTeam2.GetComponent<Team>().AddShip(shipIDList[i], m_DefenceFormation.GetComponent<Formation>().GetIndexPos(i));
         //}
+        m_shipList = m_AttackTeam1.GetComponent<Team>().GetShipList();
 		return true;
 	}
 
     public void OpenFireTest()
     {
+		LoadShipData (1);
+		//m_TestFire.GetComponent<ShipFight>().OpenFire(shipsIDList[8]
+    }
 
+    private void AttackLoop()
+    {
+        if(GlobalVar.GetInstance().GetFinishShell())//上一次的炮弹已经打完了
+        {
+            Debug.Log("Begin Fire");
+            Vector3 targetPos = new Vector3();
+            if(m_CurShipIndex > 4)
+            {
+                targetPos = m_shipList[m_CurShipIndex - 4].transform.localPosition;
+            }else
+            {
+                targetPos = m_shipList[m_CurShipIndex + 4].transform.localPosition;
+            }
+            m_shipList[m_CurShipIndex].GetComponent<ShipFight>().OpenFire(targetPos, 1);
+            m_Sheel.GetComponent<Shell>().SetShellTrack(targetPos, m_shipList[m_CurShipIndex].transform.localPosition, 1);
+           
+            m_Sheel.SetActive(true);
+            m_CurShipIndex++;
+            Debug.Log("m_CurShipIndex = " + m_CurShipIndex);
+            if (m_CurShipIndex >= m_shipList.Count)
+            {
+                m_CurShipIndex = 0;
+            }
+            Debug.Log("m_CurShipIndex = " + m_CurShipIndex + " m_Sheel.activeSelf = " + m_Sheel.activeSelf);
+            GlobalVar.GetInstance().SetFinishShell(false);
+        }
+        if (m_Sheel.activeSelf && GlobalVar.GetInstance().GetFinishShell() == false)
+        {
+            m_Sheel.transform.localPosition =  m_Sheel.GetComponent<Shell>().AddCubicPos(FireSpeed);
+           
+            if(m_Sheel.GetComponent<Shell>().GetCubicPos() >= 1.0f)
+            {
+                GlobalVar.GetInstance().SetFinishShell(true);
+                m_Sheel.GetComponent<Shell>().SetCubicPos(0.0f);
+                m_Sheel.SetActive(false);
+
+            }
+            Debug.Log(" m_Sheel.GetComponent<Shell>().GetCubicPos() = " + m_Sheel.GetComponent<Shell>().GetCubicPos());
+        }
     }
 }

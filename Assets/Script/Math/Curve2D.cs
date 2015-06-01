@@ -41,6 +41,11 @@ public class Curve2D {
         return m_Scale;
     }
 
+    public void RestPos()
+    {
+        m_Scale = 0.0f;
+    }
+
 	public virtual Vector3 SetPos(float scale)
 	{
 		//float scale =(x-m_startPoint.x)/(m_endPoint.x-m_endPoint.x);

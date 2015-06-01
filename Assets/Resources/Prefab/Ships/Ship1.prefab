@@ -87,8 +87,8 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 128
-  mHeight: 128
+  mWidth: 100
+  mHeight: 100
   mDepth: 0
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
@@ -118,7 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ee0635935ad00c4e9a6b49ceb2ca2f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FightPt: {fileID: 194940}
+  m_FightPt: {fileID: 194940}
+  FireSpeed: .0166666675
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

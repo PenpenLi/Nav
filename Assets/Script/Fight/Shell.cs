@@ -30,13 +30,13 @@ public class Shell : MonoBehaviour {
 	public void SetCubicPos(float fScale)
 	{
 		path.SetPos(fScale);
+        m_fScale = fScale;
 	}
 
-    public float AddCubicPos(float fAdd)
+    public Vector3 AddCubicPos(float fAdd)
     {
         m_fScale += fAdd;
-        path.SetPos(m_fScale);
-        return m_fScale;
+        return path.SetPos(m_fScale);
     }
 
     public float GetCubicPos()

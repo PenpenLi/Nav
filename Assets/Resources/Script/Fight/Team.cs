@@ -47,4 +47,9 @@ public class Team : MonoBehaviour {
 		//Debug.Log ("m_ShipList Count = " + m_ShipList.Count);
         return true;
     }
+
+    public List<GameObject> GetShipList()
+    {
+        return m_ShipList;
+    }
 }
