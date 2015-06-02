@@ -40,6 +40,8 @@ public class Fight : MonoBehaviour {
 		shipsIDList.Add(8);
 		shipsIDList.Add(9);
 		shipsIDList.Add(10);
+        shipsIDList.Add(11);
+        shipsIDList.Add(12);
 		return shipsIDList;
 	}
 
@@ -79,8 +81,9 @@ public class Fight : MonoBehaviour {
 
 	//初始化双方的战船，根据阵型数据来设置船体数据
 	bool InitShips(List<int> shipIDList){
-		//Debug.Log ("InitShips---------------------");
-		if(shipIDList.Count != 10){
+		Debug.Log ("InitShips---------------------");
+        if (shipIDList.Count > GlobalVar.m_maxShips)
+        {
 			return false;
 		}
 		//Debug.Log ("shipIDList.Count != 10");
@@ -90,8 +93,16 @@ public class Fight : MonoBehaviour {
 		}
 		//战斗的敌方在左上方，战斗的本家在右下方
 		for(int i = 0; i < GlobalVar.m_maxShips; i++){//
-			//Debug.Log ("shipIDList = " + shipIDList[i] + " i = " + i);
-			m_AttackTeam1.GetComponent<Team>().AddShip(shipIDList[i], m_AttackFormation.GetComponent<Formation>().GetIndexPos(i));
+			Debug.Log ("shipIDList = " + shipIDList[i] + " i = " + i);
+            if (i < (GlobalVar.m_maxShips /2))
+            {
+                m_AttackTeam1.GetComponent<Team>().AddShip(shipIDList[i], m_AttackFormation.GetComponent<Formation>().GetIndexPos(i));
+            }
+            else
+            {
+                m_AttackTeam1.GetComponent<Team>().AddShip(shipIDList[i], m_DefenceFormation.GetComponent<Formation>().GetIndexPos(i));
+            }
+			
 		}
 
         //for(int i = 5; i < 10; i++){
@@ -112,7 +123,7 @@ public class Fight : MonoBehaviour {
     {
         if(GlobalVar.GetInstance().GetFinishShell())//上一次的炮弹已经打完了
         {
-            Debug.Log("Begin Fire");
+            //Debug.Log("Begin Fire");
             Vector3 targetPos = new Vector3();
 			int type = 0;
             if(m_CurShipIndex > (GlobalVar.m_maxTeamShips -1))

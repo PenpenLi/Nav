@@ -33,7 +33,7 @@ public class Team : MonoBehaviour {
 
     public bool AddShip(int nIndex, Vector3 pos)
     {
-		//Debug.Log ("nIndex = " + nIndex + " pos = " + pos);
+		Debug.Log ("nIndex = " + nIndex + " pos = " + pos);
         GameObject prefab = Instantiate(Resources.Load("Prefab/Ships/Ship" + Convert.ToString(nIndex)), Vector3.zero, Quaternion.identity) as GameObject;
         if (prefab == null)
         {

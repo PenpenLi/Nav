@@ -87,8 +87,8 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 128
-  mHeight: 128
+  mWidth: 100
+  mHeight: 100
   mDepth: 0
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
@@ -104,8 +104,8 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 11400000, guid: 4b7860efb0050a043adbb7a0ffef24b1, type: 2}
-  mSpriteName: ani_ship_01
+  mAtlas: {fileID: 11400000, guid: e934353124d4b4848911b1d9cf37bc1b, type: 2}
+  mSpriteName: ani_ship_05
   mFillCenter: 1
 --- !u!114 &11466298
 MonoBehaviour:
@@ -118,8 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ee0635935ad00c4e9a6b49ceb2ca2f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FightPt: {fileID: 0}
-  FireSpeed: .00166666671
+  m_FightPt: {fileID: 194940}
+  FireSpeed: .0166666675
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

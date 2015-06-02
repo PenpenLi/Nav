@@ -18,7 +18,7 @@ public class Formation : MonoBehaviour {
 	//返回指定索引的船体位置 1-5作为进攻方的阵型 6-10作为防守方的阵型（做这个Prefab必须要保证进攻方的位置和防守方的位置要做到镜像一样）
     public Vector3 GetIndexPos(int Index)
     {
-        if (Index > 10 || Index < 1)
+        if (Index > GlobalVar.m_maxShips)
         {
             return Vector3.zero;
         }

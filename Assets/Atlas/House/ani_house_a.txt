@@ -1,0 +1,52 @@
+{"frames": {
+
+"ani_house_a_1.png":
+{
+	"frame": {"x":252,"y":94,"w":93,"h":82},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":32,"w":93,"h":82},
+	"sourceSize": {"w":143,"h":126}
+},
+"ani_house_a_2.png":
+{
+	"frame": {"x":147,"y":2,"w":107,"h":90},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":26,"w":107,"h":90},
+	"sourceSize": {"w":143,"h":126}
+},
+"ani_house_a_3.png":
+{
+	"frame": {"x":133,"y":130,"w":117,"h":96},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":22,"w":117,"h":96},
+	"sourceSize": {"w":143,"h":126}
+},
+"ani_house_a_4.png":
+{
+	"frame": {"x":2,"y":130,"w":129,"h":118},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":7,"y":1,"w":129,"h":118},
+	"sourceSize": {"w":143,"h":126}
+},
+"ani_house_a_5.png":
+{
+	"frame": {"x":2,"y":2,"w":143,"h":126},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":143,"h":126},
+	"sourceSize": {"w":143,"h":126}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "ani_house_a.png",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":256},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:bbbe9716de8420978194b21e00f4645b$"
+}
+}
