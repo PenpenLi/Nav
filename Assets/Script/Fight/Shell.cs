@@ -50,11 +50,11 @@ public class Shell : MonoBehaviour {
         Vector3 mid2 = new Vector3();
         switch(type)
         {
-            case 0:
-                mid1.x = 80.0f;
-                mid1.y = 60.0f;
-                mid2.x = 300.0f;
-                mid2.y = 60.0f;
+			case 0://从右向左打
+                mid1.x = -80.0f;
+                mid1.y = -60.0f;
+                mid2.x = -300.0f;
+                mid2.y = -60.0f;
                 break;
             case 1:
                  mid1.x = 80.0f;
@@ -80,6 +80,12 @@ public class Shell : MonoBehaviour {
                 mid2.x = 300.0f;
                 mid2.y = 60.0f;
                 break;
+			case 5:
+				mid1.x = 80.0f;
+				mid1.y = 60.0f;
+				mid2.x = 300.0f;
+				mid2.y = 60.0f;
+				break;
         }
         AdjustArcHeight(startPt + mid1, startPt + mid2);
 

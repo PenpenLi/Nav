@@ -89,7 +89,7 @@ public class Fight : MonoBehaviour {
 			return false;
 		}
 		//战斗的敌方在左上方，战斗的本家在右下方
-		for(int i = 0; i < 10; i++){//
+		for(int i = 0; i < GlobalVar.m_maxShips; i++){//
 			//Debug.Log ("shipIDList = " + shipIDList[i] + " i = " + i);
 			m_AttackTeam1.GetComponent<Team>().AddShip(shipIDList[i], m_AttackFormation.GetComponent<Formation>().GetIndexPos(i));
 		}
@@ -114,15 +114,18 @@ public class Fight : MonoBehaviour {
         {
             Debug.Log("Begin Fire");
             Vector3 targetPos = new Vector3();
-            if(m_CurShipIndex > 4)
+			int type = 0;
+            if(m_CurShipIndex > (GlobalVar.m_maxTeamShips -1))
             {
-                targetPos = m_shipList[m_CurShipIndex - 4].transform.localPosition;
+				targetPos = m_shipList[m_CurShipIndex - (GlobalVar.m_maxTeamShips -1)].transform.localPosition;
+				type = 0;
             }else
             {
-                targetPos = m_shipList[m_CurShipIndex + 4].transform.localPosition;
+				targetPos = m_shipList[m_CurShipIndex + (GlobalVar.m_maxTeamShips -1)].transform.localPosition;
+				type = 5;
             }
-            m_shipList[m_CurShipIndex].GetComponent<ShipFight>().OpenFire(targetPos, 1);
-            m_Sheel.GetComponent<Shell>().SetShellTrack(targetPos, m_shipList[m_CurShipIndex].transform.localPosition, 1);
+			m_shipList[m_CurShipIndex].GetComponent<ShipFight>().OpenFire(targetPos, type);
+            m_Sheel.GetComponent<Shell>().SetShellTrack(targetPos, m_shipList[m_CurShipIndex].transform.localPosition, type);
            
             m_Sheel.SetActive(true);
             m_CurShipIndex++;
