@@ -105,7 +105,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 11400000, guid: e934353124d4b4848911b1d9cf37bc1b, type: 2}
-  mSpriteName: ani_ship_04
+  mSpriteName: ani_ship_13
   mFillCenter: 1
 --- !u!114 &11466298
 MonoBehaviour:

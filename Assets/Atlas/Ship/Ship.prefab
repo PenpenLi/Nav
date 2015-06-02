@@ -39,7 +39,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 64779cdafd143d3499d36774f78a223b, type: 2}
+  material: {fileID: 2100000, guid: b4791dba9d149754ea354417ab490fa3, type: 2}
   mSprites:
   - name: ani_ship_1
     x: 122

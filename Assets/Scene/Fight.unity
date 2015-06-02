@@ -87,6 +87,48 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &733755142
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1950005795}
+    m_Modifications:
+    - target: {fileID: 456958, guid: 19b68cab9b50c5144a8c34c896cc470c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456958, guid: 19b68cab9b50c5144a8c34c896cc470c, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456958, guid: 19b68cab9b50c5144a8c34c896cc470c, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456958, guid: 19b68cab9b50c5144a8c34c896cc470c, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456958, guid: 19b68cab9b50c5144a8c34c896cc470c, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456958, guid: 19b68cab9b50c5144a8c34c896cc470c, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456958, guid: 19b68cab9b50c5144a8c34c896cc470c, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 456958, guid: 19b68cab9b50c5144a8c34c896cc470c, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 19b68cab9b50c5144a8c34c896cc470c, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &808134522
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,6 +466,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2087595853}
+  - {fileID: 2033313182}
   m_Father: {fileID: 1670752429}
   m_RootOrder: 0
 --- !u!1 &1981217982
@@ -595,6 +638,10 @@ MonoBehaviour:
   mAtlas: {fileID: 11400000, guid: 481cd5075696fb4469d33cdbd77f8dfc, type: 2}
   mSpriteName: ani_paodan_04
   mFillCenter: 1
+--- !u!4 &2033313182
+Transform:
+  m_PrefabParentObject: {fileID: 456958, guid: 19b68cab9b50c5144a8c34c896cc470c, type: 2}
+  m_PrefabInternal: {fileID: 733755142}
 --- !u!1 &2087595852
 GameObject:
   m_ObjectHideFlags: 0
