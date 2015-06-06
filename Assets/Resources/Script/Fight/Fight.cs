@@ -93,7 +93,7 @@ public class Fight : MonoBehaviour {
 		}
 		//战斗的敌方在左上方，战斗的本家在右下方
 		for(int i = 0; i < GlobalVar.m_maxShips; i++){//
-			Debug.Log ("shipIDList = " + shipIDList[i] + " i = " + i);
+			//Debug.Log ("shipIDList = " + shipIDList[i] + " i = " + i);
             if (i < (GlobalVar.m_maxShips /2))
             {
                 m_AttackTeam1.GetComponent<Team>().AddShip(shipIDList[i], m_AttackFormation.GetComponent<Formation>().GetIndexPos(i));
@@ -145,7 +145,7 @@ public class Fight : MonoBehaviour {
             {
                 m_CurShipIndex = 0;
             }
-            Debug.Log("m_CurShipIndex = " + m_CurShipIndex + " m_Sheel.activeSelf = " + m_Sheel.activeSelf);
+            //Debug.Log("m_CurShipIndex = " + m_CurShipIndex + " m_Sheel.activeSelf = " + m_Sheel.activeSelf);
             GlobalVar.GetInstance().SetFinishShell(false);
         }
         if (m_Sheel.activeSelf && GlobalVar.GetInstance().GetFinishShell() == false)
@@ -159,7 +159,7 @@ public class Fight : MonoBehaviour {
                 m_Sheel.SetActive(false);
 
             }
-            Debug.Log(" m_Sheel.GetComponent<Shell>().GetCubicPos() = " + m_Sheel.GetComponent<Shell>().GetCubicPos());
+            //Debug.Log(" m_Sheel.GetComponent<Shell>().GetCubicPos() = " + m_Sheel.GetComponent<Shell>().GetCubicPos());
         }
     }
 }
