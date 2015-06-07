@@ -93,7 +93,7 @@ public class Fight : MonoBehaviour {
 		}
 		//战斗的敌方在左上方，战斗的本家在右下方
 		for(int i = 0; i < GlobalVar.m_maxShips; i++){//
-			//Debug.Log ("shipIDList = " + shipIDList[i] + " i = " + i);
+            //Debug.Log("shipIDList = " + shipIDList[i] + "GetIndexPos = " + m_AttackFormation.GetComponent<Formation>().GetIndexPos(i));
             if (i < (GlobalVar.m_maxShips /2))
             {
                 m_AttackTeam1.GetComponent<Team>().AddShip(shipIDList[i], m_AttackFormation.GetComponent<Formation>().GetIndexPos(i));

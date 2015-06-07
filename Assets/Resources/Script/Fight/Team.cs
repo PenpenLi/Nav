@@ -33,7 +33,7 @@ public class Team : MonoBehaviour {
 
     public bool AddShip(int nIndex, Vector3 pos)
     {
-		Debug.Log ("nIndex = " + nIndex + " pos = " + pos);
+		
         GameObject prefab = Instantiate(Resources.Load("Prefab/Ships/Ship" + Convert.ToString(nIndex)), Vector3.zero, Quaternion.identity) as GameObject;
         if (prefab == null)
         {
@@ -44,6 +44,10 @@ public class Team : MonoBehaviour {
         prefab.transform.parent = TeamSelf.transform;
 		prefab.transform.localPosition = pos;
         prefab.transform.localScale = Vector3.one;
+        prefab.GetComponent<TweenPosition>().from = pos;
+        pos.y += 5.0f;
+        prefab.GetComponent<TweenPosition>().to = pos;
+        Debug.Log("nIndex = " + nIndex + " pos = " + pos);
 		//Debug.Log ("m_ShipList Count = " + m_ShipList.Count);
         return true;
     }
