@@ -96,11 +96,11 @@ public class Fight : MonoBehaviour {
             //Debug.Log("shipIDList = " + shipIDList[i] + "GetIndexPos = " + m_AttackFormation.GetComponent<Formation>().GetIndexPos(i));
             if (i < (GlobalVar.m_maxShips /2))
             {
-                m_AttackTeam1.GetComponent<Team>().AddShip(shipIDList[i], m_AttackFormation.GetComponent<Formation>().GetIndexPos(i), UnityEngine.Random.Range(1,5));
+                m_AttackTeam1.GetComponent<Team>().AddShip(shipIDList[i], m_AttackFormation.GetComponent<Formation>().GetIndexPos(i), UnityEngine.Random.Range(1,5),UnityEngine.Random.Range(1,4));
             }
             else
             {
-                m_AttackTeam1.GetComponent<Team>().AddShip(shipIDList[i], m_DefenceFormation.GetComponent<Formation>().GetIndexPos(i), UnityEngine.Random.Range(1, 5));
+                m_AttackTeam1.GetComponent<Team>().AddShip(shipIDList[i], m_DefenceFormation.GetComponent<Formation>().GetIndexPos(i), UnityEngine.Random.Range(1, 5), UnityEngine.Random.Range(1, 4));
             }
 			
 		}
@@ -137,6 +137,7 @@ public class Fight : MonoBehaviour {
             }
 			m_shipList[m_CurShipIndex].GetComponent<ShipFight>().OpenFire(targetPos, type);
             m_Sheel.GetComponent<Shell>().SetShellTrack(targetPos, m_shipList[m_CurShipIndex].transform.localPosition, type);
+            m_Sheel.GetComponent<Shell>().SetShellType(m_shipList[m_CurShipIndex].GetComponent<ShipFight>().GetShellType());
            
             m_Sheel.SetActive(true);
             m_CurShipIndex++;

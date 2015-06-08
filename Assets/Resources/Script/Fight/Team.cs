@@ -31,7 +31,7 @@ public class Team : MonoBehaviour {
         return true;
     }
 
-    public bool AddShip(int nIndex, Vector3 pos, float speed)
+    public bool AddShip(int nIndex, Vector3 pos, float speed,int type)
     {
 		
         GameObject prefab = Instantiate(Resources.Load("Prefab/Ships/Ship" + Convert.ToString(nIndex)), Vector3.zero, Quaternion.identity) as GameObject;
@@ -48,6 +48,7 @@ public class Team : MonoBehaviour {
         pos.y += 5.0f;
         prefab.GetComponent<TweenPosition>().to = pos;
         prefab.GetComponent<TweenPosition>().duration = speed;
+        prefab.GetComponent<ShipFight>().SetShellType(type);
         Debug.Log("nIndex = " + nIndex + " pos = " + pos);
 		//Debug.Log ("m_ShipList Count = " + m_ShipList.Count);
         return true;

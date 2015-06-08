@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class Shell : MonoBehaviour {
 
@@ -21,6 +22,11 @@ public class Shell : MonoBehaviour {
 		path.SetCubicCurve(startPt, endPt);
         SetShellType(startPt, endPt, type);
 	}
+
+    public void SetShellType(int type)
+    {
+        this.GetComponent<UISprite>().spriteName = "ani_paodan_0" + Convert.ToString(type);
+    }
 
 	public void AdjustArcHeight(Vector3 mid1, Vector3 mid2)
 	{

@@ -10,6 +10,7 @@ public class ShipFight : MonoBehaviour {
     //private Curve2D curve = new Curve2D();
     public float m_FireSpeed = 1.0f / 600.0f;//攻击速度
     public float m_MoveSpeed = 1.0f;//船身抖动速度
+    public int m_ShellType = 1;//使用的炮弹类型
     bool bOpenFire = false;
 	// Use this for initialization
 	void Start () {
@@ -38,8 +39,18 @@ public class ShipFight : MonoBehaviour {
     }
 
 
+    public int GetShellType()
+    {
+        return m_ShellType;
+    }
+
     public void SetShellType(int type)
     {
+        if(type < 1)
+        {
+            Debug.Log("炮弹类型设置出错");
+        }
+        m_ShellType = type;
         //string shellname = "ani_paodan_0" + Convert.ToString(type);
         //m_Shell.GetComponent<UISprite>().spriteName = shellname;
     }
