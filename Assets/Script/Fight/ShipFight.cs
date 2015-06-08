@@ -8,7 +8,8 @@ public class ShipFight : MonoBehaviour {
     private Vector3 m_targetPos;
     private int m_shellType = 1;
     //private Curve2D curve = new Curve2D();
-    public float FireSpeed = 1.0f / 600.0f;//攻击速度
+    public float m_FireSpeed = 1.0f / 600.0f;//攻击速度
+    public float m_MoveSpeed = 1.0f;//船身抖动速度
     bool bOpenFire = false;
 	// Use this for initialization
 	void Start () {
@@ -50,4 +51,10 @@ public class ShipFight : MonoBehaviour {
         //m_targetPos = targetPos;
         //m_shellType = shellType;
     }
+
+    //public void SetMoveSpeed(float speed)
+    //{
+    //    m_MoveSpeed = speed;
+    //    this.GetComponent<TweenPosition>().duration = m_MoveSpeed;
+    //}
 }

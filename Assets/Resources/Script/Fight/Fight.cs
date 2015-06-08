@@ -96,11 +96,11 @@ public class Fight : MonoBehaviour {
             //Debug.Log("shipIDList = " + shipIDList[i] + "GetIndexPos = " + m_AttackFormation.GetComponent<Formation>().GetIndexPos(i));
             if (i < (GlobalVar.m_maxShips /2))
             {
-                m_AttackTeam1.GetComponent<Team>().AddShip(shipIDList[i], m_AttackFormation.GetComponent<Formation>().GetIndexPos(i));
+                m_AttackTeam1.GetComponent<Team>().AddShip(shipIDList[i], m_AttackFormation.GetComponent<Formation>().GetIndexPos(i), UnityEngine.Random.Range(1,5));
             }
             else
             {
-                m_AttackTeam1.GetComponent<Team>().AddShip(shipIDList[i], m_DefenceFormation.GetComponent<Formation>().GetIndexPos(i));
+                m_AttackTeam1.GetComponent<Team>().AddShip(shipIDList[i], m_DefenceFormation.GetComponent<Formation>().GetIndexPos(i), UnityEngine.Random.Range(1, 5));
             }
 			
 		}
