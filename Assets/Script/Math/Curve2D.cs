@@ -36,7 +36,7 @@ public class Curve2D {
 		m_middlePoint2 = middlePoint2;
 	}
 
-    public float GetPos()
+    public float GetScale()
     {
         return m_Scale;
     }
@@ -44,6 +44,19 @@ public class Curve2D {
     public void RestPos()
     {
         m_Scale = 0.0f;
+    }
+
+    public Vector3 GetCurPos()
+    {
+        //float scale =(x-m_startPoint.x)/(m_endPoint.x-m_endPoint.x);
+        m_Scale = Mathf.Clamp01(m_Scale);
+        //Debug.Log (scale.ToString ());
+
+        Vector3 pos = m_startPoint * (1 - m_Scale) * (1 - m_Scale) * (1 - m_Scale) +
+                        m_middlePoint1 * 3 * m_Scale * (1 - m_Scale) * (1 - m_Scale) +
+                        m_middlePoint2 * 3 * m_Scale * m_Scale * (1 - m_Scale) +
+                        m_endPoint * m_Scale * m_Scale * m_Scale;
+        return pos;
     }
 
 	public virtual Vector3 SetPos(float scale)
