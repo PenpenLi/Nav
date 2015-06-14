@@ -1,0 +1,68 @@
+{"frames": {
+
+"Ship_bomb1_1.png":
+{
+	"frame": {"x":165,"y":2,"w":77,"h":68},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":42,"y":36,"w":77,"h":68},
+	"sourceSize": {"w":161,"h":126}
+},
+"Ship_bomb1_2.png":
+{
+	"frame": {"x":147,"y":118,"w":107,"h":92},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":24,"y":25,"w":107,"h":92},
+	"sourceSize": {"w":161,"h":126}
+},
+"Ship_bomb1_3.png":
+{
+	"frame": {"x":2,"y":246,"w":139,"h":102},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":13,"y":17,"w":139,"h":102},
+	"sourceSize": {"w":161,"h":126}
+},
+"Ship_bomb1_4.png":
+{
+	"frame": {"x":2,"y":2,"w":161,"h":114},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":8,"w":161,"h":114},
+	"sourceSize": {"w":161,"h":126}
+},
+"Ship_bomb1_5.png":
+{
+	"frame": {"x":2,"y":350,"w":115,"h":112},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":27,"y":8,"w":115,"h":112},
+	"sourceSize": {"w":161,"h":126}
+},
+"Ship_bomb1_6.png":
+{
+	"frame": {"x":119,"y":350,"w":129,"h":108},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":16,"y":15,"w":129,"h":108},
+	"sourceSize": {"w":161,"h":126}
+},
+"Ship_bomb1_7.png":
+{
+	"frame": {"x":2,"y":118,"w":143,"h":126},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":0,"w":143,"h":126},
+	"sourceSize": {"w":161,"h":126}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "Ship_bomb1.png",
+	"format": "RGBA8888",
+	"size": {"w":256,"h":512},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:346151f5c9a0432d7af5d4ff20cb6c00$"
+}
+}
