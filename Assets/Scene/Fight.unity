@@ -725,4 +725,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AttackTeam1: {fileID: 808134522}
   m_Sheel: {fileID: 1981217982}
-  FireSpeed: .00166666671
+  FireSpeed: .0166666694

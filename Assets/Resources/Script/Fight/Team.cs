@@ -49,7 +49,7 @@ public class Team : MonoBehaviour {
         prefab.GetComponent<TweenPosition>().to = pos;
         prefab.GetComponent<TweenPosition>().duration = speed;
         prefab.GetComponent<ShipFight>().SetShellType(type);
-        Debug.Log("nIndex = " + nIndex + " pos = " + pos);
+        //Debug.Log("nIndex = " + nIndex + " pos = " + pos);
 		//Debug.Log ("m_ShipList Count = " + m_ShipList.Count);
         return true;
     }
