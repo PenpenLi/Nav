@@ -39,7 +39,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 70bd4d0e42deb2449bb8a77ba751e8e3, type: 2}
+  material: {fileID: 2100000, guid: 2b173e51f1f7eaf4da49ca5741d3728e, type: 2}
   mSprites:
   - name: Ship_bomb1_1
     x: 165
