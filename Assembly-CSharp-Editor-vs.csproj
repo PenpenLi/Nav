@@ -149,6 +149,7 @@
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored (TextureClip).shader" />
      <None Include="Assets\NGUI\Examples\Atlases\SciFi\SciFi Font - Header.txt" />
      <None Include="Assets\Atlas\House\ani_house_a(1).txt" />
+     <None Include="Assets\Atlas\Effect\Ship_wave\Ship_wave.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Masked 3.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored 1.shader" />
      <None Include="Assets\NGUI\Examples\Atlases\Fantasy\Fantasy Font - Normal.txt" />
@@ -158,10 +159,12 @@
      <None Include="Assets\Atlas\Architecture\Architecture.txt" />
      <None Include="Assets\Atlas\Shell\Shell.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text 3.shader" />
+     <None Include="Assets\Atlas\Effect\Ship_shouji\Ship_shouji.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 2.shader" />
      <None Include="Assets\Atlas\House\ani_house_c.txt" />
      <None Include="Assets\Atlas\House\ani_house_e.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 1.shader" />
+     <None Include="Assets\Atlas\Effect\Ship_bomb\Ship_bomb1.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 1.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored.shader" />
@@ -173,6 +176,7 @@
      <None Include="Assets\Atlas\House\ani_house_b(1).txt" />
      <None Include="Assets\Atlas\House\ani_house_e(1).txt" />
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Additive Colored.shader" />
+     <None Include="Assets\Atlas\Effect\Ship_fire\Ship_fire.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Masked.shader" />
      <None Include="Assets\Atlas\Ship\Ship.txt" />
      <None Include="Assets\NGUI\Examples\Atlases\Refractive\Refractive Font - Header.txt" />
