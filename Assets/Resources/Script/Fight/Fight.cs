@@ -7,26 +7,29 @@ public class Fight : MonoBehaviour
 {
     public GameObject m_AttackTeam1;
     public GameObject m_Sheel;
+    public GameObject m_BoomEffect;
+    public GameObject m_HitEffect;
     GameObject m_AttackFormation;
     GameObject m_DefenceFormation;
     private int m_CurShipIndex = 0;
     public float FireSpeed = 1.0f / 60.0f;//攻击速度
     private List<GameObject> m_shipList = new List<GameObject>();
+
     // Use this for initialization
     void Start()
     {
-        LoadFormation(1, 0);//加载进攻阵型
-        LoadFormation(1, 1);//加载防守阵型
+        //LoadFormation(1, 0);//加载进攻阵型
+       // LoadFormation(1, 1);//加载防守阵型
 
         List<int> shipidList = TestShips();
         //Debug.Log ("shipidList.Count = " + shipidList.Count);
-        InitShips(shipidList);
+       // InitShips(shipidList);
     }
 
     // Update is called once per frame
     void Update()
     {
-        AttackLoop();
+        //AttackLoop();
     }
 
     //测试函数
@@ -115,12 +118,7 @@ public class Fight : MonoBehaviour
             }
 
         }
-
-        //for(int i = 5; i < 10; i++){
-        //    Debug.Log ("shipIDList = " + shipIDList[i] + " i = " + i);
-        //    m_DefenceTeam2.GetComponent<Team>().AddShip(shipIDList[i], m_DefenceFormation.GetComponent<Formation>().GetIndexPos(i));
-        //}
-        m_shipList = m_AttackTeam1.GetComponent<Team>().GetShipList();
+        //m_shipList = m_AttackTeam1.GetComponent<Team>().GetShipList();
         return true;
     }
 
