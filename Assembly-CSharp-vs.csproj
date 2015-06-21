@@ -190,6 +190,9 @@
      <Compile Include="Assets\Script\Fight\ShipFight.cs" />
      <Compile Include="Assets\Script\Formation\Formation.cs" />
      <Compile Include="Assets\Script\Math\Curve2D.cs" />
+     <Compile Include="Assets\Script\MoveMenu\MenuRightBut.cs" />
+     <Compile Include="Assets\Script\MoveMenu\MenuUpBut.cs" />
+     <Compile Include="Assets\Script\MoveMenu\MoveMenu.cs" />
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Depth Cutout.shader" />
      <None Include="Assets\NGUI\ReadMe - 3.8.2.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Masked 1.shader" />
