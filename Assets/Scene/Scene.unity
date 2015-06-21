@@ -655,6 +655,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11450256, guid: 9ffd0cc5ca758404f9ae87598b7a247b, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450256, guid: 9ffd0cc5ca758404f9ae87598b7a247b, type: 2}
+      propertyPath: dragEffect
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ffd0cc5ca758404f9ae87598b7a247b, type: 2}
   m_IsPrefabParent: 0
@@ -671,6 +679,7 @@ GameObject:
   - 81: {fileID: 312232619}
   - 114: {fileID: 312232623}
   - 114: {fileID: 312232622}
+  - 114: {fileID: 312232624}
   m_Layer: 5
   m_Name: Camera
   m_TagString: Untagged
@@ -688,9 +697,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 379230533}
-  - {fileID: 1858989314}
   - {fileID: 674730270}
+  - {fileID: 379230533}
   m_Father: {fileID: 1789230567}
   m_RootOrder: 0
 --- !u!81 &312232619
@@ -793,7 +801,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 312232617}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
@@ -825,9 +833,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 312232624}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 123
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &312232624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 312232617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 563da2b404342f642a6cdb62fe22968f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_camera: {fileID: 312232621}
 --- !u!1 &332449863
 GameObject:
   m_ObjectHideFlags: 0
@@ -894,7 +926,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3050
+  startingRenderQueue: 3049
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 3
@@ -947,7 +979,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 312232618}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!1 &516751164
 GameObject:
   m_ObjectHideFlags: 0
@@ -1387,7 +1419,7 @@ Transform:
   - {fileID: 1898102146}
   - {fileID: 1517317290}
   m_Father: {fileID: 312232618}
-  m_RootOrder: 2
+  m_RootOrder: 0
 --- !u!1 &679179119
 GameObject:
   m_ObjectHideFlags: 0
@@ -1908,7 +1940,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3049
+  startingRenderQueue: 3048
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 3
@@ -3432,6 +3464,7 @@ Transform:
   m_LocalScale: {x: .00312500005, y: .00312500005, z: .00312500005}
   m_Children:
   - {fileID: 312232618}
+  - {fileID: 1858989314}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!54 &1789230568
@@ -3697,7 +3730,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 169102824}
-  m_Father: {fileID: 312232618}
+  m_Father: {fileID: 1789230567}
   m_RootOrder: 1
 --- !u!1 &1898102145
 GameObject:
@@ -3957,7 +3990,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3051
+  startingRenderQueue: 3050
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 3
