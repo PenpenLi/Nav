@@ -42,8 +42,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: d980d190ed1995e4f9bae1a6d60e0034, type: 2}
   mSprites:
   - name: bar_captain_exp2
-    x: 257
-    y: 70
+    x: 70
+    y: 124
     width: 96
     height: 15
     borderLeft: 0
@@ -55,7 +55,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: bar_energy
-    x: 70
+    x: 146
     y: 70
     width: 31
     height: 47
@@ -68,8 +68,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: bar_exp
-    x: 257
-    y: 87
+    x: 215
+    y: 70
     width: 89
     height: 15
     borderLeft: 0
@@ -107,8 +107,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: bar_prosperous
-    x: 145
-    y: 70
+    x: 44
+    y: 467
     width: 40
     height: 42
     borderLeft: 0
@@ -120,8 +120,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: bar_prosperous2
-    x: 103
-    y: 70
+    x: 2
+    y: 467
     width: 40
     height: 42
     borderLeft: 0
@@ -133,8 +133,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: bar_red_pvp
-    x: 2
-    y: 467
+    x: 215
+    y: 87
     width: 74
     height: 15
     borderLeft: 0
@@ -146,7 +146,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: bar_storage
-    x: 70
+    x: 168
     y: 119
     width: 213
     height: 34
@@ -159,8 +159,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: boccupy_1
-    x: 105
-    y: 155
+    x: 310
+    y: 259
     width: 100
     height: 102
     borderLeft: 0
@@ -172,7 +172,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_add_small@2x
-    x: 221
+    x: 179
     y: 70
     width: 34
     height: 31
@@ -185,8 +185,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_addfriend1
-    x: 561
-    y: 70
+    x: 105
+    y: 363
     width: 101
     height: 102
     borderLeft: 0
@@ -198,8 +198,8 @@ MonoBehaviour:
     paddingTop: 1
     paddingBottom: 7
   - name: button_Aircraft
-    x: 458
-    y: 70
+    x: 105
+    y: 259
     width: 101
     height: 102
     borderLeft: 0
@@ -211,8 +211,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_Airline
-    x: 355
-    y: 70
+    x: 105
+    y: 155
     width: 101
     height: 102
     borderLeft: 0
@@ -224,8 +224,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_arrows_1
-    x: 309
-    y: 250
+    x: 310
+    y: 363
     width: 84
     height: 85
     borderLeft: 0
@@ -237,8 +237,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_arrows_3
-    x: 309
-    y: 337
+    x: 587
+    y: 157
     width: 84
     height: 85
     borderLeft: 0
@@ -276,8 +276,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_set_1
-    x: 868
-    y: 146
+    x: 587
+    y: 70
     width: 84
     height: 85
     borderLeft: 0
@@ -340,9 +340,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: icon_gold2
-    x: 187
+  - name: icon_firstrank@2x
+    x: 70
     y: 70
+    width: 74
+    height: 52
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: icon_gold2
+    x: 86
+    y: 467
     width: 32
     height: 35
     borderLeft: 0
@@ -367,8 +380,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: lobby_bcaptain_1
-    x: 868
-    y: 233
+    x: 877
+    y: 155
     width: 100
     height: 102
     borderLeft: 0
@@ -380,7 +393,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: lobby_bcolony_1
-    x: 766
+    x: 775
     y: 146
     width: 100
     height: 102
@@ -393,7 +406,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: lobby_bdefend_1
-    x: 664
+    x: 673
     y: 146
     width: 100
     height: 102
@@ -406,7 +419,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: lobby_bfight
-    x: 207
+    x: 208
     y: 363
     width: 100
     height: 102
@@ -419,7 +432,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: lobby_brank_1
-    x: 207
+    x: 208
     y: 259
     width: 100
     height: 102
@@ -432,8 +445,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: lobby_bship
-    x: 105
-    y: 363
+    x: 485
+    y: 70
     width: 100
     height: 102
     borderLeft: 0
@@ -445,8 +458,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: lobby_btreasure1
-    x: 105
-    y: 259
+    x: 208
+    y: 155
     width: 100
     height: 102
     borderLeft: 0
@@ -458,8 +471,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: lobby_item
-    x: 207
-    y: 155
+    x: 383
+    y: 70
     width: 100
     height: 102
     borderLeft: 0

@@ -2,7 +2,7 @@
 
 "bar_captain_exp2.png":
 {
-	"frame": {"x":257,"y":70,"w":96,"h":15},
+	"frame": {"x":70,"y":124,"w":96,"h":15},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":15},
@@ -10,7 +10,7 @@
 },
 "bar_energy.png":
 {
-	"frame": {"x":70,"y":70,"w":31,"h":47},
+	"frame": {"x":146,"y":70,"w":31,"h":47},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":31,"h":47},
@@ -18,7 +18,7 @@
 },
 "bar_exp.png":
 {
-	"frame": {"x":257,"y":87,"w":89,"h":15},
+	"frame": {"x":215,"y":70,"w":89,"h":15},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":89,"h":15},
@@ -42,7 +42,7 @@
 },
 "bar_prosperous.png":
 {
-	"frame": {"x":145,"y":70,"w":40,"h":42},
+	"frame": {"x":44,"y":467,"w":40,"h":42},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":42},
@@ -50,7 +50,7 @@
 },
 "bar_prosperous2.png":
 {
-	"frame": {"x":103,"y":70,"w":40,"h":42},
+	"frame": {"x":2,"y":467,"w":40,"h":42},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":42},
@@ -58,7 +58,7 @@
 },
 "bar_red_pvp.png":
 {
-	"frame": {"x":2,"y":467,"w":74,"h":15},
+	"frame": {"x":215,"y":87,"w":74,"h":15},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":74,"h":15},
@@ -66,7 +66,7 @@
 },
 "bar_storage.png":
 {
-	"frame": {"x":70,"y":119,"w":213,"h":34},
+	"frame": {"x":168,"y":119,"w":213,"h":34},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":213,"h":34},
@@ -74,7 +74,7 @@
 },
 "boccupy_1.png":
 {
-	"frame": {"x":105,"y":155,"w":100,"h":102},
+	"frame": {"x":310,"y":259,"w":100,"h":102},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":102},
@@ -82,7 +82,7 @@
 },
 "button_Aircraft.png":
 {
-	"frame": {"x":458,"y":70,"w":101,"h":102},
+	"frame": {"x":105,"y":259,"w":101,"h":102},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":101,"h":102},
@@ -90,7 +90,7 @@
 },
 "button_Airline.png":
 {
-	"frame": {"x":355,"y":70,"w":101,"h":102},
+	"frame": {"x":105,"y":155,"w":101,"h":102},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":101,"h":102},
@@ -106,7 +106,7 @@
 },
 "button_add_small@2x.png":
 {
-	"frame": {"x":221,"y":70,"w":34,"h":31},
+	"frame": {"x":179,"y":70,"w":34,"h":31},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":34,"h":31},
@@ -114,7 +114,7 @@
 },
 "button_addfriend1.png":
 {
-	"frame": {"x":561,"y":70,"w":101,"h":102},
+	"frame": {"x":105,"y":363,"w":101,"h":102},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":2,"y":1,"w":101,"h":102},
@@ -122,7 +122,7 @@
 },
 "button_arrows_1.png":
 {
-	"frame": {"x":309,"y":250,"w":84,"h":85},
+	"frame": {"x":310,"y":363,"w":84,"h":85},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":84,"h":85},
@@ -130,7 +130,7 @@
 },
 "button_arrows_3.png":
 {
-	"frame": {"x":309,"y":337,"w":84,"h":85},
+	"frame": {"x":587,"y":157,"w":84,"h":85},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":84,"h":85},
@@ -154,7 +154,7 @@
 },
 "button_set_1.png":
 {
-	"frame": {"x":868,"y":146,"w":84,"h":85},
+	"frame": {"x":587,"y":70,"w":84,"h":85},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":84,"h":85},
@@ -184,9 +184,17 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":272,"h":142},
 	"sourceSize": {"w":272,"h":142}
 },
+"icon_firstrank@2x.png":
+{
+	"frame": {"x":70,"y":70,"w":74,"h":52},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":74,"h":52},
+	"sourceSize": {"w":74,"h":52}
+},
 "icon_gold2.png":
 {
-	"frame": {"x":187,"y":70,"w":32,"h":35},
+	"frame": {"x":86,"y":467,"w":32,"h":35},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":35},
@@ -202,7 +210,7 @@
 },
 "lobby_bcaptain_1.png":
 {
-	"frame": {"x":868,"y":233,"w":100,"h":102},
+	"frame": {"x":877,"y":155,"w":100,"h":102},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":102},
@@ -210,7 +218,7 @@
 },
 "lobby_bcolony_1.png":
 {
-	"frame": {"x":766,"y":146,"w":100,"h":102},
+	"frame": {"x":775,"y":146,"w":100,"h":102},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":102},
@@ -218,7 +226,7 @@
 },
 "lobby_bdefend_1.png":
 {
-	"frame": {"x":664,"y":146,"w":100,"h":102},
+	"frame": {"x":673,"y":146,"w":100,"h":102},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":102},
@@ -226,7 +234,7 @@
 },
 "lobby_bfight.png":
 {
-	"frame": {"x":207,"y":363,"w":100,"h":102},
+	"frame": {"x":208,"y":363,"w":100,"h":102},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":102},
@@ -234,7 +242,7 @@
 },
 "lobby_brank_1.png":
 {
-	"frame": {"x":207,"y":259,"w":100,"h":102},
+	"frame": {"x":208,"y":259,"w":100,"h":102},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":102},
@@ -242,7 +250,7 @@
 },
 "lobby_bship.png":
 {
-	"frame": {"x":105,"y":363,"w":100,"h":102},
+	"frame": {"x":485,"y":70,"w":100,"h":102},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":102},
@@ -250,7 +258,7 @@
 },
 "lobby_btreasure1.png":
 {
-	"frame": {"x":105,"y":259,"w":100,"h":102},
+	"frame": {"x":208,"y":155,"w":100,"h":102},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":102},
@@ -258,7 +266,7 @@
 },
 "lobby_item.png":
 {
-	"frame": {"x":207,"y":155,"w":100,"h":102},
+	"frame": {"x":383,"y":70,"w":100,"h":102},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":102},
@@ -271,6 +279,6 @@
 	"format": "RGBA8888",
 	"size": {"w":1024,"h":512},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:75e8f2adc3afbacffab25a0e41ef3571$"
+	"smartupdate": "$TexturePacker:SmartUpdate:b967e52064d13ec630a929bba465f3d0$"
 }
 }
