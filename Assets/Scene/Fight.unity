@@ -218,7 +218,15 @@ Prefab:
       objectReference: {fileID: 1599885380}
     - target: {fileID: 11466298, guid: 9cf7bd570ad1ebf4eb33f64ab7148257, type: 2}
       propertyPath: m_playSpeed
-      value: .200000003
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 11427072, guid: 9cf7bd570ad1ebf4eb33f64ab7148257, type: 2}
+      propertyPath: ignoreTimeScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11469054, guid: 9cf7bd570ad1ebf4eb33f64ab7148257, type: 2}
+      propertyPath: ignoreTimeScale
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9cf7bd570ad1ebf4eb33f64ab7148257, type: 2}

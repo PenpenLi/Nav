@@ -18,10 +18,16 @@ public class ShipFight : MonoBehaviour {
     public int m_maxFlameSprite = 6;
     string m_spriteName;
     int m_flameIndex = 1;
-    public float m_playSpeed =  0.2f;
+    public int m_playSpeed = 5;//一秒播几帧
+    float speed;
+    TimeSpan m_ts;
+    TimeSpan m_lastts;
+
 	// Use this for initialization
 	void Start () {
         ResetAll();
+        m_lastts = new TimeSpan(DateTime.Now.Ticks);
+        speed = 1000 / m_playSpeed;
 	}
 	
 	// Update is called once per frame
@@ -47,7 +53,7 @@ public class ShipFight : MonoBehaviour {
         //m_MaxHp = m_Hp;
         m_spriteName = "Ship_fire1_1";
         //m_Shell.SetActive(false);
-        Time.timeScale = m_playSpeed ;
+        //Time.timeScale = m_playSpeed ;
     }
 
     public void ChangeFlameType(int type, int maxSprite)
@@ -80,10 +86,18 @@ public class ShipFight : MonoBehaviour {
             //while(Time.fixedTime)
             if(m_flameIndex < m_maxFlameSprite)
             {
-                m_spriteName = "Ship_fire" + Convert.ToString(m_ShellType) + "_" + Convert.ToString(m_flameIndex);
-                m_FireEffect.GetComponent<UISprite>().spriteName = m_spriteName;
-                //Debug.Log("m_sprtename = " + m_spriteName);
-                m_flameIndex++;
+                m_ts = new TimeSpan(DateTime.Now.Ticks);
+                TimeSpan ts = m_ts.Subtract(m_lastts).Duration();
+                //Debug.Log("ts.Milliseconds =" + ts.Milliseconds + " m_playSpeed = " + speed);
+                if (ts.Milliseconds > speed)
+                {
+                    m_spriteName = "Ship_fire" + Convert.ToString(m_ShellType) + "_" + Convert.ToString(m_flameIndex);
+                    m_FireEffect.GetComponent<UISprite>().spriteName = m_spriteName;
+                    //Debug.Log("m_sprtename = " + m_spriteName);
+                    m_flameIndex++;
+                    m_lastts = m_ts;
+                }
+               
             }
             else
             {
