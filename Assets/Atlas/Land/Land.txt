@@ -1,0 +1,44 @@
+{"frames": {
+
+"ani_plot_house_01@2x.png":
+{
+	"frame": {"x":2,"y":2,"w":176,"h":77},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":176,"h":77},
+	"sourceSize": {"w":176,"h":77}
+},
+"bar_plot@2x.png":
+{
+	"frame": {"x":2,"y":81,"w":97,"h":79},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":97,"h":79},
+	"sourceSize": {"w":97,"h":79}
+},
+"bar_water@2x.png":
+{
+	"frame": {"x":2,"y":162,"w":97,"h":78},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":97,"h":78},
+	"sourceSize": {"w":97,"h":78}
+},
+"lobby_Prompt1.png":
+{
+	"frame": {"x":180,"y":2,"w":47,"h":62},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":47,"h":62},
+	"sourceSize": {"w":47,"h":62}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "Land.png",
+	"format": "RGBA8888",
+	"size": {"w":256,"h":256},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:9897ec2f5107c433c226eb4a064b3503$"
+}
+}
