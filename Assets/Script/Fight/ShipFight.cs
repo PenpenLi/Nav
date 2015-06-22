@@ -5,7 +5,7 @@ using System;
 public class ShipFight : MonoBehaviour {
 	public GameObject m_FightPt;
     public GameObject m_FireEffect;
-    public int m_Hp = 500;
+    public int m_Hp = 2000;
     public int m_MaxHp = 2000;
     //public GameObject m_Shell;
     private Vector3 m_targetPos;
@@ -45,12 +45,11 @@ public class ShipFight : MonoBehaviour {
             
         //}
         IsFireState();
-        Time.fixedDeltaTime = Time.timeScale;
 	}
 
     void ResetAll()
     {
-        //m_MaxHp = m_Hp;
+        m_MaxHp = m_Hp;
         m_spriteName = "Ship_fire1_1";
         //m_Shell.SetActive(false);
         //Time.timeScale = m_playSpeed ;

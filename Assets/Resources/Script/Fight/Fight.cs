@@ -3,6 +3,13 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 
+public enum FIGHTSTATE
+{
+    Boom,
+    Fly,
+    Hit
+}
+
 public class Fight : MonoBehaviour
 {
     public GameObject m_AttackTeam1;
@@ -14,12 +21,15 @@ public class Fight : MonoBehaviour
     private int m_CurShipIndex = 0;
     public float FireSpeed = 1.0f / 60.0f;//攻击速度
     private List<GameObject> m_shipList = new List<GameObject>();
-
+    FIGHTSTATE m_FightState = new FIGHTSTATE();
+    TimeSpan m_ts;
+    TimeSpan m_lastts;
     // Use this for initialization
     void Start()
     {
-        //LoadFormation(1, 0);//加载进攻阵型
-       // LoadFormation(1, 1);//加载防守阵型
+        m_FightState = FIGHTSTATE.Boom;
+        LoadFormation(1, 0);//加载进攻阵型
+        LoadFormation(1, 1);//加载防守阵型
 
         List<int> shipidList = TestShips();
         //Debug.Log ("shipidList.Count = " + shipidList.Count);
@@ -30,6 +40,29 @@ public class Fight : MonoBehaviour
     void Update()
     {
         //AttackLoop();
+    }
+
+    void LoopState()
+    {
+        switch(m_FightState)
+        {
+            case FIGHTSTATE.Boom:
+
+                break;
+            case FIGHTSTATE.Fly:
+
+                break;
+            case FIGHTSTATE.Hit:
+
+                break;
+        }
+    }
+
+    void BoomSate()
+    {
+        if (m_BoomEffect.activeSelf != true)
+            m_BoomEffect.SetActive(true);
+
     }
 
     //测试函数
@@ -148,7 +181,7 @@ public class Fight : MonoBehaviour
                 targetPos = m_shipList[m_CurShipIndex + GlobalVar.m_maxTeamShips].transform.localPosition;
                 type = 5;
             }
-            m_shipList[m_CurShipIndex].GetComponent<ShipFight>().OpenFire(targetPos, type);
+            //m_shipList[m_CurShipIndex].GetComponent<ShipFight>().OpenFire(targetPos, type);
             m_Sheel.GetComponent<Shell>().SetShellTrack(targetPos, m_shipList[m_CurShipIndex].transform.localPosition, type);
             m_Sheel.GetComponent<Shell>().SetShellType(m_shipList[m_CurShipIndex].GetComponent<ShipFight>().GetShellType());
 

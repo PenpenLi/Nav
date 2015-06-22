@@ -185,6 +185,7 @@
      <Compile Include="Assets\Resources\Script\Fight\Fight.cs" />
      <Compile Include="Assets\Resources\Script\Fight\Team.cs" />
      <Compile Include="Assets\Script\Common\Global.cs" />
+     <Compile Include="Assets\Script\Common\PlayAtalsAni.cs" />
      <Compile Include="Assets\Script\Common\PlayerDataManager.cs" />
      <Compile Include="Assets\Script\Fight\Base\ShipBase.cs" />
      <Compile Include="Assets\Script\Fight\Shell.cs" />

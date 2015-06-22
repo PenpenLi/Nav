@@ -228,6 +228,10 @@ Prefab:
       propertyPath: ignoreTimeScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11466298, guid: 9cf7bd570ad1ebf4eb33f64ab7148257, type: 2}
+      propertyPath: m_Hp
+      value: 2000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9cf7bd570ad1ebf4eb33f64ab7148257, type: 2}
   m_IsPrefabParent: 0
@@ -489,13 +493,15 @@ GameObject:
   m_Component:
   - 4: {fileID: 1744710311}
   - 114: {fileID: 1744710312}
+  - 114: {fileID: 1744710314}
+  - 114: {fileID: 1744710313}
   m_Layer: 5
   m_Name: FireEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1744710311
 Transform:
   m_ObjectHideFlags: 0
@@ -556,8 +562,71 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 11400000, guid: 7edd6f89e4afe7d4e9dd752dbf562038, type: 2}
-  mSpriteName: Ship_bomb1_7
+  mSpriteName: Ship_bomb1_1
   mFillCenter: 1
+--- !u!114 &1744710313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1744710310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d166255cacf07b4292b8402b3ddefc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  method: 0
+  style: 1
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+    - time: .50069648
+      value: 1.002002
+      inSlope: .0123995785
+      outSlope: .0123995785
+      tangentMode: 0
+    - time: 1
+      value: .00261104107
+      inSlope: .0495130755
+      outSlope: .0495130755
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  ignoreTimeScale: 0
+  delay: 0
+  duration: 1
+  steeperCurves: 0
+  tweenGroup: 0
+  onFinished: []
+  eventReceiver: {fileID: 0}
+  callWhenFinished: 
+  from: {x: 0, y: 0, z: 0}
+  to: {x: 0, y: 5, z: 0}
+  worldSpace: 0
+--- !u!114 &1744710314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1744710310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa8ae9b4a28b28946a834b2c9667c2ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_spriteName: Ship_bomb
+  m_bIsFnish: 0
+  m_indexSprite: 1
+  m_maxSprite: 7
+  m_playSpeed: 5
+  m_bLoop: 1
+  m_typeSprite: 1
+  m_play: 1
 --- !u!1 &1752600934
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,6 +636,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 1752600935}
   - 114: {fileID: 1752600936}
+  - 114: {fileID: 1752600937}
+  - 114: {fileID: 1752600938}
   m_Layer: 5
   m_Name: HitEffect
   m_TagString: Untagged
@@ -634,8 +705,71 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 11400000, guid: ec6d040fadc83fe4ead6cd346a660f27, type: 2}
-  mSpriteName: Ship_bomb1_7
+  mSpriteName: Ship_shouji1_1
   mFillCenter: 1
+--- !u!114 &1752600937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1752600934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa8ae9b4a28b28946a834b2c9667c2ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_spriteName: Ship_shouji
+  m_bIsFnish: 0
+  m_indexSprite: 1
+  m_maxSprite: 5
+  m_playSpeed: 8
+  m_bLoop: 1
+  m_typeSprite: 1
+  m_play: 1
+--- !u!114 &1752600938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1752600934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d166255cacf07b4292b8402b3ddefc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  method: 0
+  style: 1
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+    - time: .500480652
+      value: 1.009619
+      inSlope: .018559549
+      outSlope: .018559549
+      tangentMode: 0
+    - time: 1.00097656
+      value: 5.96046448e-08
+      inSlope: .0514171161
+      outSlope: .0514171161
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  ignoreTimeScale: 0
+  delay: 0
+  duration: 1
+  steeperCurves: 0
+  tweenGroup: 0
+  onFinished: []
+  eventReceiver: {fileID: 0}
+  callWhenFinished: 
+  from: {x: 0, y: 0, z: 0}
+  to: {x: 0, y: 5, z: 0}
+  worldSpace: 0
 --- !u!1 &1950005792
 GameObject:
   m_ObjectHideFlags: 0
@@ -950,6 +1084,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AttackTeam1: {fileID: 808134522}
   m_Sheel: {fileID: 1981217982}
-  m_BoomEffect: {fileID: 0}
-  m_HitEffect: {fileID: 0}
+  m_BoomEffect: {fileID: 1744710310}
+  m_HitEffect: {fileID: 1752600934}
   FireSpeed: .0166666694
