@@ -183,6 +183,7 @@
      <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
      <Compile Include="Assets\Resources\Script\Fight\Fight.cs" />
      <Compile Include="Assets\Resources\Script\Fight\Team.cs" />
+     <Compile Include="Assets\Script\Building\Building.cs" />
      <Compile Include="Assets\Script\Camera\CameraDragMove.cs" />
      <Compile Include="Assets\Script\Common\Global.cs" />
      <Compile Include="Assets\Script\Common\PlayAtalsAni.cs" />
