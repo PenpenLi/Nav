@@ -46,7 +46,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\CameraDragMove.cs" />
      <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Game\EquipItems.cs" />
      <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Game\EquipRandomItem.cs" />
      <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Game\UICursor.cs" />
@@ -184,6 +183,7 @@
      <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
      <Compile Include="Assets\Resources\Script\Fight\Fight.cs" />
      <Compile Include="Assets\Resources\Script\Fight\Team.cs" />
+     <Compile Include="Assets\Script\Camera\CameraDragMove.cs" />
      <Compile Include="Assets\Script\Common\Global.cs" />
      <Compile Include="Assets\Script\Common\PlayAtalsAni.cs" />
      <Compile Include="Assets\Script\Common\PlayerDataManager.cs" />
@@ -191,6 +191,7 @@
      <Compile Include="Assets\Script\Fight\Shell.cs" />
      <Compile Include="Assets\Script\Fight\ShipFight.cs" />
      <Compile Include="Assets\Script\Formation\Formation.cs" />
+     <Compile Include="Assets\Script\Map\ScalingMap.cs" />
      <Compile Include="Assets\Script\Math\Curve2D.cs" />
      <Compile Include="Assets\Script\MoveMenu\MenuRightBut.cs" />
      <Compile Include="Assets\Script\MoveMenu\MenuUpBut.cs" />
