@@ -42,8 +42,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 883dcc060ff02dc418ce0454ee79c9fb, type: 2}
   mSprites:
   - name: ani_plot_house_01@2x
-    x: 2
-    y: 924
+    x: 260
+    y: 890
     width: 176
     height: 77
     borderLeft: 0
@@ -54,9 +54,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: bar_captain_exp2@2x
+    x: 580
+    y: 990
+    width: 96
+    height: 15
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: bar_energy
-    x: 969
-    y: 768
+    x: 826
+    y: 613
     width: 31
     height: 47
     borderLeft: 0
@@ -67,9 +80,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: bar_exp@2x
+    x: 580
+    y: 1007
+    width: 89
+    height: 15
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: bar_gem
-    x: 977
-    y: 349
+    x: 969
+    y: 208
     width: 44
     height: 39
     borderLeft: 0
@@ -80,9 +106,87 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: bar_grain@2x
+    x: 969
+    y: 161
+    width: 44
+    height: 45
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bar_money@2x
+    x: 518
+    y: 860
+    width: 213
+    height: 34
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bar_money2@2x
+    x: 735
+    y: 820
+    width: 213
+    height: 34
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bar_money3@2x
+    x: 735
+    y: 784
+    width: 213
+    height: 34
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bar_money4@2x
+    x: 524
+    y: 721
+    width: 279
+    height: 34
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bar_money5@2x
+    x: 524
+    y: 685
+    width: 279
+    height: 34
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: bar_prosperous@2x
-    x: 977
-    y: 484
+    x: 859
+    y: 596
     width: 40
     height: 42
     borderLeft: 0
@@ -93,9 +197,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: bar_red_pvp@2x
+    x: 782
+    y: 596
+    width: 74
+    height: 15
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: bar_slide_1@2x
-    x: 934
-    y: 508
+    x: 860
+    y: 2
     width: 33
     height: 392
     borderLeft: 0
@@ -107,8 +224,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: bar_slide_2@2x
-    x: 952
-    y: 416
+    x: 860
+    y: 396
     width: 23
     height: 90
     borderLeft: 0
@@ -120,8 +237,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: bar_slide_3@2x
-    x: 247
-    y: 986
+    x: 260
+    y: 536
     width: 530
     height: 33
     borderLeft: 0
@@ -133,8 +250,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: bar_slide_4@2x
-    x: 860
-    y: 416
+    x: 895
+    y: 359
     width: 90
     height: 23
     borderLeft: 0
@@ -145,9 +262,48 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: bar_storage@2x
+    x: 518
+    y: 824
+    width: 213
+    height: 34
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bar_time@2x
+    x: 518
+    y: 784
+    width: 215
+    height: 38
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: bar_time2@2x
+    x: 733
+    y: 856
+    width: 205
+    height: 28
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: board_battle_buy@2x
-    x: 860
-    y: 2
+    x: 426
+    y: 982
     width: 152
     height: 38
     borderLeft: 20
@@ -185,8 +341,8 @@ MonoBehaviour:
     paddingTop: 9
     paddingBottom: 3
   - name: board_card20_green@2x
-    x: 518
-    y: 536
+    x: 524
+    y: 628
     width: 256
     height: 55
     borderLeft: 0
@@ -199,7 +355,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: board_card20_orange@2x
     x: 260
-    y: 536
+    y: 833
     width: 256
     height: 55
     borderLeft: 0
@@ -211,8 +367,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: board_card20_purple@2x
-    x: 763
-    y: 924
+    x: 524
+    y: 571
     width: 256
     height: 55
     borderLeft: 0
@@ -224,8 +380,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: board_card20_red@2x
-    x: 505
-    y: 924
+    x: 260
+    y: 776
     width: 256
     height: 55
     borderLeft: 0
@@ -237,8 +393,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: board_Continuous_direction@2x
-    x: 969
-    y: 848
+    x: 908
+    y: 473
     width: 26
     height: 36
     borderLeft: 0
@@ -250,8 +406,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: board_Continuous_direction2@2x
-    x: 969
-    y: 886
+    x: 894
+    y: 640
     width: 26
     height: 36
     borderLeft: 0
@@ -264,7 +420,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: board_paper@2x
     x: 260
-    y: 610
+    y: 571
     width: 262
     height: 203
     borderLeft: 0
@@ -276,8 +432,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: board_title00@2x
-    x: 247
-    y: 924
+    x: 2
+    y: 915
     width: 256
     height: 60
     borderLeft: 0
@@ -288,9 +444,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: bobble_tips_big_2@2x
+    x: 895
+    y: 313
+    width: 113
+    height: 44
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: button_Bookmarkspage_01@2x
-    x: 860
-    y: 349
+    x: 895
+    y: 2
     width: 115
     height: 65
     borderLeft: 0
@@ -302,8 +471,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_Bookmarkspage_03@2x
-    x: 860
-    y: 42
+    x: 438
+    y: 915
     width: 149
     height: 65
     borderLeft: 0
@@ -315,8 +484,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_esc@2x
-    x: 860
-    y: 441
+    x: 895
+    y: 164
     width: 72
     height: 72
     borderLeft: 0
@@ -327,9 +496,35 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: button_exclamation_mark@2x
+    x: 930
+    y: 900
+    width: 18
+    height: 44
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: button_exclamation_mark2@2x
+    x: 881
+    y: 964
+    width: 50
+    height: 51
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: button_Hammer1
-    x: 969
-    y: 528
+    x: 966
+    y: 69
     width: 49
     height: 49
     borderLeft: 0
@@ -341,8 +536,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_i2@2x
-    x: 969
-    y: 732
+    x: 859
+    y: 640
     width: 33
     height: 34
     borderLeft: 0
@@ -354,8 +549,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_info_big@2x
-    x: 969
-    y: 684
+    x: 860
+    y: 488
     width: 46
     height: 46
     borderLeft: 0
@@ -367,8 +562,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_orange1@2x
-    x: 860
-    y: 289
+    x: 792
+    y: 536
     width: 144
     height: 58
     borderLeft: 0
@@ -380,8 +575,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_orange2@2x
-    x: 860
-    y: 229
+    x: 735
+    y: 960
     width: 144
     height: 58
     borderLeft: 0
@@ -392,9 +587,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: button_prompt@2x
+    x: 937
+    y: 420
+    width: 48
+    height: 49
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: button_Prompt1
-    x: 180
-    y: 924
+    x: 895
+    y: 238
     width: 65
     height: 73
     borderLeft: 0
@@ -406,8 +614,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_purple2@2x
-    x: 860
-    y: 169
+    x: 735
+    y: 900
     width: 144
     height: 58
     borderLeft: 0
@@ -419,8 +627,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_red@2x
-    x: 969
-    y: 817
+    x: 678
+    y: 990
     width: 29
     height: 29
     borderLeft: 0
@@ -432,8 +640,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: button_red2@2x
-    x: 860
-    y: 109
+    x: 589
+    y: 915
     width: 144
     height: 58
     borderLeft: 0
@@ -444,9 +652,35 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: button_right1@2x
+    x: 901
+    y: 596
+    width: 43
+    height: 36
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: button_right2@2x
+    x: 885
+    y: 420
+    width: 50
+    height: 51
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: icon_08@2x
-    x: 969
-    y: 643
+    x: 966
+    y: 120
     width: 47
     height: 39
     borderLeft: 0
@@ -458,8 +692,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_level@2x
-    x: 977
-    y: 438
+    x: 962
+    y: 249
     width: 42
     height: 44
     borderLeft: 0
@@ -471,8 +705,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_lock_small@2x
-    x: 860
-    y: 515
+    x: 895
+    y: 69
     width: 69
     height: 93
     borderLeft: 0
@@ -484,8 +718,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: icon_money5@2x
-    x: 977
-    y: 390
+    x: 782
+    y: 613
     width: 42
     height: 46
     borderLeft: 0
@@ -496,11 +730,154 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: loading1
+    x: 733
+    y: 886
+    width: 206
+    height: 12
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: loading1@2x
+    x: 524
+    y: 757
+    width: 412
+    height: 25
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: loading2
+    x: 438
+    y: 896
+    width: 211
+    height: 17
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: loading2@2x
+    x: 2
+    y: 977
+    width: 422
+    height: 35
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: lobby_Prompt1
-    x: 969
-    y: 579
+    x: 881
+    y: 900
     width: 47
     height: 62
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: orange_1@2x
+    x: 589
+    y: 975
+    width: 142
+    height: 13
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: orange_2@2x
+    x: 885
+    y: 408
+    width: 95
+    height: 10
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: orange_3@2x
+    x: 885
+    y: 396
+    width: 95
+    height: 10
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: orange_4@2x
+    x: 895
+    y: 384
+    width: 95
+    height: 10
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: orange_grain@2x
+    x: 651
+    y: 896
+    width: 64
+    height: 17
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: page_dot1@2x
+    x: 922
+    y: 670
+    width: 32
+    height: 34
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: page_dot2@2x
+    x: 922
+    y: 634
+    width: 32
+    height: 34
     borderLeft: 0
     borderRight: 0
     borderTop: 0
