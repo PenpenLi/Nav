@@ -23,12 +23,12 @@ public class PlayAtalsAni : MonoBehaviour {
         Reset();
 	}
 
-    void Reset()
+    public void Reset()
     {
         m_lastts = new TimeSpan(DateTime.Now.Ticks);
         m_speed = 1000 / m_playSpeed;
-        //m_bIsFnish = false;
-        //m_bLoop = false;
+        m_bIsFnish = false;
+        m_bLoop = false;
 
     }
 	
@@ -36,6 +36,11 @@ public class PlayAtalsAni : MonoBehaviour {
 	void Update () {
         AniLoop();
 	}
+
+    public bool IsFinish()
+    {
+        return m_bIsFnish;
+    }
 
     void AniLoop()
     {
