@@ -33,13 +33,13 @@ public class Fight : MonoBehaviour
 
         List<int> shipidList = TestShips();
         //Debug.Log ("shipidList.Count = " + shipidList.Count);
-       // InitShips(shipidList);
+        InitShips(shipidList);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //AttackLoop();
+        AttackLoop();
     }
 
     void LoopState()
@@ -131,14 +131,14 @@ public class Fight : MonoBehaviour
         {
             return false;
         }
-        //Debug.Log ("shipIDList.Count != 10");
+        Debug.Log("shipIDList.Count = " + shipIDList.Count + " GlobalVar.m_maxShips =" + GlobalVar.m_maxShips) ;
         //如果没有初始化战斗和防守阵型就不能初始化战舰队列
         if (m_AttackFormation == null || m_DefenceFormation == null)
         {
             return false;
         }
         //战斗的敌方在左上方，战斗的本家在右下方
-        for (int i = 0; i < GlobalVar.m_maxShips; i++)
+        for (int i = 0; i < shipIDList.Count; i++)
         {//
             //Debug.Log("shipIDList = " + shipIDList[i] + "GetIndexPos = " + m_AttackFormation.GetComponent<Formation>().GetIndexPos(i));
             if (i < (GlobalVar.m_maxShips / 2))
@@ -151,7 +151,7 @@ public class Fight : MonoBehaviour
             }
 
         }
-        //m_shipList = m_AttackTeam1.GetComponent<Team>().GetShipList();
+        m_shipList = m_AttackTeam1.GetComponent<Team>().GetShipList();
         return true;
     }
 
@@ -165,19 +165,19 @@ public class Fight : MonoBehaviour
     {
         if (GlobalVar.GetInstance().GetFinishShell())//上一次的炮弹已经打完了
         {
-            //Debug.Log("Begin Fire");
+            Debug.Log("Begin Fire");
             Vector3 targetPos = new Vector3();
             int type = 0;
-            //Debug.Log("m_CurShipIndex = " + m_CurShipIndex + " GlobalVar.m_maxTeamShips -1 = " + (GlobalVar.m_maxTeamShips));
+            Debug.Log("m_CurShipIndex = " + m_CurShipIndex + " GlobalVar.m_maxTeamShips = " + (GlobalVar.m_maxTeamShips) + " m_shipList.Count = " + m_shipList.Count);
             if (m_CurShipIndex >= GlobalVar.m_maxTeamShips)
             {
-                //Debug.Log("m_CurShipIndex > GlobalVar.m_maxTeamShips");
+                Debug.Log("m_CurShipIndex > GlobalVar.m_maxTeamShips");
                 targetPos = m_shipList[m_CurShipIndex - GlobalVar.m_maxTeamShips].transform.localPosition;
                 type = 0;
             }
             else
             {
-                //Debug.Log("else m_CurShipIndex > GlobalVar.m_maxTeamShips");
+                Debug.Log("else m_CurShipIndex > GlobalVar.m_maxTeamShips m_shipList.Count = " + m_shipList.Count);
                 targetPos = m_shipList[m_CurShipIndex + GlobalVar.m_maxTeamShips].transform.localPosition;
                 type = 5;
             }
@@ -193,20 +193,43 @@ public class Fight : MonoBehaviour
                 m_CurShipIndex = 0;
             }
             //Debug.Log("m_CurShipIndex = " + m_CurShipIndex + " m_Sheel.activeSelf = " + m_Sheel.activeSelf);
-            GlobalVar.GetInstance().SetFinishShell(false);
-        }
-        if (m_Sheel.activeSelf && GlobalVar.GetInstance().GetFinishShell() == false)
-        {
-            m_Sheel.transform.localPosition = m_Sheel.GetComponent<Shell>().AddCubicPos(FireSpeed);
-
-            if (m_Sheel.GetComponent<Shell>().GetCubicPos() >= 1.0f)
+            //保证发射炮弹的特效播放完毕
+            if (m_BoomEffect.activeSelf != true)
             {
-                GlobalVar.GetInstance().SetFinishShell(true);
-                m_Sheel.GetComponent<Shell>().SetCubicPos(0.0f);
-                m_Sheel.SetActive(false);
-
+                m_BoomEffect.SetActive(true);
+                m_BoomEffect.GetComponent<PlayAtalsAni>().Reset();
             }
-            //Debug.Log(" m_Sheel.GetComponent<Shell>().GetCubicPos() = " + m_Sheel.GetComponent<Shell>().GetCubicPos());
+            if (m_BoomEffect.GetComponent<PlayAtalsAni>().IsFinish())
+            {
+                GlobalVar.GetInstance().SetFinishShell(false);
+                m_BoomEffect.SetActive(false);
+            }
+           
         }
+        //if (m_Sheel.activeSelf && GlobalVar.GetInstance().GetFinishShell() == false)
+        //{
+        //    m_Sheel.transform.localPosition = m_Sheel.GetComponent<Shell>().AddCubicPos(FireSpeed);
+
+        //    if (m_Sheel.GetComponent<Shell>().GetCubicPos() >= 1.0f)
+        //    {
+        //        GlobalVar.GetInstance().SetFinishShell(true);
+        //        //保证收击特效播放完毕
+        //        if (m_HitEffect.activeSelf != true)
+        //        {
+        //            m_HitEffect.SetActive(true);
+        //            m_HitEffect.GetComponent<PlayAtalsAni>().Reset();
+        //            m_Sheel.SetActive(false);
+        //        }
+        //        if (m_HitEffect.GetComponent<PlayAtalsAni>().IsFinish())
+        //        {
+        //            m_HitEffect.SetActive(false);
+        //            m_Sheel.GetComponent<Shell>().SetCubicPos(0.0f);
+
+        //        }
+
+
+        //    }
+            //Debug.Log(" m_Sheel.GetComponent<Shell>().GetCubicPos() = " + m_Sheel.GetComponent<Shell>().GetCubicPos());
+        //}
     }
 }

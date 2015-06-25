@@ -25,6 +25,7 @@ public class Team : MonoBehaviour {
             return false;
         }
         m_ShipList.Add(prefab);
+        Debug.Log("m_ShipList.Count = " + m_ShipList.Count);
         prefab.transform.parent = TeamSelf.transform;
         prefab.transform.localPosition = Vector3.zero;
         prefab.transform.localScale = Vector3.one;
