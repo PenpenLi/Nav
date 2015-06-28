@@ -627,7 +627,7 @@ MonoBehaviour:
   m_bIsFnish: 0
   m_indexSprite: 1
   m_maxSprite: 7
-  m_playSpeed: 5
+  m_playSpeed: 10
   m_bLoop: 1
   m_typeSprite: 1
   m_play: 1
@@ -648,7 +648,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1752600935
 Transform:
   m_ObjectHideFlags: 0
