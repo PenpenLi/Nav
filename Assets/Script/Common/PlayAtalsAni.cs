@@ -14,6 +14,7 @@ public class PlayAtalsAni : MonoBehaviour {
     public int m_playSpeed = 5;//一秒播几帧
     public bool m_bLoop = false;
     public int m_typeSprite = 1;
+    public bool m_bUsetype = false;
     float m_speed;
     TimeSpan m_ts;
     TimeSpan m_lastts;
@@ -28,7 +29,7 @@ public class PlayAtalsAni : MonoBehaviour {
         m_lastts = new TimeSpan(DateTime.Now.Ticks);
         m_speed = 1000 / m_playSpeed;
         m_bIsFnish = false;
-        m_bLoop = false;
+        //m_bLoop = false;
 
     }
 	
@@ -36,11 +37,6 @@ public class PlayAtalsAni : MonoBehaviour {
 	void Update () {
         AniLoop();
 	}
-
-    public bool IsFinish()
-    {
-        return m_bIsFnish;
-    }
 
     void AniLoop()
     {
@@ -50,18 +46,24 @@ public class PlayAtalsAni : MonoBehaviour {
             {
                 m_ts = new TimeSpan(DateTime.Now.Ticks);
                 TimeSpan ts = m_ts.Subtract(m_lastts).Duration();
-                Debug.Log("ts.Milliseconds =" + ts.Milliseconds + " m_playSpeed = " + m_speed);
+                //Debug.Log("ts.Milliseconds =" + ts.Milliseconds + " m_playSpeed = " + m_speed);
                 if (ts.Milliseconds > m_speed)
                 {
-                    string spriteName = m_spriteName + Convert.ToString(m_typeSprite) + "_" + Convert.ToString(m_indexSprite);
+                    string spriteName;
+                    if(m_bUsetype)
+                    {
+                        spriteName = m_spriteName + Convert.ToString(m_typeSprite) +"_"+Convert.ToString(m_indexSprite);
+                    }
+                    else
+                    {
+                        spriteName = m_spriteName + Convert.ToString(m_indexSprite);
+                    }
+                   
                     GetComponent<UISprite>().spriteName = spriteName;
-                    Debug.Log("m_sprtename = " + spriteName);
+                    //Debug.Log("m_sprtename = " + spriteName);
                     m_indexSprite++;
                     m_lastts = m_ts;
-                    if (m_indexSprite > m_maxSprite)
-                    {
-                        m_indexSprite = 1;
-                    }
+                   
                     if (!m_bLoop)
                     {
                         if (m_indexSprite > m_maxSprite)
@@ -71,8 +73,13 @@ public class PlayAtalsAni : MonoBehaviour {
                         }
                     }
                 }
-                
-
+            }
+            if (m_bLoop)
+            {
+                if (m_indexSprite > m_maxSprite)
+                {
+                    m_indexSprite = 1;
+                }
             }
         }
     }

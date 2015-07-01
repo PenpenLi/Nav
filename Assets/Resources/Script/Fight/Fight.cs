@@ -163,7 +163,7 @@ public class Fight : MonoBehaviour
 
     private void AttackLoop()
     {
-        if (GlobalVar.GetInstance().GetFinishShell())//上一次的炮弹已经打完了
+        if (GlobalVar.GetInstance().GetFinishShell())//上一次的已经打完了
         {
             Debug.Log("Begin Fire");
             Vector3 targetPos = new Vector3();
@@ -193,7 +193,7 @@ public class Fight : MonoBehaviour
                 m_CurShipIndex = 0;
             }
             //Debug.Log("m_CurShipIndex = " + m_CurShipIndex + " m_Sheel.activeSelf = " + m_Sheel.activeSelf);
-            //保证发射炮弹的特效播放完毕
+            //保证发射的特效播放完毕
             if (m_BoomEffect.activeSelf != true)
             {
                 m_BoomEffect.SetActive(true);
@@ -206,30 +206,30 @@ public class Fight : MonoBehaviour
             }
            
         }
-        //if (m_Sheel.activeSelf && GlobalVar.GetInstance().GetFinishShell() == false)
-        //{
-        //    m_Sheel.transform.localPosition = m_Sheel.GetComponent<Shell>().AddCubicPos(FireSpeed);
+        if (m_Sheel.activeSelf && GlobalVar.GetInstance().GetFinishShell() == false)
+        {
+            m_Sheel.transform.localPosition = m_Sheel.GetComponent<Shell>().AddCubicPos(FireSpeed);
 
-        //    if (m_Sheel.GetComponent<Shell>().GetCubicPos() >= 1.0f)
-        //    {
-        //        GlobalVar.GetInstance().SetFinishShell(true);
-        //        //保证收击特效播放完毕
-        //        if (m_HitEffect.activeSelf != true)
-        //        {
-        //            m_HitEffect.SetActive(true);
-        //            m_HitEffect.GetComponent<PlayAtalsAni>().Reset();
-        //            m_Sheel.SetActive(false);
-        //        }
-        //        if (m_HitEffect.GetComponent<PlayAtalsAni>().IsFinish())
-        //        {
-        //            m_HitEffect.SetActive(false);
-        //            m_Sheel.GetComponent<Shell>().SetCubicPos(0.0f);
+            if (m_Sheel.GetComponent<Shell>().GetCubicPos() >= 1.0f)
+            {
+                GlobalVar.GetInstance().SetFinishShell(true);
+                //保证收击特效播放完毕
+                if (m_HitEffect.activeSelf != true)
+                {
+                    m_HitEffect.SetActive(true);
+                    m_HitEffect.GetComponent<PlayAtalsAni>().Reset();
+                    m_Sheel.SetActive(false);
+                }
+                if (m_HitEffect.GetComponent<PlayAtalsAni>().IsFinish())
+                {
+                    m_HitEffect.SetActive(false);
+                    m_Sheel.GetComponent<Shell>().SetCubicPos(0.0f);
 
-        //        }
+                }
 
 
-        //    }
-            //Debug.Log(" m_Sheel.GetComponent<Shell>().GetCubicPos() = " + m_Sheel.GetComponent<Shell>().GetCubicPos());
-        //}
+            }
+            Debug.Log(" m_Sheel.GetComponent<Shell>().GetCubicPos() = " + m_Sheel.GetComponent<Shell>().GetCubicPos());
+        }
     }
 }
