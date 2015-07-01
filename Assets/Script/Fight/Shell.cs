@@ -17,7 +17,12 @@ public class Shell : MonoBehaviour {
 	
 	}
 
-	public void SetShellTrack(Vector3 startPt, Vector3 endPt, int type)
+    public void Reset()
+    {
+        m_fScale = 0.0f;
+    }
+
+	public void SetShellTrack(Vector3 startPt, Vector3 endPt)
 	{
         path.SetLineCurve(startPt, endPt);
         //SetShellType(startPt, endPt, type);
@@ -47,7 +52,7 @@ public class Shell : MonoBehaviour {
 
     public float GetCubicPos()
     {
-        return path.GetScale();
+        return m_fScale;
     }
 
     private void SetShellType(Vector3 startPt, Vector3 endPt, int type)

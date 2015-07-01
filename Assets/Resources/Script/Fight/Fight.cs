@@ -7,7 +7,8 @@ public enum FIGHTSTATE
 {
     Boom,
     Fly,
-    Hit
+    Hit,
+    Stop
 }
 
 public class Fight : MonoBehaviour
@@ -24,10 +25,11 @@ public class Fight : MonoBehaviour
     FIGHTSTATE m_FightState = new FIGHTSTATE();
     TimeSpan m_ts;
     TimeSpan m_lastts;
+    Vector3 m_targetPos = new Vector3();
     // Use this for initialization
     void Start()
     {
-        m_FightState = FIGHTSTATE.Boom;
+        m_FightState = FIGHTSTATE.Stop;
         LoadFormation(1, 0);//加载进攻阵型
         LoadFormation(1, 1);//加载防守阵型
 
@@ -42,21 +44,6 @@ public class Fight : MonoBehaviour
         AttackLoop();
     }
 
-    void LoopState()
-    {
-        switch(m_FightState)
-        {
-            case FIGHTSTATE.Boom:
-
-                break;
-            case FIGHTSTATE.Fly:
-
-                break;
-            case FIGHTSTATE.Hit:
-
-                break;
-        }
-    }
 
     void BoomSate()
     {
@@ -161,75 +148,117 @@ public class Fight : MonoBehaviour
         //m_TestFire.GetComponent<ShipFight>().OpenFire(shipsIDList[8]
     }
 
-    private void AttackLoop()
+    void NextRound()
     {
-        if (GlobalVar.GetInstance().GetFinishShell())//上一次的已经打完了
+        if (m_FightState == FIGHTSTATE.Stop)
         {
             Debug.Log("Begin Fire");
-            Vector3 targetPos = new Vector3();
-            int type = 0;
-            Debug.Log("m_CurShipIndex = " + m_CurShipIndex + " GlobalVar.m_maxTeamShips = " + (GlobalVar.m_maxTeamShips) + " m_shipList.Count = " + m_shipList.Count);
             if (m_CurShipIndex >= GlobalVar.m_maxTeamShips)
             {
                 Debug.Log("m_CurShipIndex > GlobalVar.m_maxTeamShips");
-                targetPos = m_shipList[m_CurShipIndex - GlobalVar.m_maxTeamShips].transform.localPosition;
-                type = 0;
+                m_targetPos = m_shipList[m_CurShipIndex - GlobalVar.m_maxTeamShips].transform.localPosition;
             }
             else
             {
                 Debug.Log("else m_CurShipIndex > GlobalVar.m_maxTeamShips m_shipList.Count = " + m_shipList.Count);
-                targetPos = m_shipList[m_CurShipIndex + GlobalVar.m_maxTeamShips].transform.localPosition;
-                type = 5;
+                m_targetPos = m_shipList[m_CurShipIndex + GlobalVar.m_maxTeamShips].transform.localPosition;
             }
-            //m_shipList[m_CurShipIndex].GetComponent<ShipFight>().OpenFire(targetPos, type);
-            m_Sheel.GetComponent<Shell>().SetShellTrack(targetPos, m_shipList[m_CurShipIndex].transform.localPosition, type);
+            m_Sheel.GetComponent<Shell>().Reset();
+            m_Sheel.GetComponent<Shell>().SetShellTrack(m_targetPos, m_shipList[m_CurShipIndex].transform.localPosition);
             m_Sheel.GetComponent<Shell>().SetShellType(m_shipList[m_CurShipIndex].GetComponent<ShipFight>().GetShellType());
+            m_FightState = FIGHTSTATE.Boom;
+        }
+       
+    }
 
-            m_Sheel.SetActive(true);
-            m_CurShipIndex++;
-            //Debug.Log("m_CurShipIndex = " + m_CurShipIndex);
-            if (m_CurShipIndex >= m_shipList.Count)
-            {
-                m_CurShipIndex = 0;
-            }
-            //Debug.Log("m_CurShipIndex = " + m_CurShipIndex + " m_Sheel.activeSelf = " + m_Sheel.activeSelf);
-            //保证发射的特效播放完毕
-            if (m_BoomEffect.activeSelf != true)
+    private void AttackLoop()
+    {
+        NextRound();
+        DoFireProgress();
+    }
+
+    void DoFireProgress()
+    {
+        if(m_FightState == FIGHTSTATE.Boom)
+        {
+            Debug.Log("m_FightState == FIGHTSTATE.Boom");
+            if(m_BoomEffect.activeSelf != true)
             {
                 m_BoomEffect.SetActive(true);
-                m_BoomEffect.GetComponent<PlayAtalsAni>().Reset();
+                m_BoomEffect.transform.localPosition = m_targetPos;
+                m_BoomEffect.GetComponent<PlayAtalsAni>().ResetAni();
             }
-            if (m_BoomEffect.GetComponent<PlayAtalsAni>().IsFinish())
+            if(m_Sheel.activeSelf)
             {
-                GlobalVar.GetInstance().SetFinishShell(false);
+                m_Sheel.SetActive(false);
+            }
+            if(m_HitEffect.activeSelf)
+            {
+                m_HitEffect.SetActive(false);
+            }
+            Debug.Log("m_BoomEffect.GetComponent<PlayAtalsAni>().m_bIsFnish = " + m_BoomEffect.GetComponent<PlayAtalsAni>().m_bIsFnish);
+            if(m_BoomEffect.GetComponent<PlayAtalsAni>().m_bIsFnish)
+            {
+                m_FightState = FIGHTSTATE.Fly;
+            }
+            
+        }
+        if(m_FightState == FIGHTSTATE.Fly)
+        {
+            Debug.Log("m_FightState == FIGHTSTATE.Fly");
+            if (m_BoomEffect.activeSelf)
+            {
                 m_BoomEffect.SetActive(false);
             }
-           
-        }
-        if (m_Sheel.activeSelf && GlobalVar.GetInstance().GetFinishShell() == false)
-        {
+            if (!m_Sheel.activeSelf)
+            {
+                m_Sheel.SetActive(true);
+                //m_Sheel.GetComponent<Shell>().SetCubicPos(0.0f);
+                m_Sheel.GetComponent<Shell>().Reset();
+            }
+            if (m_HitEffect.activeSelf)
+            {
+                m_HitEffect.SetActive(false);
+            }
             m_Sheel.transform.localPosition = m_Sheel.GetComponent<Shell>().AddCubicPos(FireSpeed);
-
+            Debug.Log("m_Sheel.GetComponent<Shell>().GetCubicPos() = " + m_Sheel.GetComponent<Shell>().GetCubicPos());
             if (m_Sheel.GetComponent<Shell>().GetCubicPos() >= 1.0f)
             {
-                GlobalVar.GetInstance().SetFinishShell(true);
-                //保证收击特效播放完毕
-                if (m_HitEffect.activeSelf != true)
-                {
-                    m_HitEffect.SetActive(true);
-                    m_HitEffect.GetComponent<PlayAtalsAni>().Reset();
-                    m_Sheel.SetActive(false);
-                }
-                if (m_HitEffect.GetComponent<PlayAtalsAni>().IsFinish())
-                {
-                    m_HitEffect.SetActive(false);
-                    m_Sheel.GetComponent<Shell>().SetCubicPos(0.0f);
-
-                }
-
-
+                m_FightState = FIGHTSTATE.Hit;
             }
-            Debug.Log(" m_Sheel.GetComponent<Shell>().GetCubicPos() = " + m_Sheel.GetComponent<Shell>().GetCubicPos());
+
+        }
+        if(m_FightState == FIGHTSTATE.Hit)
+        {
+            Debug.Log("m_FightState == FIGHTSTATE.Hit");
+            if (m_BoomEffect.activeSelf)
+            {
+                m_BoomEffect.SetActive(false);
+            }
+            if (m_Sheel.activeSelf)
+            {
+                m_Sheel.SetActive(false);
+            }
+            if (!m_HitEffect.activeSelf)
+            {
+                m_HitEffect.SetActive(true);
+                m_HitEffect.transform.localPosition = m_shipList[m_CurShipIndex].transform.localPosition;
+                m_HitEffect.GetComponent<PlayAtalsAni>().ResetAni();
+            }
+            if(m_HitEffect.GetComponent<PlayAtalsAni>().m_bIsFnish)
+            {
+                m_CurShipIndex++;
+                m_FightState = FIGHTSTATE.Stop;
+                if (m_CurShipIndex >= m_shipList.Count)
+                {
+                    m_CurShipIndex = 0;
+                }
+                
+            }
+        }
+        else
+        {
+            return;
         }
     }
 }

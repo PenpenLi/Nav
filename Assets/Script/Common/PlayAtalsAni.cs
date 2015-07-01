@@ -32,6 +32,13 @@ public class PlayAtalsAni : MonoBehaviour {
         //m_bLoop = false;
 
     }
+
+    public void ResetAni()
+    {
+        m_indexSprite = 1;
+        m_bIsFnish = false;
+        m_play = true;
+    }
 	
 	// Update is called once per frame
 	void Update () {
