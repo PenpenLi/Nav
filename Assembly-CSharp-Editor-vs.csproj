@@ -129,6 +129,12 @@
      <Compile Include="Assets\NGUI\Scripts\Editor\UIWidgetContainerEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIWidgetInspector.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIWrapContentEditor.cs" />
+     <Compile Include="Assets\spienSkeleton2D\spine-unity\spine-unity\Editor\AtlasAssetInspector.cs" />
+     <Compile Include="Assets\spienSkeleton2D\spine-unity\spine-unity\Editor\BoneComponentInspector.cs" />
+     <Compile Include="Assets\spienSkeleton2D\spine-unity\spine-unity\Editor\Menus.cs" />
+     <Compile Include="Assets\spienSkeleton2D\spine-unity\spine-unity\Editor\SkeletonAnimationInspector.cs" />
+     <Compile Include="Assets\spienSkeleton2D\spine-unity\spine-unity\Editor\SkeletonDataAssetInspector.cs" />
+     <Compile Include="Assets\spienSkeleton2D\spine-unity\spine-unity\Editor\SkeletonRendererInspector.cs" />
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Depth Cutout.shader" />
      <None Include="Assets\NGUI\ReadMe - 3.8.2.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Masked 1.shader" />
@@ -150,6 +156,7 @@
      <None Include="Assets\NGUI\Examples\Atlases\SciFi\SciFi Font - Header.txt" />
      <None Include="Assets\Atlas\Public\Public.txt" />
      <None Include="Assets\Atlas\Effect\Ship_wave\Ship_wave.txt" />
+     <None Include="Assets\sqlitekit\Readme.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Masked 3.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored 1.shader" />
      <None Include="Assets\NGUI\Examples\Atlases\Fantasy\Fantasy Font - Normal.txt" />
@@ -167,13 +174,16 @@
      <None Include="Assets\Atlas\Effect\Ship_bomb\Ship_bomb1.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 1.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored.shader" />
+     <None Include="Assets\spienSkeleton2D\spine-unity\spine-unity\Shaders\SkeletonEx.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored.shader" />
      <None Include="Assets\Atlas\Head\Head.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 3.shader" />
      <None Include="Assets\Atlas\Land\Land.txt" />
+     <None Include="Assets\spienSkeleton2D\spine-unity\spine-unity\Shaders\Skeleton.shader" />
      <None Include="Assets\Atlas\Botany\Botany.txt" />
+     <None Include="Assets\spienSkeleton2D\spine-unity\spine-unity\Shaders\SkeletonEx1.shader" />
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Additive Colored.shader" />
      <None Include="Assets\Atlas\Effect\Ship_fire\Ship_fire.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Masked.shader" />
@@ -185,6 +195,7 @@
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Depth.shader" />
      <None Include="Assets\NGUI\Examples\Atlases\SciFi\SciFi Font - Normal.txt" />
      <None Include="Assets\NGUI\Examples\Models\Orc Armor\Orc Armor.shader" />
+     <None Include="Assets\spienSkeleton2D\spine-unity\spine-unity\Shaders\SkeletonLit.shader" />
      <None Include="Assets\Atlas\House\ani_house_d.txt" />
      <None Include="Assets\NGUI\Examples\Resources\Localization.txt" />
  <Reference Include="UnityEngine.UI">
@@ -226,9 +237,16 @@
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/macstandalonesupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
  </Reference>
+ <Reference Include="SimpleJson">
+ <HintPath>C:/mywork/Nav/Assets/Script/Net/SimpleJson.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iossupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-vs.csproj">
+      <Project>{64ECABE0-8A06-B657-08BA-C09203316BEC}</Project>      <Name>Assembly-CSharp-vs</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
