@@ -13,6 +13,9 @@ public class Building : MonoBehaviour {
     public GameObject m_Progressbar;   
     public GameObject m_Architecture;
 
+    private string HouseIconName;
+    private UIAtlas HouseIconAtlas;
+
 	// Use this for initialization
 	void Start () {
         for (int i = 0; i < ButList.Count; i++)
