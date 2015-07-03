@@ -1,0 +1,84 @@
+{"frames": {
+
+"Construction_1.png":
+{
+	"frame": {"x":2,"y":160,"w":211,"h":156},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":211,"h":156},
+	"sourceSize": {"w":211,"h":156}
+},
+"Construction_2.png":
+{
+	"frame": {"x":2,"y":2,"w":211,"h":156},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":211,"h":156},
+	"sourceSize": {"w":211,"h":156}
+},
+"Construction_3.png":
+{
+	"frame": {"x":2,"y":318,"w":181,"h":156},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":181,"h":156},
+	"sourceSize": {"w":211,"h":156}
+},
+"Construction_Ani1_1.png":
+{
+	"frame": {"x":215,"y":170,"w":30,"h":41},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":30,"h":41},
+	"sourceSize": {"w":40,"h":43}
+},
+"Construction_Ani1_2.png":
+{
+	"frame": {"x":215,"y":47,"w":34,"h":41},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":5,"y":0,"w":34,"h":41},
+	"sourceSize": {"w":40,"h":43}
+},
+"Construction_Ani1_3.png":
+{
+	"frame": {"x":215,"y":2,"w":34,"h":43},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":0,"w":34,"h":43},
+	"sourceSize": {"w":40,"h":43}
+},
+"Construction_Ani2_1.png":
+{
+	"frame": {"x":215,"y":130,"w":34,"h":38},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":18,"y":0,"w":34,"h":38},
+	"sourceSize": {"w":52,"h":38}
+},
+"Construction_Ani2_2.png":
+{
+	"frame": {"x":215,"y":90,"w":34,"h":38},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":8,"y":0,"w":34,"h":38},
+	"sourceSize": {"w":52,"h":38}
+},
+"Construction_Ani2_3.png":
+{
+	"frame": {"x":185,"y":318,"w":42,"h":38},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":42,"h":38},
+	"sourceSize": {"w":52,"h":38}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "Construction.png",
+	"format": "RGBA8888",
+	"size": {"w":256,"h":512},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:65a8b32a63299f1eeca7c04e3f6423e9$"
+}
+}
