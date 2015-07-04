@@ -5,8 +5,8 @@ using System;
 public class ShipFight : MonoBehaviour {
 	public GameObject m_FightPt;
     public GameObject m_FireEffect;
-    public int m_Hp = 2000;
-    public int m_MaxHp = 2000;
+    public float m_Hp = 2000;
+    public float m_MaxHp = 2000;
     //public GameObject m_Shell;
     private Vector3 m_targetPos;
     //private Curve2D curve = new Curve2D();
@@ -22,6 +22,9 @@ public class ShipFight : MonoBehaviour {
     float speed;
     TimeSpan m_ts;
     TimeSpan m_lastts;
+    public GameObject m_bloodText;
+    public GameObject m_bloodSlider;
+    public int m_Attack = 200;
 
 	// Use this for initialization
 	void Start () {
@@ -32,27 +35,28 @@ public class ShipFight : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //if(bOpenFire)
-        //{
-        //    if(m_Shell.GetComponent<Shell>().GetCubicPos() >= 1.0f)
-        //    {
-        //        bOpenFire = false;
-        //        ResetAll();
-        //        GlobalVar.GetInstance().SetFinishShell(true);
-        //    }
-        //   // Debug.Log("FireSpeed = " + FireSpeed);
-        //    m_Shell.transform.position = m_Shell.GetComponent<Shell>().AddCubicPos(FireSpeed);
-            
-        //}
-        IsFireState();
+        UpdateBlood();
 	}
+
+    void UpdateBlood()
+    {
+        m_bloodText.GetComponent<UILabel>().text = Convert.ToString(m_Hp) + "/" + Convert.ToString(m_MaxHp);
+        m_bloodSlider.GetComponent<UISlider>().value = (float)(m_Hp / m_MaxHp);
+        //Debug.Log("m_Hp / m_MaxHp = " + m_bloodSlider.GetComponent<UISlider>().value);
+        if(m_bloodSlider.GetComponent<UISlider>().value <= 0.3f)
+        {
+            m_FireEffect.SetActive(true);
+        }
+        else
+        {
+            m_FireEffect.SetActive(false);
+        }
+    }
 
     void ResetAll()
     {
         m_MaxHp = m_Hp;
         m_spriteName = "Ship_fire1_1";
-        //m_Shell.SetActive(false);
-        //Time.timeScale = m_playSpeed ;
     }
 
     public void ChangeFlameType(int type, int maxSprite)
@@ -63,26 +67,30 @@ public class ShipFight : MonoBehaviour {
         m_FireEffect.GetComponent<UISprite>().spriteName = m_spriteName;
     }
 
-    void IsFireState()
+    public int GetAttack()
     {
-        //Debug.Log("IsFireState");
-        if(m_Hp < m_MaxHp / 3)
-        {
-           // Debug.Log("m_Hp < m_MaxHp / 3");
-            if(m_FireEffect.activeSelf == false)
-            {
-                m_FireEffect.SetActive(true);
-            }
-            OpenFlame(true);
-        }
+        return m_Attack;
+    }
+
+    public void SetBlood(int blood, int maxblood)
+    {
+        m_Hp = blood;
+        m_MaxHp = maxblood;
+    }
+
+    public bool AddBlood(int nBlood)
+    {
+        m_Hp += nBlood;
+        if (m_Hp <= 0)
+            return false;
+        return true;
     }
 
     void OpenFlame(bool open = false)
     {
         if(open)
         {
-            Debug.Log("Time.deltaTime = " + Time.deltaTime);
-            //while(Time.fixedTime)
+            //Debug.Log("Time.deltaTime = " + Time.deltaTime);
             if(m_flameIndex < m_maxFlameSprite)
             {
                 m_ts = new TimeSpan(DateTime.Now.Ticks);
@@ -121,21 +129,5 @@ public class ShipFight : MonoBehaviour {
             Debug.Log("炮弹类型设置出错");
         }
         m_ShellType = type;
-        //string shellname = "ani_paodan_0" + Convert.ToString(type);
-        //m_Shell.GetComponent<UISprite>().spriteName = shellname;
     }
-
-    public void OpenFire(Vector3 targetPos, int shellType)
-    {
-        //GlobalVar.GetInstance().SetFinishShell(false);
-        //m_Shell.SetActive(true);
-        //m_targetPos = targetPos;
-        //m_shellType = shellType;
-    }
-
-    //public void SetMoveSpeed(float speed)
-    //{
-    //    m_MoveSpeed = speed;
-    //    this.GetComponent<TweenPosition>().duration = m_MoveSpeed;
-    //}
 }

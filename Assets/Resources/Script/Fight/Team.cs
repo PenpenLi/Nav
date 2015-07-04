@@ -32,6 +32,13 @@ public class Team : MonoBehaviour {
         return true;
     }
 
+    public GameObject GetShip(int nIndex)
+    {
+        if (nIndex < 0 || nIndex >= m_ShipList.Count)
+            return null;
+        return m_ShipList[nIndex];
+    }
+
     public bool AddShip(int nIndex, Vector3 pos, float speed,int type)
     {
 		

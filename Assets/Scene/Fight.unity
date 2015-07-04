@@ -180,61 +180,37 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 2087595853}
     m_Modifications:
-    - target: {fileID: 426852, guid: 9cf7bd570ad1ebf4eb33f64ab7148257, type: 2}
+    - target: {fileID: 422796, guid: 9cf7bd570ad1ebf4eb33f64ab7148257, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 426852, guid: 9cf7bd570ad1ebf4eb33f64ab7148257, type: 2}
+    - target: {fileID: 422796, guid: 9cf7bd570ad1ebf4eb33f64ab7148257, type: 2}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 426852, guid: 9cf7bd570ad1ebf4eb33f64ab7148257, type: 2}
+    - target: {fileID: 422796, guid: 9cf7bd570ad1ebf4eb33f64ab7148257, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 426852, guid: 9cf7bd570ad1ebf4eb33f64ab7148257, type: 2}
+    - target: {fileID: 422796, guid: 9cf7bd570ad1ebf4eb33f64ab7148257, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 426852, guid: 9cf7bd570ad1ebf4eb33f64ab7148257, type: 2}
+    - target: {fileID: 422796, guid: 9cf7bd570ad1ebf4eb33f64ab7148257, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 426852, guid: 9cf7bd570ad1ebf4eb33f64ab7148257, type: 2}
+    - target: {fileID: 422796, guid: 9cf7bd570ad1ebf4eb33f64ab7148257, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 426852, guid: 9cf7bd570ad1ebf4eb33f64ab7148257, type: 2}
+    - target: {fileID: 422796, guid: 9cf7bd570ad1ebf4eb33f64ab7148257, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 426852, guid: 9cf7bd570ad1ebf4eb33f64ab7148257, type: 2}
+    - target: {fileID: 422796, guid: 9cf7bd570ad1ebf4eb33f64ab7148257, type: 2}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11466298, guid: 9cf7bd570ad1ebf4eb33f64ab7148257, type: 2}
-      propertyPath: m_FireEffect
-      value: 
-      objectReference: {fileID: 1599885380}
-    - target: {fileID: 11466298, guid: 9cf7bd570ad1ebf4eb33f64ab7148257, type: 2}
-      propertyPath: m_playSpeed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 11427072, guid: 9cf7bd570ad1ebf4eb33f64ab7148257, type: 2}
-      propertyPath: ignoreTimeScale
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11469054, guid: 9cf7bd570ad1ebf4eb33f64ab7148257, type: 2}
-      propertyPath: ignoreTimeScale
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11466298, guid: 9cf7bd570ad1ebf4eb33f64ab7148257, type: 2}
-      propertyPath: m_Hp
-      value: 2000
-      objectReference: {fileID: 0}
-    - target: {fileID: 124550, guid: 9cf7bd570ad1ebf4eb33f64ab7148257, type: 2}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9cf7bd570ad1ebf4eb33f64ab7148257, type: 2}
@@ -284,7 +260,7 @@ MonoBehaviour:
   TeamSelf: {fileID: 808134522}
 --- !u!4 &1016453660 stripped
 Transform:
-  m_PrefabParentObject: {fileID: 426852, guid: 9cf7bd570ad1ebf4eb33f64ab7148257, type: 2}
+  m_PrefabParentObject: {fileID: 422796, guid: 9cf7bd570ad1ebf4eb33f64ab7148257, type: 2}
   m_PrefabInternal: {fileID: 370608770}
 --- !u!1 &1191677042
 GameObject:
@@ -373,10 +349,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 128, y: 128, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &1599885380 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 137374, guid: 9cf7bd570ad1ebf4eb33f64ab7148257, type: 2}
-  m_PrefabInternal: {fileID: 370608770}
 --- !u!1 &1670752428
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,7 +554,7 @@ MonoBehaviour:
   m_bIsFnish: 0
   m_indexSprite: 1
   m_maxSprite: 7
-  m_playSpeed: 2
+  m_playSpeed: 20
   m_bLoop: 0
   m_typeSprite: 1
   m_bUsetype: 1
@@ -681,7 +653,7 @@ MonoBehaviour:
   m_bIsFnish: 0
   m_indexSprite: 1
   m_maxSprite: 5
-  m_playSpeed: 2
+  m_playSpeed: 20
   m_bLoop: 0
   m_typeSprite: 1
   m_bUsetype: 1
@@ -998,7 +970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3e483a358d8a104e8f873db966a1810, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AttackTeam1: {fileID: 808134522}
+  m_AttackTeam: {fileID: 808134522}
   m_Sheel: {fileID: 1981217982}
   m_BoomEffect: {fileID: 1744710310}
   m_HitEffect: {fileID: 1752600934}

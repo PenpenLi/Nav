@@ -60,6 +60,7 @@ public class PlayAtalsAni : MonoBehaviour {
                     if(m_bUsetype)
                     {
                         spriteName = m_spriteName + Convert.ToString(m_typeSprite) +"_"+Convert.ToString(m_indexSprite);
+                        Debug.Log("spriteName = " + spriteName);
                     }
                     else
                     {
