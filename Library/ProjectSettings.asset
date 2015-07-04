@@ -75,7 +75,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleIdentifier: com.Company.ProductName
+  bundleIdentifier: com.fly.nav
   bundleVersion: 1.0
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
@@ -84,7 +84,7 @@ PlayerSettings:
   productGUID: 896622e41f379fd40868059035d71bf2
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 14
-  AndroidPreferredInstallLocation: 1
+  AndroidPreferredInstallLocation: 0
   aotOptions: 
   apiCompatibilityLevel: 2
   iPhoneStrippingLevel: 0
@@ -123,8 +123,8 @@ PlayerSettings:
   iOSLaunchScreenCustomXibPath: 
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
-  AndroidKeystoreName: 
-  AndroidKeyaliasName: 
+  AndroidKeystoreName: C:/Users/James/Desktop/Nav.keystore
+  AndroidKeyaliasName: nav_island
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
   androidEnableBanner: 1
