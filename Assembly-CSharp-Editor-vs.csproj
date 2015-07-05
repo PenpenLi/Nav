@@ -156,6 +156,7 @@
      <None Include="Assets\Atlas\Lobby\Lobby.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored (TextureClip).shader" />
      <None Include="Assets\NGUI\Examples\Atlases\SciFi\SciFi Font - Header.txt" />
+     <None Include="Assets\Atlas\PublicAnimation\PublicAnimation.txt" />
      <None Include="Assets\Atlas\Public\Public.txt" />
      <None Include="Assets\Atlas\Effect\Ship_wave\Ship_wave.txt" />
      <None Include="Assets\sqlitekit\Readme.txt" />
