@@ -44,107 +44,55 @@ MonoBehaviour:
   - name: Ship_wave_1
     x: 2
     y: 2
-    width: 108
-    height: 46
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 20
-    paddingRight: 0
-    paddingTop: 8
-    paddingBottom: 4
-  - name: Ship_wave_2
-    x: 112
-    y: 2
-    width: 106
+    width: 86
     height: 56
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 12
-    paddingRight: 10
-    paddingTop: 1
-    paddingBottom: 1
-  - name: Ship_wave_3
-    x: 2
-    y: 50
-    width: 102
-    height: 56
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 9
-    paddingRight: 17
-    paddingTop: 1
-    paddingBottom: 1
-  - name: Ship_wave_4
-    x: 106
-    y: 60
-    width: 102
-    height: 48
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 4
-    paddingRight: 22
-    paddingTop: 4
-    paddingBottom: 6
-  - name: Ship_wave_5
-    x: 2
-    y: 108
-    width: 80
-    height: 46
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 1
-    paddingRight: 47
-    paddingTop: 4
-    paddingBottom: 8
-  - name: Ship_wave_6
-    x: 2
-    y: 156
-    width: 76
-    height: 38
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
     paddingLeft: 0
-    paddingRight: 52
-    paddingTop: 11
-    paddingBottom: 9
-  - name: Ship_wave_7
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Ship_wave_2
     x: 2
-    y: 196
-    width: 58
-    height: 34
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 11
-    paddingRight: 59
-    paddingTop: 12
-    paddingBottom: 12
-  - name: Ship_wave_8
-    x: 210
     y: 60
-    width: 36
-    height: 22
+    width: 84
+    height: 56
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 19
-    paddingRight: 73
-    paddingTop: 16
-    paddingBottom: 20
+    paddingLeft: 0
+    paddingRight: 2
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Ship_wave_3
+    x: 2
+    y: 176
+    width: 82
+    height: 56
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 2
+    paddingRight: 2
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Ship_wave_4
+    x: 2
+    y: 118
+    width: 82
+    height: 56
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 4
+    paddingTop: 0
+    paddingBottom: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}
   mCoordinates: 0

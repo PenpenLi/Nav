@@ -42,49 +42,36 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: f3b806473567d63458ee7a4e65e73f2e, type: 2}
   mSprites:
   - name: Ship_fire1_1
-    x: 2
-    y: 121
+    x: 44
+    y: 2
     width: 38
-    height: 47
+    height: 59
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 1
-    paddingRight: 3
+    paddingLeft: 2
+    paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: Ship_fire1_2
-    x: 42
-    y: 147
-    width: 36
-    height: 45
+    x: 2
+    y: 2
+    width: 40
+    height: 59
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 1
-    paddingRight: 5
-    paddingTop: 2
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
     paddingBottom: 0
   - name: Ship_fire1_3
-    x: 44
-    y: 98
+    x: 84
+    y: 2
     width: 40
-    height: 47
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 2
-    paddingTop: 0
-    paddingBottom: 0
-  - name: Ship_fire1_4
-    x: 46
-    y: 51
-    width: 42
-    height: 45
+    height: 57
     borderLeft: 0
     borderRight: 0
     borderTop: 0
@@ -93,84 +80,6 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 2
     paddingBottom: 0
-  - name: Ship_fire1_5
-    x: 46
-    y: 2
-    width: 42
-    height: 47
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: Ship_fire1_6
-    x: 2
-    y: 72
-    width: 40
-    height: 47
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 2
-    paddingTop: 0
-    paddingBottom: 0
-  - name: Ship_fire2_1
-    x: 86
-    y: 146
-    width: 38
-    height: 70
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 3
-    paddingRight: 1
-    paddingTop: 1
-    paddingBottom: 3
-  - name: Ship_fire2_2
-    x: 90
-    y: 2
-    width: 36
-    height: 74
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 4
-    paddingRight: 2
-    paddingTop: 0
-    paddingBottom: 0
-  - name: Ship_fire2_3
-    x: 90
-    y: 78
-    width: 36
-    height: 66
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 6
-    paddingRight: 0
-    paddingTop: 3
-    paddingBottom: 5
-  - name: Ship_fire2_4
-    x: 2
-    y: 2
-    width: 42
-    height: 68
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 3
-    paddingBottom: 3
   mPixelSize: 1
   mReplacement: {fileID: 0}
   mCoordinates: 0
