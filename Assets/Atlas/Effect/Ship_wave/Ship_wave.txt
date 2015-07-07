@@ -1,8 +1,24 @@
 {"frames": {
 
+"Ship_wave1_1.png":
+{
+	"frame": {"x":2,"y":2,"w":233,"h":75},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":233,"h":75},
+	"sourceSize": {"w":233,"h":75}
+},
+"Ship_wave1_2.png":
+{
+	"frame": {"x":237,"y":2,"w":225,"h":75},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":0,"w":225,"h":75},
+	"sourceSize": {"w":233,"h":75}
+},
 "Ship_wave_1.png":
 {
-	"frame": {"x":2,"y":2,"w":86,"h":56},
+	"frame": {"x":2,"y":79,"w":86,"h":56},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":86,"h":56},
@@ -10,7 +26,7 @@
 },
 "Ship_wave_2.png":
 {
-	"frame": {"x":2,"y":60,"w":84,"h":56},
+	"frame": {"x":2,"y":137,"w":84,"h":56},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":84,"h":56},
@@ -18,7 +34,7 @@
 },
 "Ship_wave_3.png":
 {
-	"frame": {"x":2,"y":176,"w":82,"h":56},
+	"frame": {"x":86,"y":195,"w":82,"h":56},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":2,"y":0,"w":82,"h":56},
@@ -26,7 +42,7 @@
 },
 "Ship_wave_4.png":
 {
-	"frame": {"x":2,"y":118,"w":82,"h":56},
+	"frame": {"x":2,"y":195,"w":82,"h":56},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":82,"h":56},
@@ -37,8 +53,8 @@
 	"version": "1.0",
 	"image": "Ship_wave.png",
 	"format": "RGBA8888",
-	"size": {"w":128,"h":256},
+	"size": {"w":512,"h":256},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:358decf6b29af3f77921b14d83d9e291$"
+	"smartupdate": "$TexturePacker:SmartUpdate:97a03cbae5cb7574263cc168fdc4967c$"
 }
 }
