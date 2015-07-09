@@ -1,1 +1,2 @@
 C:\Mywork\Nav\obj\Debug\ResolveAssemblyReference.cache
+C:\mywork\Nav\obj\Debug\Assembly-CSharp-vs.csprojResolveAssemblyReference.cache

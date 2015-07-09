@@ -29,7 +29,7 @@ public class CameraDragMove : MonoBehaviour
             {
                 Drag = true;
                 Origin = m_camera.ScreenToWorldPoint(Input.mousePosition);
-                Debug.Log("Origin = " + Origin);
+                //Debug.Log("Origin = " + Origin);
             }
         }
         else
@@ -53,7 +53,7 @@ public class CameraDragMove : MonoBehaviour
             else if (ResetCamera.x > -5.5 || ResetCamera.x<5.2)
             {
                 m_camera.transform.position = ResetCamera;
-                Debug.Log("ResetCamera =" + ResetCamera);
+                //Debug.Log("ResetCamera =" + ResetCamera);
             }
             //上下边界限定
             if (ResetCamera.y < -3.3)
@@ -69,7 +69,7 @@ public class CameraDragMove : MonoBehaviour
             else if (ResetCamera.y > -3.3 || ResetCamera.y < 5.8)
             {
                 m_camera.transform.position = ResetCamera;
-                Debug.Log("ResetCamera =" + ResetCamera);
+                //Debug.Log("ResetCamera =" + ResetCamera);
             }     
         }
         //RESET CAMERA TO STARTING POSITION WITH RIGHT CLICK
