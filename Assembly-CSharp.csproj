@@ -39,10 +39,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>C:/Program Files/Unity5.0/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>C:/Program Files/Unity5.0/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -399,12 +399,12 @@
      <None Include="Assets\Atlas\Lobby\Lobby.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored (TextureClip).shader" />
      <None Include="Assets\NGUI\Examples\Atlases\SciFi\SciFi Font - Header.txt" />
-     <None Include="Assets\Atlas\PublicAnimation\PublicAnimation.txt" />
      <None Include="Assets\Atlas\Public\Public.txt" />
      <None Include="Assets\Atlas\Effect\Ship_wave\Ship_wave.txt" />
      <None Include="Assets\sqlitekit\Readme.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Masked 3.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored 1.shader" />
+     <None Include="Assets\Atlas\Animation\Sequence\Sequence.txt" />
      <None Include="Assets\NGUI\Examples\Atlases\Fantasy\Fantasy Font - Normal.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored 3.shader" />
      <None Include="Assets\NGUI\Examples\Atlases\Refractive\Refractive Font - Normal.txt" />
@@ -428,7 +428,9 @@
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 3.shader" />
      <None Include="Assets\Atlas\Land\Land.txt" />
+     <None Include="Assets\Atlas\Animation\Static\Static.txt" />
      <None Include="Assets\spienSkeleton2D\spine-unity\spine-unity\Shaders\Skeleton.shader" />
+     <None Include="Assets\Atlas\Effect\We_fire\We_fire.txt" />
      <None Include="Assets\Atlas\Botany\Botany.txt" />
      <None Include="Assets\spienSkeleton2D\spine-unity\spine-unity\Shaders\SkeletonEx1.shader" />
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Additive Colored.shader" />
@@ -447,13 +449,13 @@
      <None Include="Assets\Atlas\House\ani_house_d.txt" />
      <None Include="Assets\NGUI\Examples\Resources\Localization.txt" />
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Program Files/Unity5.0/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="SimpleJson">
- <HintPath>C:/mywork/Nav/Assets/Script/Net/SimpleJson.dll</HintPath>
+ <HintPath>F:/HangHai/Hanghai/Nav/Assets/Script/Net/SimpleJson.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iossupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+ <HintPath>C:/Program Files/Unity5.0/Editor/Data/PlaybackEngines/iossupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

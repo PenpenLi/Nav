@@ -2,7 +2,7 @@
 
 "ani_ship_1.png":
 {
-	"frame": {"x":122,"y":123,"w":148,"h":108},
+	"frame": {"x":302,"y":235,"w":148,"h":108},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":1,"y":1,"w":148,"h":108},
@@ -16,6 +16,14 @@
 	"spriteSourceSize": {"x":1,"y":1,"w":153,"h":119},
 	"sourceSize": {"w":155,"h":121}
 },
+"ani_ship_11.png":
+{
+	"frame": {"x":312,"y":2,"w":152,"h":119},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":1,"w":152,"h":119},
+	"sourceSize": {"w":154,"h":121}
+},
 "ani_ship_12.png":
 {
 	"frame": {"x":2,"y":2,"w":153,"h":119},
@@ -26,31 +34,95 @@
 },
 "ani_ship_13.png":
 {
-	"frame": {"x":2,"y":363,"w":118,"h":136},
+	"frame": {"x":122,"y":853,"w":118,"h":136},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":1,"y":1,"w":118,"h":136},
 	"sourceSize": {"w":120,"h":138}
+},
+"ani_ship_14.png":
+{
+	"frame": {"x":123,"y":714,"w":118,"h":137},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":1,"w":118,"h":137},
+	"sourceSize": {"w":120,"h":139}
 },
 "ani_ship_15.png":
 {
-	"frame": {"x":2,"y":225,"w":118,"h":136},
+	"frame": {"x":2,"y":817,"w":118,"h":136},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":1,"y":1,"w":118,"h":136},
 	"sourceSize": {"w":120,"h":138}
 },
+"ani_ship_16.png":
+{
+	"frame": {"x":404,"y":583,"w":101,"h":107},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":1,"w":101,"h":107},
+	"sourceSize": {"w":103,"h":109}
+},
+"ani_ship_17.png":
+{
+	"frame": {"x":404,"y":471,"w":101,"h":110},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":1,"w":101,"h":110},
+	"sourceSize": {"w":103,"h":112}
+},
+"ani_ship_18.png":
+{
+	"frame": {"x":2,"y":480,"w":123,"h":109},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":1,"w":123,"h":109},
+	"sourceSize": {"w":125,"h":111}
+},
 "ani_ship_19.png":
 {
-	"frame": {"x":254,"y":351,"w":123,"h":115},
+	"frame": {"x":272,"y":598,"w":123,"h":115},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":1,"y":1,"w":123,"h":115},
 	"sourceSize": {"w":125,"h":117}
 },
+"ani_ship_2.png":
+{
+	"frame": {"x":152,"y":235,"w":148,"h":110},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":1,"w":148,"h":110},
+	"sourceSize": {"w":150,"h":112}
+},
+"ani_ship_20.png":
+{
+	"frame": {"x":2,"y":347,"w":136,"h":131},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":1,"w":136,"h":131},
+	"sourceSize": {"w":138,"h":133}
+},
 "ani_ship_21.png":
 {
-	"frame": {"x":379,"y":351,"w":119,"h":111},
+	"frame": {"x":2,"y":704,"w":119,"h":111},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":1,"w":119,"h":111},
+	"sourceSize": {"w":121,"h":113}
+},
+"ani_ship_22.png":
+{
+	"frame": {"x":123,"y":601,"w":119,"h":111},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":1,"w":119,"h":111},
+	"sourceSize": {"w":121,"h":113}
+},
+"ani_ship_23.png":
+{
+	"frame": {"x":2,"y":591,"w":119,"h":111},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":1,"y":1,"w":119,"h":111},
@@ -58,23 +130,39 @@
 },
 "ani_ship_24.png":
 {
-	"frame": {"x":272,"y":225,"w":144,"h":124},
+	"frame": {"x":302,"y":345,"w":144,"h":124},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":1,"y":1,"w":144,"h":124},
 	"sourceSize": {"w":146,"h":126}
 },
+"ani_ship_3.png":
+{
+	"frame": {"x":302,"y":123,"w":148,"h":110},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":1,"w":148,"h":110},
+	"sourceSize": {"w":150,"h":112}
+},
 "ani_ship_4.png":
 {
-	"frame": {"x":312,"y":114,"w":148,"h":109},
+	"frame": {"x":2,"y":236,"w":148,"h":109},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":1,"y":1,"w":148,"h":109},
 	"sourceSize": {"w":150,"h":111}
 },
+"ani_ship_5.png":
+{
+	"frame": {"x":2,"y":123,"w":148,"h":111},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":1,"w":148,"h":111},
+	"sourceSize": {"w":150,"h":113}
+},
 "ani_ship_6.png":
 {
-	"frame": {"x":312,"y":2,"w":148,"h":110},
+	"frame": {"x":152,"y":123,"w":148,"h":110},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":1,"y":1,"w":148,"h":110},
@@ -82,7 +170,15 @@
 },
 "ani_ship_7.png":
 {
-	"frame": {"x":122,"y":360,"w":130,"h":125},
+	"frame": {"x":140,"y":474,"w":130,"h":125},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":1,"w":130,"h":125},
+	"sourceSize": {"w":132,"h":127}
+},
+"ani_ship_8.png":
+{
+	"frame": {"x":272,"y":471,"w":130,"h":125},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":1,"y":1,"w":130,"h":125},
@@ -90,7 +186,7 @@
 },
 "ani_ship_9.png":
 {
-	"frame": {"x":122,"y":233,"w":130,"h":125},
+	"frame": {"x":140,"y":347,"w":130,"h":125},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":1,"y":1,"w":130,"h":125},
@@ -101,8 +197,8 @@
 	"version": "1.0",
 	"image": "Ship.png",
 	"format": "RGBA8888",
-	"size": {"w":512,"h":512},
+	"size": {"w":512,"h":1024},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:e169f822aef0dd38743878d511763fb9$"
+	"smartupdate": "$TexturePacker:SmartUpdate:aeabe187ef2720ce6e3014f62397c5ee$"
 }
 }
