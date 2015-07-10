@@ -11,11 +11,13 @@ public class Building : MonoBehaviour {
     public GameObject m_House;
     public GameObject m_UpIcon;
     public GameObject m_Progressbar;   
-    public GameObject m_Architecture;
+    public GameObject m_HouseMenu;
+    public GameObject m_Builing;
 
-    private string HouseIconName;
-    private UIAtlas HouseIconAtlas;
-
+    private UIAtlas LHIA;
+    private int SHC;
+    private int GOGHC;
+    private bool SetOpt;
 	// Use this for initialization
 	void Start () {
         for (int i = 0; i < ButList.Count; i++)
@@ -26,9 +28,10 @@ public class Building : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
-	}
+    void Update()
+    {
+        setNA();
+    }
 
     void onButList(GameObject go)
     {
@@ -36,26 +39,59 @@ public class Building : MonoBehaviour {
         {
             if (ButList[i].GetHashCode() == go.gameObject.GetHashCode())
             {
+                GOGHC = go.gameObject.GetHashCode();
+                PlayerDataManager.GetInstance().SetSaleHashCode(ButList[i].GetHashCode());
+                Debug.Log("SHC==" + ButList[i].GetHashCode());
+                Debug.Log("GOGHC=="+GOGHC);
                 switch (i)
                 {
                     case 0: //Sale
-                        m_Sale.SetActive(false);
-                        m_Architecture.SetActive(true);
-                        m_House.SetActive(true);
+                        SetOpt = true;
+                        m_HouseMenu.SetActive(true);
+                        Debug.Log("i =" + i); 
                         break;
-                    case 1: //House
-                        m_Architecture.SetActive(true);
+                    case 1: //house
+                        Debug.Log("GetHashCode" + ButList[i].GetHashCode());
                         break;
-                    case 2: //UpIcon
+                    case 2: //upicon
                         break;
-                    case 3: //ProgressBar
+                    case 3: //progressbar
                         break;
                     case 4: //
                         break;
                     default:
                         break;
                 }
+                Debug.Log(i);
             }
+        }
+    }
+
+    void setNA()
+    {
+        if (SetOpt == true)
+        {
+            SHC = PlayerDataManager.GetInstance().m_salehashcode;
+            if (SHC == GOGHC)
+            {
+                LHIA = m_Builing.transform.FindChild("House").GetComponent<UISprite>().atlas;
+                Debug.Log("LHIA ==" + LHIA);
+                if (LHIA == null)
+                {
+                    m_Builing.transform.FindChild("House").GetComponent<UISprite>().atlas = PlayerDataManager.GetInstance().m_houseatlas;
+                    m_Builing.transform.FindChild("House").GetComponent<UISprite>().spriteName = PlayerDataManager.GetInstance().m_houseicon;
+                    Debug.Log("有名字就表示接通了：" + m_Builing.transform.FindChild("House").GetComponent<UISprite>().spriteName);
+                    Debug.Log("有图集就表示接通了：" + m_Builing.transform.FindChild("House").GetComponent<UISprite>().atlas);
+                    UIAtlas HIA=null;
+                    PlayerDataManager.GetInstance().SetHouseAtlas(HIA);
+                }
+                else 
+                { 
+                    SetOpt = false;
+                    m_Sale.SetActive(false);
+                }
+            }                
+            else { m_Sale.SetActive(false); }  
         }
     }
 }
