@@ -24,7 +24,7 @@ public class Building : MonoBehaviour {
         {
             UIEventListener.Get(ButList[i]).onClick = onButList;
         }
-	
+        
 	}
 	
 	// Update is called once per frame

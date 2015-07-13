@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{64ECABE0-8A06-B657-08BA-C09203316BEC}</ProjectGuid>
+	<ProjectGuid>{71B7A9CC-FD2D-31ED-94A4-7411D2C4B02D}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -46,7 +46,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Architecture.cs" />
+     <Compile Include="Assets\BuildingInfo.cs" />
+     <Compile Include="Assets\BuildingManager.cs" />
      <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Game\EquipItems.cs" />
      <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Game\EquipRandomItem.cs" />
      <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Game\UICursor.cs" />
@@ -184,6 +185,7 @@
      <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
      <Compile Include="Assets\Resources\Script\Fight\Fight.cs" />
      <Compile Include="Assets\Resources\Script\Fight\Team.cs" />
+     <Compile Include="Assets\Script\Architecture\Architecture.cs" />
      <Compile Include="Assets\Script\Building\Building.cs" />
      <Compile Include="Assets\Script\Camera\CameraDragMove.cs" />
      <Compile Include="Assets\Script\Common\AccelerateController.cs" />
@@ -256,7 +258,7 @@
      <Compile Include="Assets\Script\Net\PomeloSrc\transport\Transporter.cs" />
      <Compile Include="Assets\Script\Net\PomeloSrc\transport\test\TransportTest.cs" />
      <Compile Include="Assets\Script\Utils\DBDataUtil.cs" />
-     <Compile Include="Assets\WarningClose.cs" />
+     <Compile Include="Assets\Script\Warning\WarningClose.cs" />
      <Compile Include="Assets\spienSkeleton2D\spine-csharp\src\Animation.cs" />
      <Compile Include="Assets\spienSkeleton2D\spine-csharp\src\AnimationState.cs" />
      <Compile Include="Assets\spienSkeleton2D\spine-csharp\src\AnimationStateData.cs" />
@@ -453,7 +455,7 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="SimpleJson">
- <HintPath>C:/MyWorks/Nav/Assets/Script/Net/SimpleJson.dll</HintPath>
+ <HintPath>C:/MyWork/Nav1/Assets/Script/Net/SimpleJson.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iossupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
