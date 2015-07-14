@@ -1,0 +1,52 @@
+{"frames": {
+
+"Fire_miss1.png":
+{
+	"frame": {"x":2,"y":190,"w":42,"h":60},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":11,"y":30,"w":42,"h":60},
+	"sourceSize": {"w":64,"h":96}
+},
+"Fire_miss2.png":
+{
+	"frame": {"x":2,"y":98,"w":48,"h":80},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":8,"y":15,"w":48,"h":80},
+	"sourceSize": {"w":64,"h":96}
+},
+"Fire_miss3.png":
+{
+	"frame": {"x":64,"y":2,"w":60,"h":90},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":6,"w":60,"h":90},
+	"sourceSize": {"w":64,"h":96}
+},
+"Fire_miss4.png":
+{
+	"frame": {"x":64,"y":94,"w":52,"h":94},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":10,"y":2,"w":52,"h":94},
+	"sourceSize": {"w":64,"h":96}
+},
+"Fire_miss5.png":
+{
+	"frame": {"x":2,"y":2,"w":60,"h":94},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":2,"w":60,"h":94},
+	"sourceSize": {"w":64,"h":96}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "Fire_miss.png",
+	"format": "RGBA8888",
+	"size": {"w":128,"h":256},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:6b2733b26f43bc45f6114f73b76e0105$"
+}
+}

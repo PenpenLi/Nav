@@ -1,0 +1,116 @@
+{"frames": {
+
+"Prompt_1.png":
+{
+	"frame": {"x":2,"y":103,"w":45,"h":51},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":1,"w":45,"h":51},
+	"sourceSize": {"w":47,"h":53}
+},
+"Prompt_2.png":
+{
+	"frame": {"x":52,"y":101,"w":45,"h":51},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":1,"w":45,"h":51},
+	"sourceSize": {"w":47,"h":53}
+},
+"Prompt_box1.png":
+{
+	"frame": {"x":52,"y":53,"w":47,"h":46},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":1,"w":47,"h":46},
+	"sourceSize": {"w":49,"h":48}
+},
+"Prompt_box2.png":
+{
+	"frame": {"x":2,"y":53,"w":48,"h":48},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":1,"w":48,"h":48},
+	"sourceSize": {"w":50,"h":50}
+},
+"Prompt_free1.png":
+{
+	"frame": {"x":49,"y":154,"w":44,"h":35},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":1,"w":44,"h":35},
+	"sourceSize": {"w":46,"h":37}
+},
+"Prompt_gold1.png":
+{
+	"frame": {"x":2,"y":156,"w":43,"h":46},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":1,"w":43,"h":46},
+	"sourceSize": {"w":45,"h":48}
+},
+"Prompt_head1.png":
+{
+	"frame": {"x":47,"y":191,"w":40,"h":41},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":1,"w":40,"h":41},
+	"sourceSize": {"w":42,"h":43}
+},
+"Prompt_nengliang1.png":
+{
+	"frame": {"x":95,"y":154,"w":31,"h":47},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":1,"w":31,"h":47},
+	"sourceSize": {"w":33,"h":49}
+},
+"Prompt_pijiu1.png":
+{
+	"frame": {"x":53,"y":2,"w":48,"h":49},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":1,"w":48,"h":49},
+	"sourceSize": {"w":50,"h":51}
+},
+"Prompt_repair1.png":
+{
+	"frame": {"x":2,"y":2,"w":49,"h":49},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":1,"w":49,"h":49},
+	"sourceSize": {"w":51,"h":51}
+},
+"Prompt_stars1.png":
+{
+	"frame": {"x":2,"y":204,"w":37,"h":35},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":1,"w":37,"h":35},
+	"sourceSize": {"w":39,"h":37}
+},
+"Prompt_stars2.png":
+{
+	"frame": {"x":89,"y":203,"w":37,"h":35},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":1,"w":37,"h":35},
+	"sourceSize": {"w":39,"h":37}
+},
+"Prompt_tiao1.png":
+{
+	"frame": {"x":103,"y":2,"w":22,"h":15},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":1,"w":22,"h":15},
+	"sourceSize": {"w":24,"h":17}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "Prompt.png",
+	"format": "RGBA8888",
+	"size": {"w":128,"h":256},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:59aa80f34932b6fc52252c5103d81606$"
+}
+}

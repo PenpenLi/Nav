@@ -2,7 +2,7 @@
 
 "Bird1_yinying.png":
 {
-	"frame": {"x":2,"y":72,"w":32,"h":20},
+	"frame": {"x":2,"y":229,"w":32,"h":20},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":2,"y":9,"w":32,"h":20},
@@ -10,7 +10,7 @@
 },
 "Bird2_yinying.png":
 {
-	"frame": {"x":36,"y":72,"w":30,"h":20},
+	"frame": {"x":36,"y":222,"w":30,"h":20},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":4,"y":9,"w":30,"h":20},
@@ -18,7 +18,7 @@
 },
 "Mill1.png":
 {
-	"frame": {"x":92,"y":72,"w":18,"h":38},
+	"frame": {"x":86,"y":111,"w":18,"h":38},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":18,"h":38},
@@ -26,7 +26,7 @@
 },
 "Mill2.png":
 {
-	"frame": {"x":232,"y":45,"w":18,"h":38},
+	"frame": {"x":132,"y":86,"w":18,"h":38},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":18,"h":38},
@@ -34,7 +34,7 @@
 },
 "Mill3.png":
 {
-	"frame": {"x":212,"y":45,"w":18,"h":38},
+	"frame": {"x":232,"y":141,"w":18,"h":38},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":18,"h":38},
@@ -48,9 +48,73 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":159,"h":38},
 	"sourceSize": {"w":159,"h":38}
 },
+"Static10.png":
+{
+	"frame": {"x":61,"y":181,"w":23,"h":38},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":23,"h":38},
+	"sourceSize": {"w":23,"h":38}
+},
+"Static11.png":
+{
+	"frame": {"x":162,"y":80,"w":34,"h":38},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":34,"h":38},
+	"sourceSize": {"w":34,"h":38}
+},
+"Static12_1.png":
+{
+	"frame": {"x":2,"y":181,"w":28,"h":46},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":28,"h":46},
+	"sourceSize": {"w":28,"h":46}
+},
+"Static12_2.png":
+{
+	"frame": {"x":116,"y":87,"w":13,"h":14},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":13,"h":14},
+	"sourceSize": {"w":13,"h":14}
+},
+"Static13.png":
+{
+	"frame": {"x":32,"y":181,"w":27,"h":39},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":27,"h":39},
+	"sourceSize": {"w":27,"h":39}
+},
+"Static14_1.png":
+{
+	"frame": {"x":210,"y":56,"w":37,"h":50},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":37,"h":50},
+	"sourceSize": {"w":37,"h":50}
+},
+"Static14_2.png":
+{
+	"frame": {"x":198,"y":80,"w":10,"h":9},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":10,"h":9},
+	"sourceSize": {"w":10,"h":9}
+},
+"Static14_3.png":
+{
+	"frame": {"x":116,"y":103,"w":13,"h":13},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":13,"h":13},
+	"sourceSize": {"w":13,"h":13}
+},
 "Static2.png":
 {
-	"frame": {"x":163,"y":2,"w":41,"h":52},
+	"frame": {"x":213,"y":2,"w":41,"h":52},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":41,"h":52},
@@ -66,7 +130,7 @@
 },
 "Static4.png":
 {
-	"frame": {"x":212,"y":85,"w":32,"h":33},
+	"frame": {"x":198,"y":108,"w":32,"h":33},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":33},
@@ -74,7 +138,7 @@
 },
 "Static5.png":
 {
-	"frame": {"x":206,"y":2,"w":45,"h":41},
+	"frame": {"x":163,"y":37,"w":45,"h":41},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":45,"h":41},
@@ -82,7 +146,7 @@
 },
 "Static6.png":
 {
-	"frame": {"x":68,"y":72,"w":22,"h":31},
+	"frame": {"x":232,"y":108,"w":22,"h":31},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":22,"h":31},
@@ -90,7 +154,7 @@
 },
 "Static7.png":
 {
-	"frame": {"x":112,"y":86,"w":14,"h":13},
+	"frame": {"x":116,"y":72,"w":14,"h":13},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":14,"h":13},
@@ -98,11 +162,19 @@
 },
 "Static8.png":
 {
-	"frame": {"x":162,"y":56,"w":48,"h":33},
+	"frame": {"x":163,"y":2,"w":48,"h":33},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":48,"h":33},
 	"sourceSize": {"w":48,"h":33}
+},
+"Static9.png":
+{
+	"frame": {"x":86,"y":72,"w":28,"h":37},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":28,"h":37},
+	"sourceSize": {"w":28,"h":37}
 },
 "Wave1.png":
 {
@@ -117,8 +189,8 @@
 	"version": "1.0",
 	"image": "Static.png",
 	"format": "RGBA8888",
-	"size": {"w":256,"h":128},
+	"size": {"w":256,"h":256},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:a24749dee758faf2da0a513ab2bdcd18$"
+	"smartupdate": "$TexturePacker:SmartUpdate:9f8b0b7d1c70f89018562cd461c8f332$"
 }
 }
