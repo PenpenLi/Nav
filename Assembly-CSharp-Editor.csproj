@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{8E1F8298-796A-D752-5A5A-8C425E06C16D}</ProjectGuid>
+	<ProjectGuid>{0A43EC97-147A-C662-844C-EE3AE9D318EF}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -212,7 +212,7 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="SimpleJson">
- <HintPath>C:/MyWork/Nav1/Assets/Script/Net/SimpleJson.dll</HintPath>
+ <HintPath>C:/MyWork/Nav/Assets/Script/Net/SimpleJson.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
@@ -253,7 +253,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{71B7A9CC-FD2D-31ED-94A4-7411D2C4B02D}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
+      <Project>{64ECABE0-8A06-B657-08BA-C09203316BEC}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
