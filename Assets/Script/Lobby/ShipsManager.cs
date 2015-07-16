@@ -59,6 +59,7 @@ public class ShipsManager : MonoBehaviour {
         }
         GameObject ship = Instantiate(Resources.Load("Prefab/Lobby/AchorShip")) as GameObject;
         ship.GetComponent<UISprite>().spriteName = "ani_ship_" + Convert.ToString(spriteid);
+		ship.GetComponent<UISprite>().MakePixelPerfect();
         ship.transform.localScale = Vector3.one;
         ship.transform.SetParent(gameObject.transform, false);
         ShipsObject shipobj = new ShipsObject();
