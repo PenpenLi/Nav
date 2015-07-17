@@ -7,12 +7,14 @@ public class CameraDragMove : MonoBehaviour
     private Vector3 ResetCamera;//摄像机初始坐标
     private Vector3 Origin;//移动停止坐标
     private Vector3 Diference;//摄像机当前坐标
-    private Vector3 dif;
+    private Vector3 Dif;
+    private Vector3 LS;
     private bool Drag = false;//是否开始记录点击点坐标的开关
     void Start()
     {
         ResetCamera = m_camera.transform.position; //获得摄像机初始位置  
-        dif = new Vector3(0,0,0);
+        Dif = new Vector3(0, 0, 0);
+        Debug.Log(m_camera.transform.localScale);
     }
 
     // Update is called once per frame
@@ -38,44 +40,58 @@ public class CameraDragMove : MonoBehaviour
         }
         if (Drag == true)
         {
-            //左右边界限定
             ResetCamera = Origin - Diference;
-            if (ResetCamera.x < -5.5)
-            {
-                ResetCamera.x = -5.45f;
-                m_camera.transform.position = ResetCamera;
-            }
-            else if (ResetCamera.x > 5.2)
-            {
-                ResetCamera.x = 5.15f;
-                m_camera.transform.position = ResetCamera;
-            }
-            else if (ResetCamera.x > -5.5 || ResetCamera.x<5.2)
-            {
-                m_camera.transform.position = ResetCamera;
-                //Debug.Log("ResetCamera =" + ResetCamera);
-            }
-            //上下边界限定
-            if (ResetCamera.y < -3.3)
-            {
-                ResetCamera.y = -3.25f;
-                m_camera.transform.position = ResetCamera;
-            }
-            else if (ResetCamera.y > 5.8)
-            {
-                ResetCamera.y = 5.75f;
-                m_camera.transform.position = ResetCamera;
-            }
-            else if (ResetCamera.y > -3.3 || ResetCamera.y < 5.8)
-            {
-                m_camera.transform.position = ResetCamera;
-                //Debug.Log("ResetCamera =" + ResetCamera);
-            }     
+            cameraX();
+            cameraY();
+            //if (m_camera.transform.lossyScale == new Vector3(1.0f, 1.0f, 1.0f))
+            //{
+            //    cameraX();
+            //    cameraY();
+            //}
+
+
+
         }
         //RESET CAMERA TO STARTING POSITION WITH RIGHT CLICK
         if (Input.GetMouseButton(1))// 鼠标右键是否按下
         {
-            m_camera.transform.position = dif;
+            m_camera.transform.position = Dif;
+        }
+    }
+    void cameraX()
+    {
+        if (ResetCamera.x < -1.7)
+        {
+            ResetCamera.x = -1.65f;
+            m_camera.transform.position = ResetCamera;
+        }
+        else if (ResetCamera.x > 1.9)
+        {
+            ResetCamera.x = 1.85f;
+            m_camera.transform.position = ResetCamera;
+        }
+        else if (ResetCamera.x > -1.7 || ResetCamera.x < 1.9)
+        {
+            m_camera.transform.position = ResetCamera;
+            Debug.Log("ResetCamera X=" + ResetCamera);
+        }
+    }
+    void cameraY()
+    {
+        if (ResetCamera.y < -2.4)
+        {
+            ResetCamera.y = -2.35f;
+            m_camera.transform.position = ResetCamera;
+        }
+        else if (ResetCamera.y > 1.2)
+        {
+            ResetCamera.y = 1.15f;
+            m_camera.transform.position = ResetCamera;
+        }
+        else if (ResetCamera.y > -2.4 || ResetCamera.y < 1.2)
+        {
+            m_camera.transform.position = ResetCamera;
+            Debug.Log("ResetCamera Y=" + ResetCamera);
         }
     }
 }

@@ -33,15 +33,9 @@ public class BuildingManager : MonoBehaviour
         //For testing----------------------------------------------------
 
         setBCloneList();
-        Debug.Log("m_BposList.Count =" + m_Bclone.Count);
         for (int i = 0; i < m_Bclone.Count; i++)
         {
             m_BuildingList.Add(AddBuild(i));
-            //if (m_Bclone[i].Status == 1)
-            //{
-            //    Building buil = new Building();
-            //    buil.m_Sale.SetActive(false);
-            //}
         }
 
         //test end--------------------------------------------------------
@@ -58,17 +52,17 @@ public class BuildingManager : MonoBehaviour
      GameObject AddBuild(int BInd)
     {
          getHouseA(BInd);
-         GameObject building = Instantiate(Resources.Load("Prefab/Building/Building")) as GameObject;//get perfab
-         building.transform.parent = GameObject.Find("BuildingManager").transform;//set building parent
-         building.name = BInd.ToString();
-         building.transform.localScale = Vector3.one;
-         building.transform.localPosition = m_Bclone[BInd].BuildPos;//set building position
+         GameObject m_building = Instantiate(Resources.Load("Prefab/Building/Building")) as GameObject;//get perfab
+         m_building.transform.parent = GameObject.Find("BuildingManager").transform;//set building parent
+         m_building.name = BInd.ToString();
+         m_building.transform.localScale = Vector3.one;
+         m_building.transform.localPosition = m_Bclone[BInd].BuildPos;//set building position
          if (m_Bclone[BInd].Status == 1)
          {
-             building.transform.FindChild("House").GetComponent<UISprite>().atlas = m_housesa;
-             building.transform.FindChild("House").GetComponent<UISprite>().spriteName = m_housesn;
+             m_building.transform.FindChild("House").GetComponent<UISprite>().atlas = m_housesa;
+             m_building.transform.FindChild("House").GetComponent<UISprite>().spriteName = m_housesn;
          }
-         return building;
+         return m_building;
     }
 
 
@@ -112,6 +106,5 @@ public class BuildingManager : MonoBehaviour
                     break;
             }
         }
-        //return m_housesa;
     }
 }
