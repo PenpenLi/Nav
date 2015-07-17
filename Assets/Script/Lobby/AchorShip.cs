@@ -7,7 +7,8 @@ public enum ShipState
     EnterPort,
     Docking,
     Dock,
-    Leave
+    Leave,
+    Go
 }
 
 public class AchorShip : MonoBehaviour {
@@ -39,7 +40,7 @@ public class AchorShip : MonoBehaviour {
                 DockApear();
                 break;
             case ShipState.Leave:
-
+                Back();
                 break;
         }
 	}
@@ -102,16 +103,23 @@ public class AchorShip : MonoBehaviour {
 
     }
 
-    void DockApear()
+    bool DockApear()
     {
         if(gameObject.GetComponent<UISprite>().alpha < 1.0f)
         {
             gameObject.GetComponent<UISprite>().alpha += (Time.deltaTime * 1);
+            return false;
         }
+        else
+        {
+            m_shipState = ShipState.Leave;
+            return true;
+        }
+
     }
 
     public void Back()//出港
     {
-
+        gameObject.GetComponent<TweenColor>().ResetToBeginning();
     }
 }
