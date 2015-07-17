@@ -57,6 +57,7 @@ public class BuildingManager : MonoBehaviour
          m_building.name = BInd.ToString();
          m_building.transform.localScale = Vector3.one;
          m_building.transform.localPosition = m_Bclone[BInd].BuildPos;//set building position
+         m_building.GetComponent<Building>().m_HouseMenu = m_BMHouseMenu;
          if (m_Bclone[BInd].Status == 1)
          {
              m_building.transform.FindChild("House").GetComponent<UISprite>().atlas = m_housesa;

@@ -11,21 +11,17 @@ public class HouseMenu : MonoBehaviour {
     public GameObject m_HouseMenu;
     public GameObject m_Warning;
 
-    public UILabel Inputsq;
-    public UILabel m_GoldCount;
-
     int GoldCount = 999999999;
-    //获得
-    UIAtlas HouseIconAtlas;
-    string HouseIconName;
 
-    string STR;
-    string Inp ;
-    int Nun;
-    int InSq;
+    //获得
+    public UIAtlas m_HouseIconAtlas;
+    public string m_HouseIconName;
+    public bool m_CStatus;//building update switch
+
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+    {
         for (int i = 0; i < m_ButLise.Count; i++)
         {
             UIEventListener.Get(m_ButLise[i]).onClick = onButList;
@@ -44,26 +40,10 @@ public class HouseMenu : MonoBehaviour {
             
             if (m_ButLise[i].GetHashCode() == go.gameObject.GetHashCode())
             {
-                switch (i)
-                {
-                    case 0:
-                        getNA(i);
-                        break;
-                    case 1:
-                        getNA(i);
-                        break;
-                    case 2:
-                        getNA(i);
-                        break;
-                    case 3:
-                        getNA(i);
-                        break;
-                    case 4:
-                        getNA(i);
-                        break;
-                    default:
-                        break;
-                }
+                m_HouseIconName = m_ButLise[i].transform.FindChild("HouseIcon").GetComponent<UISprite>().spriteName;
+                m_HouseIconAtlas = m_ButLise[i].transform.FindChild("HouseIcon").GetComponent<UISprite>().atlas;
+                m_HouseMenu.SetActive(false);
+                m_CStatus = false;
             }
         } 
     }
@@ -71,26 +51,7 @@ public class HouseMenu : MonoBehaviour {
     void onClose(GameObject go)
     {
         m_HouseMenu.SetActive(false);
-    }
+        m_CStatus =false;
 
-    void getNA(int m_Index)
-    {
-        STR = m_GoldCount.text;
-        Inp = Inputsq.text; 
-        Nun = int.Parse(STR);
-        InSq = int.Parse(Inp);
-        if (InSq < Nun)
-        {
-            m_Warning.SetActive(true);
-        }
-        else
-        {
-            HouseIconName = m_ButLise[m_Index].transform.FindChild("HouseIcon").GetComponent<UISprite>().spriteName;
-            HouseIconAtlas = m_ButLise[m_Index].transform.FindChild("HouseIcon").GetComponent<UISprite>().atlas;
-            PlayerDataManager.GetInstance().SetHouseIconN(HouseIconName);
-            PlayerDataManager.GetInstance().SetHouseAtlas(HouseIconAtlas);
-            Debug.Log("参数已传入PDM，并且等于：" + PlayerDataManager.GetInstance().m_houseicon);
-            m_HouseMenu.SetActive(false);
-        }
     }
 }
