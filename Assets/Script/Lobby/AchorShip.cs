@@ -8,42 +8,136 @@ public enum ShipState
     Docking,
     Dock,
     Leave,
+    LevelPos,
     Go
 }
 
 public class AchorShip : MonoBehaviour {
-    Vector3 m_comeBeginPos = new Vector3(-2280.0f, 1037.0f, 0.0f);
-    Vector3 m_comeEndPos = new Vector3(-545.0f, -99.0f, 0.0f);
+    Vector3 m_comeBeginPos = new Vector3(-2263, 1339.0f, 0.0f);
+    Vector3 m_comeEndPos = new Vector3(-368.0f, 38.0f, 0.0f);
     float m_offsetbase = -1.0f;
     //Vector3 m_dockPos = new Vector3();
     GameObject m_dockGO;
     Vector3 m_tempVec3 = new Vector3();
     ShipState m_shipState = new ShipState();
+    Vector3 m_leaveStart = new Vector3(114.0f, -97.0f, 0.0f);
+    Vector3 m_leaveEnd = new Vector3(-2250.0f, -1127.0f, 0.0f);
+    Curve2D m_curveLeave = new Curve2D();
+    Curve2D m_curveCom = new Curve2D();
+    float m_scaleSpeed = 1.0f;
+    float m_fStep = 0.0f;
+    float m_fComStep = 0.0f;
+    float m_moveSpeed = 0.3f;
 	// Use this for initialization
 	void Start () {
+        UIEventListener.Get(gameObject).onClick = ClickShip;
+        m_curveLeave.SetLineCurve(m_leaveStart, m_leaveEnd);
+        m_curveCom.SetLineCurve(m_comeBeginPos, m_comeEndPos);
+        m_fStep = 0.0f;
+        m_fComStep = 0.0f;
         Come(50.0f);
 	}
 	
+    void ClickShip(GameObject go)
+    {
+        Debug.Log("click ship");
+        switch (m_shipState)
+        {
+            case ShipState.EnterPort:
+
+                break;
+            case ShipState.Dock://在停泊时点击船体
+                m_shipState = ShipState.Leave;
+                break;
+            case ShipState.Leave:
+
+                break;
+        }
+    }
+
     public void SetDockParent(GameObject go)
     {
         m_dockGO = go;
     }
+
 
 	// Update is called once per frame
 	void Update () {
         switch(m_shipState)
         {
             case ShipState.EnterPort:
-
+                if(EnterPort())
+                {
+                    Debug.Log(" m_shipState = ShipState.Dock;");
+                    m_shipState = ShipState.Docking;
+                }
+                break;
+            case ShipState.Docking:
+                if (Apear(true))
+                {
+                    m_shipState = ShipState.Dock;
+                    Dock();
+                }
                 break;
             case ShipState.Dock:
-                DockApear();
+                Apear();
                 break;
             case ShipState.Leave:
-                Back();
+                if(Apear(true))
+                {
+                    m_shipState = ShipState.LevelPos;
+                    gameObject.transform.parent = GameObject.FindWithTag("Anchor").transform;
+                    gameObject.transform.localPosition = m_leaveStart;
+                }
+                break;
+            case ShipState.LevelPos:
+                if(Apear())
+                {
+                    m_shipState = ShipState.Go;
+                }
+                break;
+            case ShipState.Go:
+                GoOut();
                 break;
         }
 	}
+
+    void ReconnectShipManager(GameObject go)
+    {
+
+    }
+
+    void GoOut()
+    {
+        m_fStep = m_fStep + Time.deltaTime * m_scaleSpeed * m_moveSpeed;
+        if (m_fStep >= 1.0f)
+        {
+            m_fStep = 1.0f;
+        }
+        if (m_fStep <= 0.0f)
+        {
+            m_fStep = 0.0f;
+        }
+        Vector3 vecTemp = m_curveLeave.SetPos(m_fStep);
+        transform.localPosition = vecTemp;
+    }
+
+    bool EnterPort()
+    {
+        m_fComStep = m_fComStep + Time.deltaTime * m_scaleSpeed * m_moveSpeed;
+        if (m_fComStep >= 1.0f)
+        {
+            m_fComStep = 1.0f;
+            return true;
+        }
+        if (m_fComStep <= 0.0f)
+        {
+            m_fComStep = 0.0f;
+        }
+        Vector3 vecTemp = m_curveCom.SetPos(m_fComStep);
+        transform.localPosition = vecTemp;
+        return false;
+    }
 
     public ShipState GetState()
     {
@@ -64,10 +158,7 @@ public class AchorShip : MonoBehaviour {
     {
         m_shipState = ShipState.EnterPort;
         gameObject.GetComponent<UISprite>().flip = UIBasicSprite.Flip.Horizontally;
-        gameObject.GetComponent<TweenPosition>().from = m_comeBeginPos;
-        gameObject.GetComponent<TweenPosition>().to = m_comeEndPos;
-        gameObject.GetComponent<TweenPosition>().duration = timeLength;
-        gameObject.GetComponent<TweenPosition>().enabled = true;
+        
     }
 
     public void ComComplete()
@@ -81,7 +172,9 @@ public class AchorShip : MonoBehaviour {
         m_shipState = ShipState.Docking;
         VisbleWave(false);
         gameObject.GetComponent<UISprite>().flip = UIBasicSprite.Flip.Nothing;
-        m_dockGO = gameObject.transform.parent.GetComponent<ShipsManager>().GetFreeAchor();
+
+       // m_dockGO = gameObject.transform.parent.transform.parent.GetComponent<ShipsManager>().GetFreeAchor();
+        m_dockGO = GameObject.FindWithTag("Anchor").GetComponent<ShipsManager>().GetFreeAchor();
         gameObject.transform.parent = m_dockGO.transform;
         gameObject.transform.localPosition = Vector3.zero;
         gameObject.transform.localScale = Vector3.one;
@@ -103,18 +196,37 @@ public class AchorShip : MonoBehaviour {
 
     }
 
-    bool DockApear()
+    bool Apear(bool visable = false)
     {
-        if(gameObject.GetComponent<UISprite>().alpha < 1.0f)
+        if(visable)
         {
-            gameObject.GetComponent<UISprite>().alpha += (Time.deltaTime * 1);
-            return false;
+            if (gameObject.GetComponent<UISprite>().alpha > 0.0f)
+            {
+                gameObject.GetComponent<UISprite>().alpha -= (Time.deltaTime * m_scaleSpeed);
+                return false;
+            }
+            else
+            {
+                //m_shipState = ShipState.Leave;
+                return true;
+            }
         }
         else
         {
-            m_shipState = ShipState.Leave;
-            return true;
+            Debug.Log("visable = false gameObject.GetComponent<UISprite>().alpha = " + gameObject.GetComponent<UISprite>().alpha);
+            if (gameObject.GetComponent<UISprite>().alpha < 1.0f)
+            {
+                Debug.Log("gameObject.GetComponent<UISprite>().alpha < 1.0f");
+                gameObject.GetComponent<UISprite>().alpha += (Time.deltaTime * m_scaleSpeed);
+                return false;
+            }
+            else
+            {
+                //m_shipState = ShipState.Leave;
+                return true;
+            }
         }
+      
 
     }
 

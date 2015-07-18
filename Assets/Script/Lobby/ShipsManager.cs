@@ -103,6 +103,11 @@ public class ShipsManager : MonoBehaviour {
              if (m_shipList[i].state == ShipState.Docking)
              {
                  m_shipList[i].ship.GetComponent<AchorShip>().SetDockParent(GetFreeAchor());
+                 Transform tf = m_shipList[i].ship.transform.FindChild("Gold");
+                 if(tf != null)
+                 {
+                     tf.gameObject.SetActive(true);
+                 }
              }
          }
     }
@@ -111,7 +116,7 @@ public class ShipsManager : MonoBehaviour {
     {
         for(int i = 0; i < m_anchorList.Count; i++)
         {
-            Debug.Log("i = " + i + " m_anchorList[i].transform.childCount = " + m_anchorList[i].transform.childCount);
+            //Debug.Log("i = " + i + " m_anchorList[i].transform.childCount = " + m_anchorList[i].transform.childCount);
             if(m_anchorList[i].transform.childCount== 0)
             {
                 return m_anchorList[i];

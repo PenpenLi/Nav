@@ -73,7 +73,7 @@ public class CameraDragMove : MonoBehaviour
         else if (ResetCamera.x > -1.7 || ResetCamera.x < 1.9)
         {
             m_camera.transform.position = ResetCamera;
-            Debug.Log("ResetCamera X=" + ResetCamera);
+            //Debug.Log("ResetCamera X=" + ResetCamera);
         }
     }
     void cameraY()
