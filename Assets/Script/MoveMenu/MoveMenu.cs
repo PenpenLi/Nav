@@ -9,7 +9,7 @@ public class MoveMenu : MonoBehaviour {
     public GameObject m_RMenuBG; //Right背板
     public GameObject m_OpMenu; //伸缩按钮 伸
     
-    private bool m_Move = false;
+    private bool H_Move = false;
 
 	// Use this for initialization
 	void Start () {
@@ -25,9 +25,9 @@ public class MoveMenu : MonoBehaviour {
 
     void onOpMenu(GameObject go)
     {
-        if (m_Move == false)
+        if (H_Move == false)
         {
-            m_Move = true;
+            H_Move = true;
 
             m_UMenuBG.GetComponent<TweenPosition>().from.y = -320;
             m_UMenuBG.GetComponent<TweenPosition>().to.y = 0;
@@ -42,7 +42,7 @@ public class MoveMenu : MonoBehaviour {
         }
         else
         {
-            m_Move = false;
+            H_Move = false;
 
             m_UMenuBG.GetComponent<TweenPosition>().from.y = 0;
             m_UMenuBG.GetComponent<TweenPosition>().to.y = -320;

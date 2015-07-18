@@ -14,10 +14,9 @@ public class HouseMenu : MonoBehaviour {
     int GoldCount = 999999999;
 
     //获得
-    public UIAtlas m_HouseIconAtlas;
-    public string m_HouseIconName;
-    public bool m_CStatus;//building update switch
-
+    public UIAtlas H_HouseIconAtlas;
+    public string H_HouseIconName;
+    public bool H_HCStatus;//building update switch
 
 	// Use this for initialization
 	void Start () 
@@ -40,10 +39,10 @@ public class HouseMenu : MonoBehaviour {
             
             if (m_ButLise[i].GetHashCode() == go.gameObject.GetHashCode())
             {
-                m_HouseIconName = m_ButLise[i].transform.FindChild("HouseIcon").GetComponent<UISprite>().spriteName;
-                m_HouseIconAtlas = m_ButLise[i].transform.FindChild("HouseIcon").GetComponent<UISprite>().atlas;
+                H_HouseIconName = m_ButLise[i].transform.FindChild("HouseIcon").GetComponent<UISprite>().spriteName;
+                H_HouseIconAtlas = m_ButLise[i].transform.FindChild("HouseIcon").GetComponent<UISprite>().atlas;
                 m_HouseMenu.SetActive(false);
-                m_CStatus = false;
+                H_HCStatus = false;
             }
         } 
     }
@@ -51,7 +50,7 @@ public class HouseMenu : MonoBehaviour {
     void onClose(GameObject go)
     {
         m_HouseMenu.SetActive(false);
-        m_CStatus =false;
+        H_HCStatus =false;
 
     }
 }

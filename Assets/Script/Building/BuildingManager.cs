@@ -23,8 +23,8 @@ public class BuildingManager : MonoBehaviour
     
 
     // User Parameters
-    UIAtlas m_housesa;          //get house icon atlas
-    string m_housesn;          //get house icon sprite name
+    UIAtlas H_Hhousesa;          //get house icon atlas
+    string H_Housesn;          //get house icon sprite name
 
 
     // Use this for initialization
@@ -60,8 +60,8 @@ public class BuildingManager : MonoBehaviour
          m_building.GetComponent<Building>().m_HouseMenu = m_BMHouseMenu;
          if (m_Bclone[BInd].Status == 1)
          {
-             m_building.transform.FindChild("House").GetComponent<UISprite>().atlas = m_housesa;
-             m_building.transform.FindChild("House").GetComponent<UISprite>().spriteName = m_housesn;
+             m_building.transform.FindChild("House").GetComponent<UISprite>().atlas = H_Hhousesa;
+             m_building.transform.FindChild("House").GetComponent<UISprite>().spriteName = H_Housesn;
          }
          return m_building;
     }
@@ -84,24 +84,24 @@ public class BuildingManager : MonoBehaviour
             switch (AtlasId)
             {
                 case 0:
-                    m_housesa = m_AtlasList[AtlasId];
-                    m_housesn = "ani_house_a_" + m_Bclone[AtlasId].Lev;
+                    H_Hhousesa = m_AtlasList[AtlasId];
+                    H_Housesn = "ani_house_a_" + m_Bclone[AtlasId].Lev;
                     break;
                 case 1:
-                    m_housesa = m_AtlasList[AtlasId];
-                    m_housesn = "ani_house_b_" + m_Bclone[AtlasId].Lev;
+                    H_Hhousesa = m_AtlasList[AtlasId];
+                    H_Housesn = "ani_house_b_" + m_Bclone[AtlasId].Lev;
                     break;
                 case 2:
-                    m_housesa = m_AtlasList[AtlasId];
-                    m_housesn = "ani_house_c_" + m_Bclone[AtlasId].Lev;
+                    H_Hhousesa = m_AtlasList[AtlasId];
+                    H_Housesn = "ani_house_c_" + m_Bclone[AtlasId].Lev;
                     break;
                 case 3:
-                    m_housesa = m_AtlasList[AtlasId];
-                    m_housesn = "ani_house_d_" + m_Bclone[AtlasId].Lev;
+                    H_Hhousesa = m_AtlasList[AtlasId];
+                    H_Housesn = "ani_house_d_" + m_Bclone[AtlasId].Lev;
                     break;
                 case 4:
-                    m_housesa = m_AtlasList[AtlasId];
-                    m_housesn = "ani_house_e_" + m_Bclone[AtlasId].Lev;
+                    H_Hhousesa = m_AtlasList[AtlasId];
+                    H_Housesn = "ani_house_e_" + m_Bclone[AtlasId].Lev;
                     break;
                 default:
                     break;
