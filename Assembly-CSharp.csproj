@@ -430,6 +430,7 @@
      <None Include="Assets\spienSkeleton2D\spine-unity\spine-unity\Shaders\SkeletonEx.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored.shader" />
      <None Include="Assets\Atlas\Head\Head.txt" />
+     <None Include="Assets\Atlas\Login\Login.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 3.shader" />

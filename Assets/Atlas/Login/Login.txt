@@ -1,0 +1,76 @@
+{"frames": {
+
+"Login_niao1.png":
+{
+	"frame": {"x":2,"y":317,"w":227,"h":140},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":227,"h":140},
+	"sourceSize": {"w":227,"h":140}
+},
+"Login_niao2.png":
+{
+	"frame": {"x":231,"y":317,"w":140,"h":98},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":140,"h":98},
+	"sourceSize": {"w":140,"h":98}
+},
+"Login_niao3.png":
+{
+	"frame": {"x":231,"y":417,"w":186,"h":93},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":186,"h":93},
+	"sourceSize": {"w":186,"h":93}
+},
+"change_server@2x.png":
+{
+	"frame": {"x":658,"y":220,"w":316,"h":72},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":316,"h":72},
+	"sourceSize": {"w":316,"h":72}
+},
+"logo1_ch@2x.png":
+{
+	"frame": {"x":2,"y":2,"w":654,"h":313},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":12,"y":12,"w":654,"h":313},
+	"sourceSize": {"w":678,"h":337}
+},
+"start_uc_0@2x.png":
+{
+	"frame": {"x":658,"y":2,"w":316,"h":216},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":316,"h":216},
+	"sourceSize": {"w":316,"h":216}
+},
+"start_uc_icon_change@2x.png":
+{
+	"frame": {"x":373,"y":317,"w":155,"h":63},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":155,"h":63},
+	"sourceSize": {"w":155,"h":63}
+},
+"start_uc_icon_client@2x.png":
+{
+	"frame": {"x":419,"y":382,"w":153,"h":62},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":153,"h":62},
+	"sourceSize": {"w":153,"h":62}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "Login.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":512},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:900552bc01df9ac317c92b3c7c50d439$"
+}
+}
