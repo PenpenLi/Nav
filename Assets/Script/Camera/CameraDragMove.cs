@@ -60,17 +60,17 @@ public class CameraDragMove : MonoBehaviour
     }
     void cameraX()
     {
-        if (ResetCamera.x < -1.7)
+        if (ResetCamera.x < -6.0)
         {
-            ResetCamera.x = -1.65f;
+            ResetCamera.x = -5.95f;
             m_camera.transform.position = ResetCamera;
         }
-        else if (ResetCamera.x > 1.9)
+        else if (ResetCamera.x > 4.8)
         {
-            ResetCamera.x = 1.85f;
+            ResetCamera.x = 4.75f;
             m_camera.transform.position = ResetCamera;
         }
-        else if (ResetCamera.x > -1.7 || ResetCamera.x < 1.9)
+        else if (ResetCamera.x > -6.0 || ResetCamera.x < 4.8)
         {
             m_camera.transform.position = ResetCamera;
             //Debug.Log("ResetCamera X=" + ResetCamera);
@@ -78,20 +78,20 @@ public class CameraDragMove : MonoBehaviour
     }
     void cameraY()
     {
-        if (ResetCamera.y < -2.4)
+        if (ResetCamera.y < -6.2)
         {
-            ResetCamera.y = -2.35f;
+            ResetCamera.y = -6.15f;
             m_camera.transform.position = ResetCamera;
         }
-        else if (ResetCamera.y > 1.2)
+        else if (ResetCamera.y > 2.9)
         {
-            ResetCamera.y = 1.15f;
+            ResetCamera.y = 2.85f;
             m_camera.transform.position = ResetCamera;
         }
-        else if (ResetCamera.y > -2.4 || ResetCamera.y < 1.2)
+        else if (ResetCamera.y > -6.2 || ResetCamera.y < 2.9)
         {
             m_camera.transform.position = ResetCamera;
-            Debug.Log("ResetCamera Y=" + ResetCamera);
+            //Debug.Log("ResetCamera Y=" + ResetCamera);
         }
     }
 }

@@ -13,6 +13,11 @@ public class GlobalVar {
 	public const int m_maxShips = 12;
     public bool m_finishShell = true;//是否完成此次射击
 
+    //sq Start---------------------------------------------
+    public string Bobjname = null; //建筑perfab对象名
+    public int BobjS = -1; //建筑perfab对象索引
+    //sq end-----------------------------------------------
+
 
     public static GlobalVar GetInstance()
     {
@@ -51,5 +56,4 @@ public class GlobalVar {
     {
         m_finishShell = bFinish;
     }
-
 }

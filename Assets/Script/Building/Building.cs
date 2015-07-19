@@ -64,19 +64,46 @@ public class Building : MonoBehaviour {
     }
     void onHouse(GameObject go)
     {
-        if (H_HUswitch == false)
+        //For testing----------------------------------------------------
+
+        Debug.Log("你确实点到了House按钮！");
+        Debug.Log(m_building.name + "初始H_HUswitch == " + GlobalVar.GetInstance().BobjS);
+        //test end--------------------------------------------------------
+        if (GlobalVar.GetInstance().Bobjname != null)
         {
-            H_HUswitch = true;
+            //if(){}
+            if (GlobalVar.GetInstance().Bobjname == m_building.name)
+            {
+                GlobalVar.GetInstance().BobjS = 1;
+            }
+            else
+            {
+                string obj = GlobalVar.GetInstance().Bobjname;
+                m_building.transform.parent.FindChild(GlobalVar.GetInstance().Bobjname).GetComponent<Building>().m_HouseUP.SetActive(false);
+                m_building.transform.parent.FindChild(GlobalVar.GetInstance().Bobjname).GetComponent<Building>().m_House.GetComponent<TweenColor>().enabled = false;
+                m_building.transform.parent.FindChild(GlobalVar.GetInstance().Bobjname).GetComponent<Building>().m_House.GetComponent<TweenColor>().ResetToBeginning();
+                GlobalVar.GetInstance().BobjS = -1;
+            }
+        }
+        setHSwitch();
+     }
+    void setHSwitch()
+    {
+        if (GlobalVar.GetInstance().BobjS == -1)//打开升级按钮
+        {
             m_HouseUP.SetActive(true);
             m_House.GetComponent<TweenColor>().enabled = true;
-            
+            GlobalVar.GetInstance().Bobjname = m_building.name;
+            GlobalVar.GetInstance().BobjS = 1;
         }
-        else
+        else if (GlobalVar.GetInstance().BobjS == 1) //关闭升级按钮
         {
-            H_HUswitch = false;
             m_HouseUP.SetActive(false);
             m_House.GetComponent<TweenColor>().enabled = false;
             m_House.GetComponent<TweenColor>().ResetToBeginning();
+            GlobalVar.GetInstance().Bobjname = null;
+            GlobalVar.GetInstance().BobjS = -1;
         }
-    }    
+        Debug.Log(m_building.name + "结果H_HUswitch == " + GlobalVar.GetInstance().BobjS);
+    }
 }
