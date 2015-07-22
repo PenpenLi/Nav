@@ -2,38 +2,42 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Building : MonoBehaviour {
-
-    //button list
-    //public List<GameObject> m_ButList = new List<GameObject>();
+public class Building : MonoBehaviour
+{
     public GameObject m_Sale;
     public GameObject m_House;
     public GameObject m_UpIcon;
-    public GameObject m_HouseUP;
-    public GameObject m_ProgressBar;
 
+    public GameObject m_HouseUP;
+    public GameObject m_UpInfo;
+    public GameObject m_Upgrade;
+    public GameObject m_Items;
+
+    public GameObject m_BuildInfo;
+    public GameObject m_TimeLine1;
+    public GameObject m_HouseName;
+    public GameObject m_Buy;
+
+    public GameObject m_BuildAnimation;
+    public GameObject m_Statr;
+    public GameObject m_Center;
+    public GameObject m_End;
     public GameObject m_building;
     public GameObject m_HouseMenu;
-   
-    bool H_UDswitch ; //update switch
-    bool H_HUswitch = false; //house up switch
+
+    bool H_UDswitch= false; //update switch
+    //bool H_HUswitch = false; //house up switch
     string H_BuildObjName;
-	// Use this for initialization
-	void Start () 
+    // Use this for initialization
+    void Start()
     {
-        H_HUswitch = false;
-        if (m_House.transform.GetComponentInChildren<UISprite>().atlas != null)
-        {
-            m_Sale.SetActive(false);
-        }
+        
         UIEventListener.Get(m_Sale).onClick = onSale;
         UIEventListener.Get(m_House).onClick = onHouse;
-        //UIEventListener.Get(m_UpIcon).onClick = onUpIcon;
-        //UIEventListener.Get(m_HouseUP).onClick = onHouseUP;
-        //UIEventListener.Get(m_ProgressBar).onClick = onProgressBar;
-	}
-	
-	// Update is called once per frame
+        UIEventListener.Get(m_Upgrade).onClick = onUpgrade;
+    }
+
+    // Update is called once per frame
     void Update()
     {
         if (H_UDswitch == true)
@@ -57,53 +61,93 @@ public class Building : MonoBehaviour {
     }
     void onSale(GameObject go)
     {
+        Debug.Log("当前perfab的名字是→ " + m_building.name);
         H_UDswitch = true;
+        m_House.SetActive(true);
         m_HouseMenu.GetComponent<HouseMenu>().H_HCStatus = true;
         m_HouseMenu.GetComponent<HouseMenu>().H_HouseIconAtlas = null;
         m_HouseMenu.SetActive(true);
+        if (GlobalVar.GetInstance().Bobjname != null)
+        {
+            m_building.transform.parent.FindChild(GlobalVar.GetInstance().Bobjname).GetComponent<Building>().m_HouseUP.SetActive(false);
+            m_building.transform.parent.FindChild(GlobalVar.GetInstance().Bobjname).GetComponent<Building>().m_House.GetComponent<TweenColor>().enabled = false;
+            m_building.transform.parent.FindChild(GlobalVar.GetInstance().Bobjname).GetComponent<Building>().m_House.GetComponent<TweenColor>().ResetToBeginning();
+            GlobalVar.GetInstance().BobjS = 1;
+            GlobalVar.GetInstance().Bobjname = null;
+
+        }
     }
     void onHouse(GameObject go)
     {
         //For testing----------------------------------------------------
-
-        Debug.Log("你确实点到了House按钮！");
-        Debug.Log(m_building.name + "初始H_HUswitch == " + GlobalVar.GetInstance().BobjS);
+        Debug.Log("你确实点到了房子！");
+        Debug.Log("当前房子图集是！" + m_House.transform.GetComponent<UISprite>().atlas.name);
         //test end--------------------------------------------------------
+
+        //According to building type display item
+        switch (m_House.transform.GetComponent<UISprite>().atlas.name)
+        {
+            case "ani_house_a": // Gold
+                Debug.Log("产物是金币！");
+                m_Items.transform.FindChild("2").GetComponent<UISprite>().spriteName = "icon_money5@2x";
+                break;
+            case "ani_house_b": // Rum
+                Debug.Log("产物是朗姆酒！");
+                m_Items.transform.FindChild("2").GetComponent<UISprite>().spriteName = "bar_grain@2x";
+                break;
+            default:
+                m_Items.SetActive(false);
+                m_HouseUP.transform.FindChild("UpInfo").localPosition = new Vector3(-19.0f, 0f, 0f);
+                m_HouseUP.transform.FindChild("Upgrade").localPosition = new Vector3(41.0f, 0f, 0f);
+                break;
+        }
+
+        //Close the opened button to select the interface upgrade
         if (GlobalVar.GetInstance().Bobjname != null)
         {
-            //if(){}
             if (GlobalVar.GetInstance().Bobjname == m_building.name)
             {
-                GlobalVar.GetInstance().BobjS = 1;
+                GlobalVar.GetInstance().BobjS = -1;
             }
             else
             {
-                string obj = GlobalVar.GetInstance().Bobjname;
                 m_building.transform.parent.FindChild(GlobalVar.GetInstance().Bobjname).GetComponent<Building>().m_HouseUP.SetActive(false);
                 m_building.transform.parent.FindChild(GlobalVar.GetInstance().Bobjname).GetComponent<Building>().m_House.GetComponent<TweenColor>().enabled = false;
                 m_building.transform.parent.FindChild(GlobalVar.GetInstance().Bobjname).GetComponent<Building>().m_House.GetComponent<TweenColor>().ResetToBeginning();
-                GlobalVar.GetInstance().BobjS = -1;
+                GlobalVar.GetInstance().BobjS = 1;
             }
         }
-        setHSwitch();
-     }
-    void setHSwitch()
-    {
-        if (GlobalVar.GetInstance().BobjS == -1)//打开升级按钮
+
+        //house up button switch
+        if (GlobalVar.GetInstance().BobjS == 1)//打开升级按钮 open switch
         {
             m_HouseUP.SetActive(true);
             m_House.GetComponent<TweenColor>().enabled = true;
             GlobalVar.GetInstance().Bobjname = m_building.name;
-            GlobalVar.GetInstance().BobjS = 1;
+            GlobalVar.GetInstance().BobjS = -1;
         }
-        else if (GlobalVar.GetInstance().BobjS == 1) //关闭升级按钮
+        else if (GlobalVar.GetInstance().BobjS == -1) //关闭升级按钮 close switch
         {
             m_HouseUP.SetActive(false);
             m_House.GetComponent<TweenColor>().enabled = false;
             m_House.GetComponent<TweenColor>().ResetToBeginning();
             GlobalVar.GetInstance().Bobjname = null;
-            GlobalVar.GetInstance().BobjS = -1;
+            GlobalVar.GetInstance().BobjS = 1;
         }
-        Debug.Log(m_building.name + "结果H_HUswitch == " + GlobalVar.GetInstance().BobjS);
+
+        
+    }
+
+
+    void onUpgrade(GameObject go)
+    {
+        Debug.Log("你点击了升级确定按钮→Upgrade！");
+        m_HouseUP.SetActive(false);
+        m_House.GetComponent<TweenColor>().enabled = false; 
+        m_House.GetComponent<TweenColor>().ResetToBeginning();
+        m_House.SetActive(false);
+        m_Statr.SetActive(true);
+        m_TimeLine1.SetActive(true);
+        m_BuildInfo .GetComponent<TimerLine>().enabled = true;
     }
 }

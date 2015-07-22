@@ -20,7 +20,7 @@ public class BuildingManager : MonoBehaviour
     List<BuilClone> m_Bclone = new List<BuilClone>();//get building perfab 
 
     public GameObject m_BMHouseMenu;
-    
+    public GameObject m_Input;
 
     // User Parameters
     UIAtlas H_Hhousesa;          //get house icon atlas
@@ -60,6 +60,8 @@ public class BuildingManager : MonoBehaviour
          m_building.GetComponent<Building>().m_HouseMenu = m_BMHouseMenu;
          if (m_Bclone[BInd].Status == 1)
          {
+             m_building.transform.GetComponent<Building>().m_House.SetActive(true);
+             m_building.transform.GetComponent<Building>().m_Sale.SetActive(false);
              m_building.transform.FindChild("House").GetComponent<UISprite>().atlas = H_Hhousesa;
              m_building.transform.FindChild("House").GetComponent<UISprite>().spriteName = H_Housesn;
          }
@@ -69,9 +71,9 @@ public class BuildingManager : MonoBehaviour
 
     void setBCloneList()
     {
-        m_Bclone.Add(new BuilClone() { Id = 0, BuildPos = new Vector3(752.9f, -22.5f, 0), Lev = 3, Status = -1 });
+        m_Bclone.Add(new BuilClone() { Id = 0, BuildPos = new Vector3(752.9f, -22.5f, 0), Lev =3, Status = 1 });
         m_Bclone.Add(new BuilClone() { Id = 1, BuildPos = new Vector3(752.9f, 126f, 0), Lev = 5, Status = 1 });
-        m_Bclone.Add(new BuilClone() { Id = 2, BuildPos = new Vector3(1036f, 126f, 0), Lev = 4, Status = -1 });
+        m_Bclone.Add(new BuilClone() { Id = 2, BuildPos = new Vector3(1036f, 126f, 0), Lev = 0, Status = -1 });
         m_Bclone.Add(new BuilClone() { Id = 3, BuildPos = new Vector3(903f, 42f, 0), Lev = 2, Status = 1 });
         m_Bclone.Add(new BuilClone() { Id = 4, BuildPos = new Vector3(903f, 210f, 0), Lev = 1, Status = 1 });
 

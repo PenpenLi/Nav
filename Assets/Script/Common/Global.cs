@@ -15,7 +15,8 @@ public class GlobalVar {
 
     //sq Start---------------------------------------------
     public string Bobjname = null; //建筑perfab对象名
-    public int BobjS = -1; //建筑perfab对象索引
+    public int BobjS = 1; //建筑perfab对象索引
+    public long UpgradeTime = 0;//建筑升级所需时间
     //sq end-----------------------------------------------
 
 
