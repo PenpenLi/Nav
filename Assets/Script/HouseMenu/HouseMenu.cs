@@ -10,6 +10,7 @@ public class HouseMenu : MonoBehaviour {
     public GameObject m_CloseBut;
     public GameObject m_HouseMenu;
     public GameObject m_Warning;
+    public GameObject m_InputGold;
 
     int GoldCount = 999999999;
 
@@ -39,10 +40,20 @@ public class HouseMenu : MonoBehaviour {
             
             if (m_ButLise[i].GetHashCode() == go.gameObject.GetHashCode())
             {
-                H_HouseIconName = m_ButLise[i].transform.FindChild("HouseIcon").GetComponent<UISprite>().spriteName;
-                H_HouseIconAtlas = m_ButLise[i].transform.FindChild("HouseIcon").GetComponent<UISprite>().atlas;
-                m_HouseMenu.SetActive(false);
-                H_HCStatus = false;
+                Debug.Log("你已选好目标建筑了！");
+                long a =long.Parse(m_ButLise[i].transform.parent.FindChild("Sell").FindChild("MoneyCount").GetComponentInChildren<UILabel>().text);
+                long b =long.Parse(m_InputGold.transform.FindChild("TestGold").GetComponent<UILabel>().text);
+                Debug.Log (a +"@@@"+b);
+                if (a < b )
+                {
+                    H_HouseIconName = m_ButLise[i].transform.parent.FindChild("HouseIcon").GetComponent<UISprite>().spriteName;
+                    H_HouseIconAtlas = m_ButLise[i].transform.parent.FindChild("HouseIcon").GetComponent<UISprite>().atlas;
+                    m_HouseMenu.SetActive(false);
+                    H_HCStatus = false;
+                    m_InputGold.transform.FindChild("TestGold").GetComponent<UILabel>().text = (b -a).ToString();
+                }
+                else
+                { m_Warning.SetActive(true); }
             }
         } 
     }
