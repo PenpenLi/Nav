@@ -5,6 +5,7 @@ using System.Collections;
 public class ScalingMap : MonoBehaviour {
 
     public GameObject m_Map ;
+    public Camera m_Camera;
 
     private Vector3 TFScale ; //Transform.Scale
     
@@ -13,8 +14,12 @@ public class ScalingMap : MonoBehaviour {
      private Vector3 oldPos1;
      private Vector3 oldPos2;
 
+     const float CS = 1.5f;
+     float CameraSize;
+
+
      ////缩放系数
-     //private float distance = 10.0f;
+     private float distance = 10.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -37,30 +42,19 @@ public class ScalingMap : MonoBehaviour {
                 var Pos1 = Input.GetTouch(0).position;
                 var Pos2 = Input.GetTouch(1).position;
 
-                if (isEnlarge(oldPos1, oldPos2, oldPos1, oldPos2))
+                if (isEnlarge(oldPos1, oldPos2, oldPos1, oldPos2))//放大
                 {
-                    if (TFScale.x <= 1.0 )
+                    if (m_Camera.orthographicSize > 0.5)
                     {
-                        TFScale.x += m_Map.transform.localScale.x + 0.05f;
+                        m_Camera.orthographicSize -- ;
                     }
-                    if (TFScale.y <= 1.0)
-                    {
-                        TFScale.y += m_Map.transform.localScale.y + 0.05f;
-                    }
-                    m_Map.transform.localScale = TFScale;
                 }
-                else
+                else//缩小
                 {
-
-                    if (TFScale.x <= 1.0)
+                    if (m_Camera.orthographicSize < 1.5)
                     {
-                        TFScale.x += m_Map.transform.localScale.x + 0.05f;
+                        m_Camera.orthographicSize++;
                     }
-                    if (TFScale.y <= 1.0)
-                    {
-                        TFScale.y += m_Map.transform.localScale.y + 0.05f;
-                    }
-                    m_Map.transform.localScale = TFScale;
                 }
                 //备份上一次触摸点的位置，用于对比
                 oldPos1 = Pos1;
