@@ -5,7 +5,7 @@
 	"frame": {"x":193,"y":2,"w":185,"h":149},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":2,"y":16,"w":185,"h":149},
+	"spriteSourceSize": {"x":1,"y":22,"w":185,"h":149},
 	"sourceSize": {"w":189,"h":189}
 },
 "ani_house_e_2.png":
@@ -13,7 +13,7 @@
 	"frame": {"x":2,"y":316,"w":153,"h":129},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":27,"y":18,"w":153,"h":129},
+	"spriteSourceSize": {"x":18,"y":30,"w":153,"h":129},
 	"sourceSize": {"w":189,"h":189}
 },
 "ani_house_e_3.png":
@@ -21,7 +21,7 @@
 	"frame": {"x":2,"y":177,"w":173,"h":137},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":14,"y":16,"w":173,"h":137},
+	"spriteSourceSize": {"x":7,"y":26,"w":173,"h":137},
 	"sourceSize": {"w":189,"h":189}
 },
 "ani_house_e_4.png":
@@ -29,7 +29,7 @@
 	"frame": {"x":193,"y":153,"w":173,"h":147},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":9,"y":17,"w":173,"h":147},
+	"spriteSourceSize": {"x":7,"y":26,"w":173,"h":147},
 	"sourceSize": {"w":189,"h":189}
 },
 "ani_house_e_5.png":
@@ -37,7 +37,7 @@
 	"frame": {"x":2,"y":2,"w":189,"h":173},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":0,"y":16,"w":189,"h":173},
+	"spriteSourceSize": {"x":0,"y":14,"w":189,"h":173},
 	"sourceSize": {"w":189,"h":189}
 }},
 "meta": {
@@ -45,8 +45,8 @@
 	"version": "1.0",
 	"image": "ani_house_e.png",
 	"format": "RGBA8888",
-	"size": {"w":380,"h":447},
+	"size": {"w":512,"h":512},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:07119e9c022e9361738bffc4f5329fb6$"
+	"smartupdate": "$TexturePacker:SmartUpdate:ee45b0b76c68257167c92d2216568af6$"
 }
 }

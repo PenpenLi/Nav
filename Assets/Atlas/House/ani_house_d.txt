@@ -5,7 +5,7 @@
 	"frame": {"x":2,"y":162,"w":102,"h":80},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":1,"y":62,"w":102,"h":80},
+	"spriteSourceSize": {"x":28,"y":39,"w":102,"h":80},
 	"sourceSize": {"w":158,"h":158}
 },
 "ani_house_d_2.png":
@@ -13,7 +13,7 @@
 	"frame": {"x":310,"y":110,"w":120,"h":102},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":2,"y":43,"w":120,"h":102},
+	"spriteSourceSize": {"x":19,"y":28,"w":120,"h":102},
 	"sourceSize": {"w":158,"h":158}
 },
 "ani_house_d_3.png":
@@ -21,7 +21,7 @@
 	"frame": {"x":310,"y":2,"w":148,"h":106},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":1,"y":44,"w":148,"h":106},
+	"spriteSourceSize": {"x":5,"y":26,"w":148,"h":106},
 	"sourceSize": {"w":158,"h":158}
 },
 "ani_house_d_4.png":
@@ -29,7 +29,7 @@
 	"frame": {"x":160,"y":2,"w":148,"h":154},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":0,"y":0,"w":148,"h":154},
+	"spriteSourceSize": {"x":5,"y":2,"w":148,"h":154},
 	"sourceSize": {"w":158,"h":158}
 },
 "ani_house_d_5.png":
@@ -47,6 +47,6 @@
 	"format": "RGBA8888",
 	"size": {"w":512,"h":256},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:78767307ba2efb643c71a1b34454543d$"
+	"smartupdate": "$TexturePacker:SmartUpdate:da7553198d533e3cff55f9fa8d42c580$"
 }
 }

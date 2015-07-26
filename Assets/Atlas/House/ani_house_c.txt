@@ -2,34 +2,34 @@
 
 "ani_house_c_1.png":
 {
-	"frame": {"x":268,"y":140,"w":112,"h":106},
+	"frame": {"x":134,"y":268,"w":112,"h":106},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":0,"y":31,"w":112,"h":106},
+	"spriteSourceSize": {"x":14,"y":25,"w":112,"h":106},
 	"sourceSize": {"w":144,"h":154}
 },
 "ani_house_c_2.png":
 {
-	"frame": {"x":146,"y":140,"w":120,"h":110},
+	"frame": {"x":134,"y":156,"w":120,"h":110},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":4,"y":29,"w":120,"h":110},
+	"spriteSourceSize": {"x":10,"y":23,"w":120,"h":110},
 	"sourceSize": {"w":144,"h":154}
 },
 "ani_house_c_3.png":
 {
-	"frame": {"x":382,"y":2,"w":126,"h":124},
+	"frame": {"x":2,"y":294,"w":126,"h":124},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":1,"y":16,"w":126,"h":124},
+	"spriteSourceSize": {"x":7,"y":16,"w":126,"h":124},
 	"sourceSize": {"w":144,"h":154}
 },
 "ani_house_c_4.png":
 {
-	"frame": {"x":146,"y":2,"w":128,"h":136},
+	"frame": {"x":2,"y":156,"w":130,"h":136},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":0,"y":6,"w":128,"h":136},
+	"spriteSourceSize": {"x":5,"y":10,"w":130,"h":136},
 	"sourceSize": {"w":144,"h":154}
 },
 "ani_house_c_5.png":
@@ -37,7 +37,7 @@
 	"frame": {"x":2,"y":2,"w":142,"h":152},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":0,"y":2,"w":142,"h":152},
+	"spriteSourceSize": {"x":1,"y":1,"w":142,"h":152},
 	"sourceSize": {"w":144,"h":154}
 }},
 "meta": {
@@ -45,8 +45,8 @@
 	"version": "1.0",
 	"image": "ani_house_c.png",
 	"format": "RGBA8888",
-	"size": {"w":512,"h":256},
+	"size": {"w":256,"h":512},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:d6b4210ff076f79e7ccd336eed03f8c4$"
+	"smartupdate": "$TexturePacker:SmartUpdate:a4b67cd80f3a5f890056e377df4c1546$"
 }
 }
