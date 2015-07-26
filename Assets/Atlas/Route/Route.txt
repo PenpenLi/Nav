@@ -1,0 +1,100 @@
+{"frames": {
+
+"bar_slide_1@2x.png":
+{
+	"frame": {"x":2,"y":2,"w":33,"h":392},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":33,"h":392},
+	"sourceSize": {"w":33,"h":392}
+},
+"bar_slide_2@2x.png":
+{
+	"frame": {"x":2,"y":396,"w":23,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":23,"h":90},
+	"sourceSize": {"w":23,"h":90}
+},
+"board_airline@2x.png":
+{
+	"frame": {"x":127,"y":2,"w":781,"h":135},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":781,"h":135},
+	"sourceSize": {"w":781,"h":135}
+},
+"button_E_3@2x.png":
+{
+	"frame": {"x":37,"y":2,"w":58,"h":40},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":12,"w":58,"h":40},
+	"sourceSize": {"w":64,"h":64}
+},
+"button_NE_3@2x.png":
+{
+	"frame": {"x":37,"y":44,"w":52,"h":46},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":8,"w":52,"h":46},
+	"sourceSize": {"w":64,"h":64}
+},
+"button_N_3@2x.png":
+{
+	"frame": {"x":27,"y":450,"w":42,"h":52},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":9,"y":5,"w":42,"h":52},
+	"sourceSize": {"w":64,"h":64}
+},
+"button_SE_3@2x.png":
+{
+	"frame": {"x":71,"y":450,"w":54,"h":48},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":8,"w":54,"h":48},
+	"sourceSize": {"w":64,"h":64}
+},
+"button_SW_3@2x.png":
+{
+	"frame": {"x":37,"y":92,"w":52,"h":42},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":10,"w":52,"h":42},
+	"sourceSize": {"w":64,"h":64}
+},
+"button_S_3@2x.png":
+{
+	"frame": {"x":910,"y":2,"w":48,"h":46},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":7,"y":9,"w":48,"h":46},
+	"sourceSize": {"w":64,"h":64}
+},
+"button_WN_3@2x.png":
+{
+	"frame": {"x":37,"y":136,"w":52,"h":38},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":5,"y":13,"w":52,"h":38},
+	"sourceSize": {"w":64,"h":64}
+},
+"button_W_3@2x.png":
+{
+	"frame": {"x":27,"y":396,"w":53,"h":52},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":5,"y":5,"w":53,"h":52},
+	"sourceSize": {"w":63,"h":64}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "Route.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":512},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:23bbb79684a991dd3b666e8a4e0b7c67$"
+}
+}
