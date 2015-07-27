@@ -24,6 +24,7 @@ public class Building : MonoBehaviour
     public GameObject m_End;
     public GameObject m_building;
     public GameObject m_HouseMenu;
+    public GameObject m_Camera;
 
     bool H_UDswitch= false; //update switch
     //bool H_HUswitch = false; //house up switch
@@ -67,6 +68,8 @@ public class Building : MonoBehaviour
         m_HouseMenu.GetComponent<HouseMenu>().H_HCStatus = true;
         m_HouseMenu.GetComponent<HouseMenu>().H_HouseIconAtlas = null;
         m_HouseMenu.SetActive(true);
+        m_Camera.GetComponent<CameraDragMove>().enabled = false;
+        m_Camera.GetComponent<ScalingMap>().enabled = false;
         if (GlobalVar.GetInstance().Bobjname != null)
         {
             m_building.transform.parent.FindChild(GlobalVar.GetInstance().Bobjname).GetComponent<Building>().m_HouseUP.SetActive(false);

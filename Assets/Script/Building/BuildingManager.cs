@@ -20,6 +20,7 @@ public class BuildingManager : MonoBehaviour
     List<BuilClone> m_Bclone = new List<BuilClone>();//get building perfab 
 
     public GameObject m_BMHouseMenu;
+    public GameObject m_BMCamera;
     public GameObject m_Input;
 
     // User Parameters
@@ -58,6 +59,7 @@ public class BuildingManager : MonoBehaviour
          m_building.transform.localScale = Vector3.one;
          m_building.transform.localPosition = m_Bclone[BInd].BuildPos;//set building position
          m_building.GetComponent<Building>().m_HouseMenu = m_BMHouseMenu;
+         m_building.GetComponent<Building>().m_Camera = m_BMCamera;
          if (m_Bclone[BInd].Status == 1)
          {
              m_building.transform.GetComponent<Building>().m_House.SetActive(true);

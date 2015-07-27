@@ -11,6 +11,7 @@ public class HouseMenu : MonoBehaviour {
     public GameObject m_HouseMenu;
     public GameObject m_Warning;
     public GameObject m_InputGold;
+    public GameObject m_HMCamera;
 
     int GoldCount = 999999999;
 
@@ -62,6 +63,8 @@ public class HouseMenu : MonoBehaviour {
     {
         m_HouseMenu.SetActive(false);
         H_HCStatus =false;
+        m_HMCamera.GetComponent<CameraDragMove>().enabled = true;
+        m_HMCamera.GetComponent<ScalingMap>().enabled = true;
 
     }
 }
