@@ -62,7 +62,7 @@ public class ScalingMap : MonoBehaviour {
                     if (CameraSize <= MaxCS)
                     {
                         CameraSize += distance;
-                        m_camera.transform.GetComponent<Camera>().orthographicSize = CameraSize;
+                        m_camera.transform.GetComponent<Camera>().orthographicSize = CameraSize ;
                     }
                 }
                 //备份上一次触摸点的位置，用于对比

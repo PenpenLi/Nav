@@ -186,7 +186,6 @@
      <Compile Include="Assets\Script\Architecture\Architecture.cs" />
      <Compile Include="Assets\Script\Building\BuildAnimation.cs" />
      <Compile Include="Assets\Script\Building\Building.cs" />
-     <Compile Include="Assets\Script\Building\BuildingInfo.cs" />
      <Compile Include="Assets\Script\Building\BuildingManager.cs" />
      <Compile Include="Assets\Script\Building\SestInpt.cs" />
      <Compile Include="Assets\Script\Building\TimerLine.cs" />
@@ -233,9 +232,11 @@
      <Compile Include="Assets\Script\Net\DataRequest\ConnectionManager.cs" />
      <Compile Include="Assets\Script\Net\DataRequest\DataReceivedCallback.cs" />
      <Compile Include="Assets\Script\Net\Entity\BaseStruct\Player.cs" />
+     <Compile Include="Assets\Script\Net\Entity\BuildingInfo\BuildingInfo.cs" />
      <Compile Include="Assets\Script\Net\Entity\Common.cs" />
      <Compile Include="Assets\Script\Net\Entity\CommonResult.cs" />
      <Compile Include="Assets\Script\Net\Entity\DBData\UpgradeCost.cs" />
+     <Compile Include="Assets\Script\Net\Entity\PlayerInfo\PlayerInfo.cs" />
      <Compile Include="Assets\Script\Net\LitJson\IJsonWrapper.cs" />
      <Compile Include="Assets\Script\Net\LitJson\JsonData.cs" />
      <Compile Include="Assets\Script\Net\LitJson\JsonException.cs" />
