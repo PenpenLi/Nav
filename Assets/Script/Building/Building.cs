@@ -26,9 +26,10 @@ public class Building : MonoBehaviour
     public GameObject m_HouseMenu;
     public GameObject m_Camera;
 
-    bool H_UDswitch= false; //update switch
+    bool H_UDswitch= false; //update swicth
     //bool H_HUswitch = false; //house up switch
-    string H_BuildObjName;
+    int H_Switch;
+    string  H_SaveHouseName;
     // Use this for initialization
     void Start()
     {
@@ -36,11 +37,13 @@ public class Building : MonoBehaviour
         UIEventListener.Get(m_Sale).onClick = onSale;
         UIEventListener.Get(m_House).onClick = onHouse;
         UIEventListener.Get(m_Upgrade).onClick = onUpgrade;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if (H_UDswitch == true)
         {
             if (m_House.transform.GetComponentInChildren<UISprite>().atlas == null)
@@ -82,11 +85,8 @@ public class Building : MonoBehaviour
     }
     void onHouse(GameObject go)
     {
-        //For testing----------------------------------------------------
-        Debug.Log("你确实点到了房子！");
-        Debug.Log("当前房子图集是！" + m_House.transform.GetComponent<UISprite>().atlas.name);
-        //test end--------------------------------------------------------
-
+        H_Switch = GlobalVar.GetInstance().BobjS;
+        H_SaveHouseName = GlobalVar.GetInstance().Bobjname;
         //According to building type display item
         switch (m_House.transform.GetComponent<UISprite>().atlas.name)
         {
@@ -105,40 +105,43 @@ public class Building : MonoBehaviour
                 break;
         }
 
-        //Close the opened button to select the interface upgrade
-        if (GlobalVar.GetInstance().Bobjname != null)
+        //Close and open building upgrade button UI
+        if (H_SaveHouseName != null)
         {
-            if (GlobalVar.GetInstance().Bobjname == m_building.name)
+            if (H_SaveHouseName == m_building.name)
             {
-                GlobalVar.GetInstance().BobjS = -1;
+                if (H_Switch == -1)
+                {
+                    m_HouseUP.SetActive(false);
+                    m_House.GetComponent<TweenColor>().enabled = false;
+                    m_House.GetComponent<TweenColor>().ResetToBeginning();
+                    GlobalVar.GetInstance().BobjS = 1;
+                }
+                else
+                {
+                    m_HouseUP.SetActive(true);
+                    m_House.GetComponent<TweenColor>().enabled = true;
+                    GlobalVar.GetInstance().BobjS = -1;
+                }
             }
             else
             {
                 m_building.transform.parent.FindChild(GlobalVar.GetInstance().Bobjname).GetComponent<Building>().m_HouseUP.SetActive(false);
                 m_building.transform.parent.FindChild(GlobalVar.GetInstance().Bobjname).GetComponent<Building>().m_House.GetComponent<TweenColor>().enabled = false;
                 m_building.transform.parent.FindChild(GlobalVar.GetInstance().Bobjname).GetComponent<Building>().m_House.GetComponent<TweenColor>().ResetToBeginning();
-                GlobalVar.GetInstance().BobjS = 1;
+                m_HouseUP.SetActive(true);
+                m_House.GetComponent<TweenColor>().enabled = true;
+                GlobalVar.GetInstance().Bobjname = m_building.name;
+                GlobalVar.GetInstance().BobjS = -1;
             }
         }
-
-        //house up button switch
-        if (GlobalVar.GetInstance().BobjS == 1)//打开升级按钮 open switch
+        else
         {
             m_HouseUP.SetActive(true);
             m_House.GetComponent<TweenColor>().enabled = true;
             GlobalVar.GetInstance().Bobjname = m_building.name;
             GlobalVar.GetInstance().BobjS = -1;
         }
-        else if (GlobalVar.GetInstance().BobjS == -1) //关闭升级按钮 close switch
-        {
-            m_HouseUP.SetActive(false);
-            m_House.GetComponent<TweenColor>().enabled = false;
-            m_House.GetComponent<TweenColor>().ResetToBeginning();
-            GlobalVar.GetInstance().Bobjname = null;
-            GlobalVar.GetInstance().BobjS = 1;
-        }
-
-        
     }
 
 

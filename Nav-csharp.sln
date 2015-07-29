@@ -1,9 +1,8 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{C9A3769B-A627-2F55-5F75-7F42643C38C3}") = "Nav", "Assembly-CSharp-vs.csproj", "{64ECABE0-8A06-B657-08BA-C09203316BEC}"
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-vs", "Assembly-CSharp-vs.csproj", "{64ECABE0-8A06-B657-08BA-C09203316BEC}"
 EndProject
-Project("{C9A3769B-A627-2F55-5F75-7F42643C38C3}") = "Nav", "Assembly-CSharp-Editor-vs.csproj", "{0A43EC97-147A-C662-844C-EE3AE9D318EF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor-vs", "Assembly-CSharp-Editor-vs.csproj", "{0A43EC97-147A-C662-844C-EE3AE9D318EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,13 +22,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																																																																																																																																																																																																																																																																														GlobalSection(MonoDevelopProperties) = preSolution
-=======
-																																																																																																																																			GlobalSection(MonoDevelopProperties) = preSolution
->>>>>>> b3ba5614dc3d8f70021ab79a69e6c81589982a01
-=======
-																																																																																												GlobalSection(MonoDevelopProperties) = preSolution
->>>>>>> 0f193b28dc2101085601e0659e2ea8881fd259b1
+	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
@@ -48,5 +41,4 @@ Global
 		$3.inheritsScope = text/plain
 		$3.scope = text/plain
 	EndGlobalSection
-
 EndGlobal
