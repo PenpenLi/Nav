@@ -110,6 +110,7 @@ public class AchorShip : MonoBehaviour {
 
     void GoOut()
     {
+		m_dockGO.GetComponent<UISprite>().enabled = false;
 		VisbleWave(true);
         m_fStep = m_fStep + Time.deltaTime * m_scaleSpeed * m_moveSpeed;
         if (m_fStep >= 1.0f)
@@ -173,14 +174,13 @@ public class AchorShip : MonoBehaviour {
     {
         m_shipState = ShipState.Docking;
         VisbleWave(false);
-        gameObject.GetComponent<UISprite>().flip = UIBasicSprite.Flip.Nothing;
-
-       // m_dockGO = gameObject.transform.parent.transform.parent.GetComponent<ShipsManager>().GetFreeAchor();
+		gameObject.GetComponent<UISprite>().flip = UIBasicSprite.Flip.Nothing;
         m_dockGO = GameObject.FindWithTag("Anchor").GetComponent<ShipsManager>().GetFreeAchor();
         gameObject.transform.parent = m_dockGO.transform;
         gameObject.transform.localPosition = Vector3.zero;
         gameObject.transform.localScale = Vector3.one;
         m_shipState = ShipState.Dock;
+
     }
 
     void VisbleWave(bool open)
