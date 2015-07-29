@@ -75,9 +75,12 @@ public class BuildingManager : MonoBehaviour
     {
         m_Bclone.Add(new BuilClone() { Id = 0, BuildPos = new Vector3(752.9f, -22.5f, 0), Lev =3, Status = 1 });
         m_Bclone.Add(new BuilClone() { Id = 1, BuildPos = new Vector3(752.9f, 126f, 0), Lev = 5, Status = 1 });
-        m_Bclone.Add(new BuilClone() { Id = 2, BuildPos = new Vector3(1036f, 126f, 0), Lev = 0, Status = -1 });
+        m_Bclone.Add(new BuilClone() { Id = 2, BuildPos = new Vector3(1036f, 126f, 0), Lev = -1, Status = -1 });
         m_Bclone.Add(new BuilClone() { Id = 3, BuildPos = new Vector3(903f, 42f, 0), Lev = 2, Status = 1 });
         m_Bclone.Add(new BuilClone() { Id = 4, BuildPos = new Vector3(903f, 210f, 0), Lev = 1, Status = 1 });
+        m_Bclone.Add(new BuilClone() { Id = 4, BuildPos = new Vector3(1220f, 220f, 0), Lev = -1, Status = -1 });
+        m_Bclone.Add(new BuilClone() { Id = 4, BuildPos = new Vector3(1070f, 300f, 0), Lev = -1, Status = -1 });
+        m_Bclone.Add(new BuilClone() { Id = 4, BuildPos = new Vector3(920f, 380f, 0), Lev = -1, Status = -1 });
 
     }
 
