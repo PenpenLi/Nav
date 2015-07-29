@@ -78,6 +78,7 @@ public class ShipsManager : MonoBehaviour {
         {
             if (m_shipList[i].state == ShipState.Begin)
             {
+				Debug.Log ("m_waitTime = " + m_waitTime + " m_shipList[i].waitSecond = " + m_shipList[i].waitSecond);
                 if (m_waitTime >= m_shipList[i].waitSecond)
                 {
                     m_shipList[i].ship.SetActive(true);

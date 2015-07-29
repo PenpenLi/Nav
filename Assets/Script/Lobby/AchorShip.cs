@@ -3,6 +3,7 @@ using System.Collections;
 
 public enum ShipState
 {
+	None,
     Begin,
     EnterPort,
     Docking,
@@ -109,6 +110,7 @@ public class AchorShip : MonoBehaviour {
 
     void GoOut()
     {
+		VisbleWave(true);
         m_fStep = m_fStep + Time.deltaTime * m_scaleSpeed * m_moveSpeed;
         if (m_fStep >= 1.0f)
         {
@@ -186,12 +188,19 @@ public class AchorShip : MonoBehaviour {
         Transform tf = transform.FindChild("Wave");
         if (tf != null)
         {
-            tf.gameObject.SetActive(open);
+			if(tf.gameObject.activeSelf != open)
+			{
+				tf.gameObject.SetActive(open);
+			}
+            
         }
         tf = transform.FindChild("Wave1");
         if(tf != null)
         {
-            tf.gameObject.SetActive(open);
+			if(tf.gameObject.activeSelf != open)
+			{
+				tf.gameObject.SetActive(open);
+			}
         }
 
     }
