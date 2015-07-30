@@ -38,25 +38,30 @@ public class HouseMenu : MonoBehaviour {
     {
         for (int i = 0; i < m_ButLise.Count; i++)
         {
-            
+
             if (m_ButLise[i].GetHashCode() == go.gameObject.GetHashCode())
             {
                 Debug.Log("你已选好目标建筑了！");
-                long a =long.Parse(m_ButLise[i].transform.parent.FindChild("Sell").FindChild("MoneyCount").GetComponentInChildren<UILabel>().text);
-                long b =long.Parse(m_InputGold.transform.FindChild("TestGold").GetComponent<UILabel>().text);
-                Debug.Log (a +"@@@"+b);
-                if (a < b )
+                long a = long.Parse(m_ButLise[i].transform.parent.FindChild("Sell").FindChild("MoneyCount").GetComponentInChildren<UILabel>().text);
+                long b = long.Parse(m_InputGold.transform.FindChild("TestGold").GetComponent<UILabel>().text);
+                Debug.Log(a + "@@@" + b);
+                if (a < b)
                 {
                     H_HouseIconName = m_ButLise[i].transform.parent.FindChild("HouseIcon").GetComponent<UISprite>().spriteName;
                     H_HouseIconAtlas = m_ButLise[i].transform.parent.FindChild("HouseIcon").GetComponent<UISprite>().atlas;
                     m_HouseMenu.SetActive(false);
                     H_HCStatus = false;
-                    m_InputGold.transform.FindChild("TestGold").GetComponent<UILabel>().text = (b -a).ToString();
+                    m_InputGold.transform.FindChild("TestGold").GetComponent<UILabel>().text = (b - a).ToString();
                     m_HMCamera.GetComponent<CameraDragMove>().enabled = true;
                     m_HMCamera.GetComponent<ScalingMap>().enabled = true;
                 }
                 else
-                { m_Warning.SetActive(true); }
+                {
+                    warning Warning = new warning();
+                    string WarningStr = "岛主我们的现金不足，无法购买此建筑！您可以变卖宝石来快速获得现金！";
+                    string WarningParent = "UI";
+                    Warning.AddWarning(m_Warning, WarningStr, WarningParent);
+                }
             }
         } 
     }

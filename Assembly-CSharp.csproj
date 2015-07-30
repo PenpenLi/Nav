@@ -274,6 +274,7 @@
      <Compile Include="Assets\Script\Net\PomeloSrc\transport\test\TransportTest.cs" />
      <Compile Include="Assets\Script\Utils\DBDataUtil.cs" />
      <Compile Include="Assets\Script\Warning\WarningClose.cs" />
+     <Compile Include="Assets\Script\Warning\warning.cs" />
      <Compile Include="Assets\spienSkeleton2D\spine-csharp\src\Animation.cs" />
      <Compile Include="Assets\spienSkeleton2D\spine-csharp\src\AnimationState.cs" />
      <Compile Include="Assets\spienSkeleton2D\spine-csharp\src\AnimationStateData.cs" />

@@ -17,6 +17,6 @@ public class WarningClose : MonoBehaviour {
 
     void onClose(GameObject go)
     {
-        m_warning.SetActive(false);
+        Destroy(m_warning);
     }
 }
