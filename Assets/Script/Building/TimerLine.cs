@@ -4,7 +4,7 @@ using System.Collections;
 public class TimerLine : MonoBehaviour {
 
     public GameObject m_BuildInfo;
-    //public GameObject m_Start;
+    public GameObject m_Warning;
     //public GameObject m_Center;
     //public GameObject m_End;
 
@@ -45,14 +45,47 @@ public class TimerLine : MonoBehaviour {
         {
             fixedTime -= 1;
             
-            m_BuildInfo.transform.FindChild("TimeLine1").FindChild("ProgressBar").GetComponent<UISprite>().fillAmount += 1f / GlobalVar.GetInstance().UpgradeTime;
-            m_BuildInfo.transform.parent.FindChild("BuildInfo").
-                FindChild("TimeLine1").FindChild("BuildTime").
-                GetComponent<UILabel>().text =
-               (fixedTime / (60 * 60 * 24)).ToString() + " D "
-                + ((fixedTime / 60 - fixedTime / (60 * 60 * 24) * 24 * 60) / 60).ToString() + " H "
-                + ((fixedTime / 60) % 60).ToString() + " M "
-                + (fixedTime % 60).ToString() + " S ";
+            m_BuildInfo.transform.FindChild("TimeLine").FindChild("ProgressBar").GetComponent<UISprite>().fillAmount += 1f / GlobalVar.GetInstance().UpgradeTime;
+            long H_TimeDay = fixedTime / (60 * 60 * 24);
+            long H_TimeHour = (fixedTime / 60 - fixedTime / (60 * 60 * 24) * 24 * 60) / 60;
+            long H_TimeMinute = (fixedTime / 60) % 60;
+            long H_TimeSecond = fixedTime % 60;
+            //m_BuildInfo.transform.parent.FindChild("BuildInfo").
+            //    FindChild("TimeLine").FindChild("BuildTime").
+            //    GetComponent<UILabel>().text =
+            //   (fixedTime / (60 * 60 * 24)).ToString() + "天"
+            //    + ((fixedTime / 60 - fixedTime / (60 * 60 * 24) * 24 * 60) / 60).ToString() + "时"
+            //    + ((fixedTime / 60) % 60).ToString() + "分"
+            //    + (fixedTime % 60).ToString() + "秒";
+            if (H_TimeDay > 0)
+            {
+                m_BuildInfo.transform.parent.FindChild("BuildInfo").FindChild("TimeLine").FindChild("BuildTime").GetComponent<UILabel>().text =
+                       H_TimeDay + "天" + H_TimeHour + "小时" + H_TimeMinute + "分" + H_TimeSecond + "秒";
+            }
+            else
+            {
+                if (H_TimeHour > 0)
+                {
+                    m_BuildInfo.transform.parent.FindChild("BuildInfo").FindChild("TimeLine").FindChild("BuildTime").GetComponent<UILabel>().text =
+                       H_TimeHour + "小时" + H_TimeMinute + "分" + H_TimeSecond + "秒";
+                }
+                else
+                {
+                    if (H_TimeMinute > 0)
+                    {
+                        m_BuildInfo.transform.parent.FindChild("BuildInfo").FindChild("TimeLine").FindChild("BuildTime").GetComponent<UILabel>().text =
+                              H_TimeMinute + "分" + H_TimeSecond + "秒";
+                    }
+                    else
+                    {
+                        if (H_TimeSecond > 0)
+                        {
+                            m_BuildInfo.transform.parent.FindChild("BuildInfo").FindChild("TimeLine").FindChild("BuildTime").GetComponent<UILabel>().text =
+                               H_TimeSecond + "秒";
+                        }
+                    }
+                }
+            }
         }
         else
         { fixedTime = GlobalVar.GetInstance().UpgradeTime; }

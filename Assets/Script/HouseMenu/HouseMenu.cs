@@ -59,8 +59,7 @@ public class HouseMenu : MonoBehaviour {
                 {
                     warning Warning = new warning();
                     string WarningStr = "岛主我们的现金不足，无法购买此建筑！您可以变卖宝石来快速获得现金！";
-                    string WarningParent = "UI";
-                    Warning.AddWarning(m_Warning, WarningStr, WarningParent);
+                    Warning.AddWarning(WarningStr);
                 }
             }
         } 

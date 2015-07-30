@@ -37,6 +37,7 @@ public class Building : MonoBehaviour
         UIEventListener.Get(m_Sale).onClick = onSale;
         UIEventListener.Get(m_House).onClick = onHouse;
         UIEventListener.Get(m_Upgrade).onClick = onUpgrade;
+        UIEventListener.Get(m_Items).onClick = onItems;
         
     }
 
@@ -155,5 +156,12 @@ public class Building : MonoBehaviour
         m_Statr.SetActive(true);
         m_TimeLine1.SetActive(true);
         m_BuildInfo .GetComponent<TimerLine>().enabled = true;
+    }
+
+    void onItems(GameObject go)
+    {
+        warning Warning = new warning();
+        string Str = "岛主当前没有可领取的金币，请先找点别的乐子，等会再来！";
+        Warning.AddWarning(Str);
     }
 }
