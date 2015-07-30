@@ -52,6 +52,8 @@ public class HouseMenu : MonoBehaviour {
                     m_HouseMenu.SetActive(false);
                     H_HCStatus = false;
                     m_InputGold.transform.FindChild("TestGold").GetComponent<UILabel>().text = (b -a).ToString();
+                    m_HMCamera.GetComponent<CameraDragMove>().enabled = true;
+                    m_HMCamera.GetComponent<ScalingMap>().enabled = true;
                 }
                 else
                 { m_Warning.SetActive(true); }

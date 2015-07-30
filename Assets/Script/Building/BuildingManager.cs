@@ -40,7 +40,6 @@ public class BuildingManager : MonoBehaviour
         }
 
         //test end--------------------------------------------------------
-
     }
 
     // Update is called once per frame
