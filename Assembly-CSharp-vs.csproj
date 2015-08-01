@@ -439,6 +439,7 @@
      <None Include="Assets\Atlas\Effect\Ship_shouji\Ship_shouji.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 2.shader" />
      <None Include="Assets\Atlas\House\ani_house_c.txt" />
+     <None Include="Assets\Atlas\Animation\Waterlines\Waterlines.txt" />
      <None Include="Assets\Atlas\House\ani_house_e.txt" />
      <None Include="Assets\Atlas\Prompt\Prompt.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 1.shader" />
