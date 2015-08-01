@@ -9,9 +9,8 @@ public class HouseMenu : MonoBehaviour {
 
     public GameObject m_CloseBut;
     public GameObject m_HouseMenu;
-    public GameObject m_Warning;
     public GameObject m_InputGold;
-    public GameObject m_HMCamera;
+    public GameObject m_CenterMap;
 
     int GoldCount = 999999999;
 
@@ -23,6 +22,8 @@ public class HouseMenu : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
     {
+        m_CenterMap.GetComponent<CameraDragMove>().enabled = false;
+        m_CenterMap.GetComponent<ScalingMap>().enabled = false;
         for (int i = 0; i < m_ButLise.Count; i++)
         {
             UIEventListener.Get(m_ButLise[i]).onClick = onButList;
@@ -52,8 +53,8 @@ public class HouseMenu : MonoBehaviour {
                     m_HouseMenu.SetActive(false);
                     H_HCStatus = false;
                     m_InputGold.transform.FindChild("TestGold").GetComponent<UILabel>().text = (b - a).ToString();
-                    m_HMCamera.GetComponent<CameraDragMove>().enabled = true;
-                    m_HMCamera.GetComponent<ScalingMap>().enabled = true;
+                    m_CenterMap.GetComponent<CameraDragMove>().enabled = true;
+                    m_CenterMap.GetComponent<ScalingMap>().enabled = true;
                 }
                 else
                 {
@@ -69,8 +70,8 @@ public class HouseMenu : MonoBehaviour {
     {
         m_HouseMenu.SetActive(false);
         H_HCStatus =false;
-        m_HMCamera.GetComponent<CameraDragMove>().enabled = true;
-        m_HMCamera.GetComponent<ScalingMap>().enabled = true;
+        m_CenterMap.GetComponent<CameraDragMove>().enabled = true;
+        m_CenterMap.GetComponent<ScalingMap>().enabled = true;
 
     }
 }

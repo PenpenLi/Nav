@@ -17,6 +17,7 @@ public class GlobalVar {
     public string Bobjname = null; //建筑perfab对象名
     public int BobjS = 1; //建筑perfab对象索引
     public long UpgradeTime = 0;//建筑升级所需时间
+    public bool Sw = true; // 决定Warning框在关闭时，是否同时开启地图拖动与放大效果
     //sq end-----------------------------------------------
 
 
