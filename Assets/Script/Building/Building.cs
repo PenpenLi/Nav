@@ -1,35 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class Building : MonoBehaviour
 {
     public GameObject m_Sale;
     public GameObject m_House;
-    public GameObject m_UpIcon;
+    //public GameObject m_UpIcon;
 
-    public GameObject m_HouseUP;
+    public GameObject m_HouseUp;
     public GameObject m_UpInfo;
     public GameObject m_Upgrade;
     public GameObject m_Items;
 
-    public GameObject m_BuildInfo;
-    public GameObject m_TimeLine1;
-    public GameObject m_HouseName;
-    public GameObject m_Buy;
-
-    public GameObject m_BuildAnimation;
-    public GameObject m_Statr;
-    public GameObject m_Center;
-    public GameObject m_End;
     public GameObject m_building;
     public GameObject m_HouseMenu;
-    public GameObject m_Camera;
+    public GameObject m_CameraMap;
+
 
     bool H_UDswitch= false; //update swicth
     //bool H_HUswitch = false; //house up switch
     int H_Switch;
     string  H_SaveHouseName;
+    int MaxLevel = 5;
     // Use this for initialization
     void Start()
     {
@@ -67,6 +61,8 @@ public class Building : MonoBehaviour
     void onSale(GameObject go)
     {
         Debug.Log("当前perfab的名字是→ " + m_building.name);
+        m_CameraMap.GetComponent<CameraDragMove>().enabled = false;
+        m_CameraMap.GetComponent<ScalingMap>().enabled = false;
         H_UDswitch = true;
         m_House.SetActive(true);
         m_HouseMenu.GetComponent<HouseMenu>().H_HCStatus = true;
@@ -75,7 +71,7 @@ public class Building : MonoBehaviour
         
         if (GlobalVar.GetInstance().Bobjname != null)
         {
-            m_building.transform.parent.FindChild(GlobalVar.GetInstance().Bobjname).GetComponent<Building>().m_HouseUP.SetActive(false);
+            m_building.transform.parent.FindChild(GlobalVar.GetInstance().Bobjname).GetComponent<Building>().m_HouseUp.SetActive(false);
             m_building.transform.parent.FindChild(GlobalVar.GetInstance().Bobjname).GetComponent<Building>().m_House.GetComponent<TweenColor>().enabled = false;
             m_building.transform.parent.FindChild(GlobalVar.GetInstance().Bobjname).GetComponent<Building>().m_House.GetComponent<TweenColor>().ResetToBeginning();
             GlobalVar.GetInstance().BobjS = 1;
@@ -100,8 +96,8 @@ public class Building : MonoBehaviour
                 break;
             default:
                 m_Items.SetActive(false);
-                m_HouseUP.transform.FindChild("UpInfo").localPosition = new Vector3(-19.0f, 0f, 0f);
-                m_HouseUP.transform.FindChild("Upgrade").localPosition = new Vector3(41.0f, 0f, 0f);
+                m_HouseUp.transform.FindChild("UpInfo").localPosition = new Vector3(-19.0f, 0f, 0f);
+                m_HouseUp.transform.FindChild("Upgrade").localPosition = new Vector3(41.0f, 0f, 0f);
                 break;
         }
 
@@ -112,24 +108,24 @@ public class Building : MonoBehaviour
             {
                 if (H_Switch == -1)
                 {
-                    m_HouseUP.SetActive(false);
+                    m_HouseUp.SetActive(false);
                     m_House.GetComponent<TweenColor>().enabled = false;
                     m_House.GetComponent<TweenColor>().ResetToBeginning();
                     GlobalVar.GetInstance().BobjS = 1;
                 }
                 else
                 {
-                    m_HouseUP.SetActive(true);
+                    m_HouseUp.SetActive(true);
                     m_House.GetComponent<TweenColor>().enabled = true;
                     GlobalVar.GetInstance().BobjS = -1;
                 }
             }
             else
             {
-                m_building.transform.parent.FindChild(GlobalVar.GetInstance().Bobjname).GetComponent<Building>().m_HouseUP.SetActive(false);
+                m_building.transform.parent.FindChild(GlobalVar.GetInstance().Bobjname).GetComponent<Building>().m_HouseUp.SetActive(false);
                 m_building.transform.parent.FindChild(GlobalVar.GetInstance().Bobjname).GetComponent<Building>().m_House.GetComponent<TweenColor>().enabled = false;
                 m_building.transform.parent.FindChild(GlobalVar.GetInstance().Bobjname).GetComponent<Building>().m_House.GetComponent<TweenColor>().ResetToBeginning();
-                m_HouseUP.SetActive(true);
+                m_HouseUp.SetActive(true);
                 m_House.GetComponent<TweenColor>().enabled = true;
                 GlobalVar.GetInstance().Bobjname = m_building.name;
                 GlobalVar.GetInstance().BobjS = -1;
@@ -137,7 +133,8 @@ public class Building : MonoBehaviour
         }
         else
         {
-            m_HouseUP.SetActive(true);
+
+            m_HouseUp.SetActive(true);
             m_House.GetComponent<TweenColor>().enabled = true;
             GlobalVar.GetInstance().Bobjname = m_building.name;
             GlobalVar.GetInstance().BobjS = -1;
@@ -147,14 +144,45 @@ public class Building : MonoBehaviour
 
     void onUpgrade(GameObject go)
     {
-        Debug.Log("你点击了升级确定按钮→Upgrade！");
-        m_HouseUP.SetActive(false);
-        m_House.GetComponent<TweenColor>().enabled = false; 
-        m_House.GetComponent<TweenColor>().ResetToBeginning();
-        m_House.SetActive(false);
-        m_Statr.SetActive(true);
-        m_TimeLine1.SetActive(true);
-        m_BuildInfo .GetComponent<TimerLine>().enabled = true;
+        string S = m_House.GetComponentInChildren<UISprite>().spriteName;
+        char[] S1 = S.ToCharArray();
+        string Y = Convert.ToString(S1[S1.Length - 1]);
+        int Y1 = Convert.ToInt32(Y);
+        Debug.Log("char Y =" + Y);
+        Debug.Log("char Y =" + Y1);
+        switch (Y1)
+        {
+            case 1:
+                GlobalVar.GetInstance().UpgradeTime = 9;
+                break;
+            case 2:
+                GlobalVar.GetInstance().UpgradeTime = 18;
+                break;
+            case 3:
+                GlobalVar.GetInstance().UpgradeTime = 27;
+                break;
+            case 4:
+                GlobalVar.GetInstance().UpgradeTime = 36;
+                break;
+            default:
+                break;
+        }
+        if (Y1 < MaxLevel)
+        {
+            m_HouseUp.SetActive(false);
+            m_House.SetActive(false);
+            UpgradeTimer UpTime = new UpgradeTimer();
+            string Str = m_building.name;
+            UpTime.AddUpgraed(Str);
+        }
+        else if (Y1 >= MaxLevel)
+        {
+            warning Warning = new warning();
+            string Str = "岛主当前建筑已经达到最高级，已经无法继续加盖了！";
+            Warning.AddWarning(Str);
+        }
+
+        
     }
 
     void onItems(GameObject go)

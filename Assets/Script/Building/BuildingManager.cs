@@ -21,7 +21,6 @@ public class BuildingManager : MonoBehaviour
 
     public GameObject m_BMHouseMenu;
     public GameObject m_BMCamera;
-    public GameObject m_Input;
 
     // User Parameters
     UIAtlas H_Hhousesa;          //get house icon atlas
@@ -58,7 +57,7 @@ public class BuildingManager : MonoBehaviour
          m_building.transform.localScale = Vector3.one;
          m_building.transform.localPosition = m_Bclone[BInd].BuildPos;//set building position
          m_building.GetComponent<Building>().m_HouseMenu = m_BMHouseMenu;
-         m_building.GetComponent<Building>().m_Camera = m_BMCamera;
+         m_building.GetComponent<Building>().m_CameraMap = m_BMCamera;
          if (m_Bclone[BInd].Status == 1)
          {
              m_building.transform.GetComponent<Building>().m_House.SetActive(true);
