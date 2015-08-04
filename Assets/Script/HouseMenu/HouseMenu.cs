@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class HouseMenu : MonoBehaviour {
 
-    public List<GameObject> m_ButLise = new List<GameObject>();
+    public List<GameObject> m_BuyButLise = new List<GameObject>();
 
     public GameObject m_CloseBut;
     public GameObject m_HouseMenu;
@@ -15,17 +15,19 @@ public class HouseMenu : MonoBehaviour {
     int GoldCount = 999999999;
 
     //获得
-    public UIAtlas H_HouseIconAtlas;
-    public string H_HouseIconName;
-    public bool H_HCStatus;//building update switch
+    public bool BuyStatus;//是否购买成功
+
+    //获得当前购买的建筑资源名字与图集
+    public string HouseName;
+    public UIAtlas HouseAtlas;
 
 	// Use this for initialization
 	void Start () 
     {
-       
-        for (int i = 0; i < m_ButLise.Count; i++)
+        BuyStatus = false;//每次进入建筑选择界面前先初始化购买状态
+        for (int i = 0; i < m_BuyButLise.Count; i++)
         {
-            UIEventListener.Get(m_ButLise[i]).onClick = onButList;
+            UIEventListener.Get(m_BuyButLise[i]).onClick = onBuyBut;
         }
         UIEventListener.Get(m_CloseBut).onClick = onClose;
 	}
@@ -34,41 +36,51 @@ public class HouseMenu : MonoBehaviour {
 	void Update () {
 	
 	}
-    void onButList(GameObject go)
+    void onBuyBut(GameObject go)
     {
-        for (int i = 0; i < m_ButLise.Count; i++)
+        if (GlobalVar.GetInstance().BulidQueues == 0) // 使用建筑队列来控制是否进行购买操作
         {
-
-            if (m_ButLise[i].GetHashCode() == go.gameObject.GetHashCode())
+            for (int i = 0; i < m_BuyButLise.Count; i++)
             {
-                Debug.Log("你已选好目标建筑了！");
-                long a = long.Parse(m_ButLise[i].transform.parent.FindChild("Sell").FindChild("MoneyCount").GetComponentInChildren<UILabel>().text);
-                long b = long.Parse(m_InputGold.transform.FindChild("TestGold").GetComponent<UILabel>().text);
-                Debug.Log(a + "@@@" + b);
-                if (a < b)
+
+                if (m_BuyButLise[i].GetHashCode() == go.gameObject.GetHashCode())
                 {
-                    H_HouseIconName = m_ButLise[i].transform.parent.FindChild("HouseIcon").GetComponent<UISprite>().spriteName;
-                    H_HouseIconAtlas = m_ButLise[i].transform.parent.FindChild("HouseIcon").GetComponent<UISprite>().atlas;
-                    m_HouseMenu.SetActive(false);
-                    H_HCStatus = false;
-                    m_InputGold.transform.FindChild("TestGold").GetComponent<UILabel>().text = (b - a).ToString();
-                    m_CameraMap.GetComponent<CameraDragMove>().enabled = true;
-                    m_CameraMap.GetComponent<ScalingMap>().enabled = true;
-                }
-                else
-                {
-                    warning Warning = new warning();
-                    string WarningStr = "岛主我们的现金不足，无法购买此建筑！您可以变卖宝石来快速获得现金！";
-                    Warning.AddWarning(WarningStr);
+                    long a = long.Parse(m_BuyButLise[i].transform.parent.FindChild("Sell").FindChild("MoneyCount").GetComponentInChildren<UILabel>().text);
+                    long b = long.Parse(m_InputGold.transform.FindChild("TestGold").GetComponent<UILabel>().text);
+                    if (a < b)
+                    {
+                        HouseName = m_BuyButLise[i].transform.parent.FindChild("HouseIcon").GetComponent<UISprite>().spriteName;
+                        HouseAtlas = m_BuyButLise[i].transform.parent.FindChild("HouseIcon").GetComponent<UISprite>().atlas;
+                        m_InputGold.transform.FindChild("TestGold").GetComponent<UILabel>().text = (b - a).ToString();
+                        m_CameraMap.GetComponent<CameraDragMove>().enabled = true;
+                        m_CameraMap.GetComponent<ScalingMap>().enabled = true;
+                        GlobalVar.GetInstance().AtlaseQueues = 1;//购买成功同意传送图集
+                        BuyStatus = true; //购买成功
+                        m_HouseMenu.SetActive(false);
+                        Debug.Log("目标建筑了已成功购买！BuyStatus =" + BuyStatus);
+                    }
+                    else
+                    {
+                        warning Warning = new warning();
+                        string WarningStr = "岛主我们的现金不足，无法购买此建筑！您可以变卖宝石来快速获得现金！";
+                        Warning.AddWarning(WarningStr);
+                    }
                 }
             }
-        } 
+        }
+        else if (GlobalVar.GetInstance().BulidQueues == 1)
+        {
+            warning Warning = new warning();
+            string WarningStr = "岛主我们目前只能建造一座建筑";
+            Warning.AddWarning(WarningStr);
+        }
+        
     }
 
     void onClose(GameObject go)
     {
+        BuyStatus = false;
         m_HouseMenu.SetActive(false);
-        H_HCStatus =false;
         m_CameraMap.GetComponent<CameraDragMove>().enabled = true;
         m_CameraMap.GetComponent<ScalingMap>().enabled = true;
 

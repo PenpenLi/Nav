@@ -15,9 +15,12 @@ public class GlobalVar {
 
     //sq Start---------------------------------------------
     public string Bobjname = null; //建筑perfab对象名
-    public int BobjS = 1; //建筑perfab对象索引
+    public int BobjS = 1; //用于关闭上一个建筑升级按钮菜单
     public int UpgradeTime = 0;//建筑升级所需时间
     public bool Sw = true; // 决定Warning框在关闭时，是否同时开启地图拖动与放大效果
+    public int UpgradeQueues = 0; //升级队列
+    public int BulidQueues = 0;//建筑队列
+    public int AtlaseQueues = -1; //用于建筑队列结束后，传图集用
     //sq end-----------------------------------------------
 
 
