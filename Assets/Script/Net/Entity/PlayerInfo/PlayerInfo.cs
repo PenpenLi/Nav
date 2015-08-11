@@ -6,8 +6,11 @@
 public class PlayerInfo
 {
     public int Id { set; get; }//玩家ID
+	public string devId{ set; get; }//设备ID
     public int IdHead { set; get; }//玩家头像ID
-    public string PlayerName { set; get; }//玩家昵称
+	public string PlayerName{ set; get; }//玩家用户名
+	public string Psw{set; get;}//玩家密码
+    public string nick { set; get; }//玩家昵称
     public int Lv { set; get; }//玩家等级
     public long PNu { set; get; }//人口数量
     public long GNu { set; get; } //金币数量

@@ -12,7 +12,7 @@ namespace NetManager
 //		public const int gatePost = 3014;
         //内网服务器
 
-        public const string HOST = "192.168.1.250";     //250服务器
+        public const string HOST = "192.168.31.194";     //250服务器
         public const int POST = 3010;
 
         //public const string HOST = "192.168.1.243";     //杨伟服务器

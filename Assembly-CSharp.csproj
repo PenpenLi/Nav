@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{A1F7C3E0-46F2-B78E-4BE0-A7642A9F98BF}</ProjectGuid>
+	<ProjectGuid>{64ECABE0-8A06-B657-08BA-C09203316BEC}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -217,6 +217,7 @@
      <Compile Include="Assets\Script\Controller\Common\PublicTimer.cs" />
      <Compile Include="Assets\Script\Controller\Common\UIMessageBox.cs" />
      <Compile Include="Assets\Script\Controller\Common\UITipBar.cs" />
+     <Compile Include="Assets\Script\Controller\Login\LoginController.cs" />
      <Compile Include="Assets\Script\Fight\Base\ShipBase.cs" />
      <Compile Include="Assets\Script\Fight\Shell.cs" />
      <Compile Include="Assets\Script\Fight\ShipFight.cs" />
@@ -238,6 +239,7 @@
      <Compile Include="Assets\Script\Net\Entity\Common.cs" />
      <Compile Include="Assets\Script\Net\Entity\CommonResult.cs" />
      <Compile Include="Assets\Script\Net\Entity\DBData\UpgradeCost.cs" />
+     <Compile Include="Assets\Script\Net\Entity\DataProtecol\LoginData.cs" />
      <Compile Include="Assets\Script\Net\Entity\PlayerInfo\PlayerInfo.cs" />
      <Compile Include="Assets\Script\Net\LitJson\IJsonWrapper.cs" />
      <Compile Include="Assets\Script\Net\LitJson\JsonData.cs" />
@@ -249,6 +251,7 @@
      <Compile Include="Assets\Script\Net\LitJson\Lexer.cs" />
      <Compile Include="Assets\Script\Net\LitJson\ParserToken.cs" />
      <Compile Include="Assets\Script\Net\NAO\BattleDataReq.cs" />
+     <Compile Include="Assets\Script\Net\NAO\LoginDataQuickReq.cs" />
      <Compile Include="Assets\Script\Net\PomeloSrc\client\EventManager.cs" />
      <Compile Include="Assets\Script\Net\PomeloSrc\client\PomeloClient.cs" />
      <Compile Include="Assets\Script\Net\PomeloSrc\client\test\ClientTest.cs" />
@@ -485,7 +488,7 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="SimpleJson">
- <HintPath>C:/Myworks/Nav2/Assets/Script/Net/SimpleJson.dll</HintPath>
+ <HintPath>C:/mywork/Nav/Nav/Assets/Script/Net/SimpleJson.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
