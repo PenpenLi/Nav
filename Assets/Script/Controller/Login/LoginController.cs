@@ -80,21 +80,21 @@ public class LoginController : MonoBehaviour
             {
                 CommonResult<LoginData> commonResult=(CommonResult<LoginData>)obj;
                 Debug.Log("commonResult.data ="+commonResult.data);
-                int status=commonResult.data.status;
-                PublicTimer.ResetServerTime(commonResult.data.curTime);
+                //int status=commonResult.data.status;
+                //PublicTimer.ResetServerTime(commonResult.data.curTime);
                 //PlayerDataManager.GetInstance().SetPlayerInfo(commonResult.data.player);
-                switch(status)
-                {
-                    case 0: //新注册用户
-                        Debug.Log("新注册用户");
-                        break;
-                    case 1://登录成功
-                        Debug.Log("登录成功");
-                        break;
-                    default:
-                        break;
-                }
-                SceneSwitch.GetSceneSwitch().Switch(GameScene.Loading);
+                //switch(status)
+                //{
+                //    case 0: //新注册用户
+                //        Debug.Log("新注册用户");
+                //        break;
+                //    case 1://登录成功
+                //        Debug.Log("登录成功");
+                //        break;
+                //    default:
+                //        break;
+                //}
+                SceneSwitch.GetSceneSwitch().Switch(GameScene.Lobby);
             }
         }
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 public enum GameScene
 {
     Login,
-    Loading,
     Lobby
 }
 
@@ -61,9 +60,6 @@ public class SceneSwitch : MonoBehaviour
         {
             case GameScene.Login:
                 sceneName="LoginScene";
-                break;
-            case GameScene.Loading:
-                sceneName="Loading";
                 break;
             case GameScene.Lobby:
                 sceneName="Lobby";
