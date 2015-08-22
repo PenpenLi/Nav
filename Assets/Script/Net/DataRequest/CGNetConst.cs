@@ -72,6 +72,11 @@ namespace NetManager
         public const string ROUTE_GMTOOL_ADD_SOLDIER = "connector.GMToolsHandler.temporaryAddSoldier";
         public const string ROUTE_GMTOOL_ADD_POW = "connector.GMToolsHandler.addPower";
 
+        //sq start----------------------------------------------------------
+        //登陆刷新建筑
+        public const string ROUTE_BUILDING_UPDATE = "";
+
+        //sq end------------------------------------------------------------
 
 		public const string PARA_HOST = "host";
 		public const string PARA_PORT = "port";

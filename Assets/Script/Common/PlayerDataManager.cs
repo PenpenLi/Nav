@@ -13,11 +13,13 @@ public class PlayerDataManager {
     public List<ShipBase> m_selfShipList = new List<ShipBase>();
     public List<ShipBase> m_targetShipList = new List<ShipBase>();
     public List<ShipBase> m_fightShipList = new List<ShipBase>();
-
+    
     //sq start----------------------------------------------------------
-    public UIAtlas m_houseatlas;
-    public string m_houseicon;
-    public int m_salehashcode;
+
+    public CommonResult<BuildingBase> m_BuildingBase;
+    public List<BuildingInfo> m_bi;
+    public string m_guid;
+
     //sq end------------------------------------------------------------
 
     public static PlayerDataManager GetInstance()
@@ -61,17 +63,10 @@ public class PlayerDataManager {
     }
 
     //sq start---------------------------------------------------
-    public void SetHouseIconN(string Hname)
+    public void SetBuilding(CommonResult<BuildingBase> BB)
     {
-        m_houseicon = Hname;
-    }
-    public void SetHouseAtlas(UIAtlas Hatlas)
-    {
-        m_houseatlas = Hatlas;
-    }
-    public void SetSaleHashCode(int GHC)
-    {
-        m_salehashcode = GHC;
+        List<BuildingInfo> m_bi = BB.data.BI;
+        m_BuildingBase = BB;
     }
     //sq end----------------------------------------------------
 }

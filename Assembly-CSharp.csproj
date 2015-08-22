@@ -235,6 +235,7 @@
      <Compile Include="Assets\Script\Net\DataRequest\ConnectionManager.cs" />
      <Compile Include="Assets\Script\Net\DataRequest\DataReceivedCallback.cs" />
      <Compile Include="Assets\Script\Net\Entity\BaseStruct\Player.cs" />
+     <Compile Include="Assets\Script\Net\Entity\BuildingInfo\BuildingBase.cs" />
      <Compile Include="Assets\Script\Net\Entity\BuildingInfo\BuildingInfo.cs" />
      <Compile Include="Assets\Script\Net\Entity\Common.cs" />
      <Compile Include="Assets\Script\Net\Entity\CommonResult.cs" />
@@ -251,6 +252,7 @@
      <Compile Include="Assets\Script\Net\LitJson\Lexer.cs" />
      <Compile Include="Assets\Script\Net\LitJson\ParserToken.cs" />
      <Compile Include="Assets\Script\Net\NAO\BattleDataReq.cs" />
+     <Compile Include="Assets\Script\Net\NAO\BuildingDataQuickReq.cs" />
      <Compile Include="Assets\Script\Net\NAO\LoginDataQuickReq.cs" />
      <Compile Include="Assets\Script\Net\PomeloSrc\client\EventManager.cs" />
      <Compile Include="Assets\Script\Net\PomeloSrc\client\PomeloClient.cs" />
@@ -488,7 +490,7 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="SimpleJson">
- <HintPath>C:/mywork/Nav/Nav/Assets/Script/Net/SimpleJson.dll</HintPath>
+ <HintPath>C:/myworks/Nav/Assets/Script/Net/SimpleJson.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

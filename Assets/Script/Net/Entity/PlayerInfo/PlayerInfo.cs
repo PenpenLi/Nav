@@ -23,5 +23,5 @@ public class PlayerInfo
     public int RumNu { set; get; }//朗姆酒数量
     public int FruitNu { set; get; }//水果数量
     public int FlourNu { set; get; }//面粉数量
-    public string GUID { set; get; }
+    public string GUID { set; get; }//玩家唯一识别码
 }
