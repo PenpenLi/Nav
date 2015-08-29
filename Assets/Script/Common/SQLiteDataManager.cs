@@ -15,7 +15,7 @@ public class SQLiteDataManager
     //所有数据库数据的缓存列表
 
    // private List<SoldierBase> m_soldierList = new List<SoldierBase>();
- 
+    private List<B_Base> m_B_BaseList = new List<B_Base>();
 
 
     public SQLiteDataManager(string persistentFilePath)
@@ -34,6 +34,16 @@ public class SQLiteDataManager
     {
         Debug.Log("initDbData()");
         //m_soldierList = DBDataUtil.getInstance().GetAllDataFromDB<SoldierBase>(new SoldierBase(), "soldier");
+        m_B_BaseList = DBDataUtil.getInstance().GetAllDataFromDB<B_Base>(new B_Base(), "bbase");
+        //for(int i = 0; i < m_B_BaseList.Count; i++)
+        //{
+		//	Debug.Log("m_B_BaseList[i].Bname ===" + m_B_BaseList[i].B_NAME);
+        //}
+    }
+
+    public void Test()
+    {
+        Debug.Log("Test-------------------");
     }
 
     //public Artillery GetArtilleryData(int id)

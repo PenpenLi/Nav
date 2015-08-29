@@ -209,6 +209,7 @@
      <Compile Include="Assets\Script\Common\SQLiteDataManager.cs" />
      <Compile Include="Assets\Script\Common\SceneSwitch.cs" />
      <Compile Include="Assets\Script\Common\SmoothCaculate.cs" />
+     <Compile Include="Assets\Script\Component\BaseClass\B_Base.cs" />
      <Compile Include="Assets\Script\Controller\BGSound\BGSound.cs" />
      <Compile Include="Assets\Script\Controller\Common\BackgroundMusicController.cs" />
      <Compile Include="Assets\Script\Controller\Common\CostTipBox.cs" />
@@ -490,7 +491,7 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="SimpleJson">
- <HintPath>C:/myworks/Nav/Assets/Script/Net/SimpleJson.dll</HintPath>
+ <HintPath>C:/mywork/Nav/Nav/Assets/Script/Net/SimpleJson.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

@@ -22,7 +22,7 @@ public class MyApp
 		{
 				if (myApp == null) {
 						myApp = new MyApp ();
-						dataManager = new SQLiteDataManager (Application.persistentDataPath + "/Line.sqlite");
+						dataManager = new SQLiteDataManager (Application.persistentDataPath + "/nav.sqlite");
 				}
 				return myApp;
 		}

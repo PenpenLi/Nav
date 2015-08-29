@@ -34,6 +34,7 @@ public class SQLiteDataInit : MonoBehaviour
 	{
 
 		// a product persistant database path.
+		Debug.Log ("InitSQLiteData --------------------");
 		persistentFilePath = Application.persistentDataPath + "/" + toFileName;
         Debug.Log(Application.persistentDataPath);
 		if (File.Exists (persistentFilePath)) {
@@ -73,6 +74,7 @@ public class SQLiteDataInit : MonoBehaviour
 	IEnumerator CopyFile ()
 	{
         UnityEngine.Debug.Log ("persistentFilePath:"+persistentFilePath);
+        Debug.Log("fromFilePath = " + fromFilePath);
 		WWW www1 = new WWW (fromFilePath);
 		yield return www1;
 		try{
@@ -84,6 +86,8 @@ public class SQLiteDataInit : MonoBehaviour
         www1.Dispose();
 
         finishLoading = true;
+
+		MyApp.GetInstance().GetDataManager().Test();
 	}
 
 	public static string GetMD5HashFromFile(string filename)

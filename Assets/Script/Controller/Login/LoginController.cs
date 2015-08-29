@@ -28,6 +28,7 @@ public class LoginController : MonoBehaviour
             }
         });
         BackgroundMusicController.PlayMusic(6);
+      
     }
     
     // Update is called once per frame

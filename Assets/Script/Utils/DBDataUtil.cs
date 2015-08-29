@@ -39,6 +39,7 @@ public class DBDataUtil {
 				try
 				{
 						SQLiteDB db = new SQLiteDB();
+                        Debug.Log("persistentFilePath----------" + persistentFilePath);
 						db.Open(persistentFilePath);
 						string tname = data.GetType().Name;
 						if(tableName != null){
