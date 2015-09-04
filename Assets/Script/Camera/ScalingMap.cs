@@ -4,11 +4,6 @@ using System.Collections;
 
 public class ScalingMap : MonoBehaviour {
 
-    //public Camera m_Camera;
-    public GameObject m_CameraSize;
-    public GameObject m_Leng1;
-    public GameObject m_Leng2;
-    public GameObject m_Scaling;
     public GameObject m_camera;
     private Vector3 TFScale ; //Transform.Scale
     
@@ -38,7 +33,7 @@ public class ScalingMap : MonoBehaviour {
     //ScalingMap
     void Scalingmap()
     {
-        distance = float.Parse( m_Scaling.transform.FindChild("GetSize").GetComponent<UILabel>().text);
+        distance = 0.05f;
         CameraSize = m_camera.transform.GetComponent<Camera>().orthographicSize;
         if (Input.touchCount > 1) //触摸点
         {
@@ -68,10 +63,6 @@ public class ScalingMap : MonoBehaviour {
                 //备份上一次触摸点的位置，用于对比
                 oldPos1 = NewPos1;
                 oldPos2 = NewPos2;
-
-                m_Leng1.transform.FindChild("GetSize").GetComponent<UILabel>().text = oldPos1.ToString();
-                m_Leng2.transform.FindChild("GetSize").GetComponent<UILabel>().text = NewPos1.ToString();
-
             }
         }
         // 防止在缩放过程中有一个触摸点先松开，会读取但触摸点移动地图
@@ -79,7 +70,6 @@ public class ScalingMap : MonoBehaviour {
         {
             m_camera.GetComponent<CameraDragMove>().enabled = true;
         }
-        m_CameraSize.transform.FindChild("GetSize").GetComponent<UILabel>().text = CameraSize.ToString();
         
     }
 

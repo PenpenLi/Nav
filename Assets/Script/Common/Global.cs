@@ -5,6 +5,7 @@
  */
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class GlobalVar {
     public static GlobalVar instance = null;
@@ -14,13 +15,50 @@ public class GlobalVar {
     public bool m_finishShell = true;//是否完成此次射击
 
     //sq Start---------------------------------------------
-    public string Bobjname = null; //建筑perfab对象名
-    public int BobjS = 1; //用于关闭上一个建筑升级按钮菜单
-    public int UpgradeTime = 0;//建筑升级所需时间
-    public bool Sw = true; // 决定Warning框在关闭时，是否同时开启地图拖动与放大效果
-    public int UpgradeQueues = 0; //升级队列
-    public int BulidQueues = 0;//建筑队列
-    public int AtlaseQueues = -1; //用于建筑队列结束后，传图集用
+    
+    
+    
+    
+    public UIAtlas Bobjatlas = null; //点击的建筑图集
+    public string Bobjicon = null; //点击的建筑图标
+    public int NowLev = 0; //点击的建筑等级
+    public int MaxLev; //点击的建筑最大等级
+    public string BName = null;//点击的建筑名称
+    
+
+    public bool BuySuccess = false;//购买成功
+    public bool BuyFailure = false;//购买失败
+    public bool Sw = false; //标记地图缩放与拖动是否是由warning框关闭的
+    
+    //====================================================================
+    /// <summary>
+    /// UpType：当前升级类型,"-1" 升级，"1"初次建造
+    /// </summary>
+    public int UpType;
+
+    /// <summary>
+    /// Bobjname：保存当前点击的建筑perfab对象名
+    /// </summary>
+    public string Bobjname = null; 
+
+    public int BID = 0;//点击的建筑当前的建筑ID
+    public int UpgradeTime = 0; //点击的建筑升到下级所需要的时间
+
+    /// <summary>
+    /// UpgradeQueues：当前升级队列中有无正在进行的，默认为无”0“
+    /// </summary>
+    public int UpgradeQueues = 0; 
+
+    /// <summary>
+    /// UpgradeQueues：当前建造队列中有无正在进行的，默认为无”0“
+    /// </summary>
+    public int BulidQueues = 0;
+
+    /// <summary>
+    /// StartTime：记录当前升级或建造开始的时间
+    /// </summary>
+    public DateTime StartTime;
+    
     //sq end-----------------------------------------------
 
 

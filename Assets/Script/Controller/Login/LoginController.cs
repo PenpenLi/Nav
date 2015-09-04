@@ -10,7 +10,6 @@ public class LoginController : MonoBehaviour
     private LoginDataQuickReq loginQuickReq;
     private LoginData loginData;
 
-    private BuildingDataQuickReq buildingQuickReq;
     
     void Awake()
     {
@@ -20,13 +19,13 @@ public class LoginController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        loginQuickReq=new LoginDataQuickReq();
-        ConnectionManager.GetInstance().Connect(delegate (bool isSuc)
-        {
-            if(isSuc)
-            {
-            }
-        });
+        //loginQuickReq=new LoginDataQuickReq();
+        //ConnectionManager.GetInstance().Connect(delegate (bool isSuc)
+        //{
+        //    if(isSuc)
+        //    {
+        //    }
+        //});
         BackgroundMusicController.PlayMusic(6);
       
     }
@@ -40,11 +39,11 @@ public class LoginController : MonoBehaviour
     public void ClickQuickLogin()
     {
 
-        string deviceID=SystemInfo.deviceUniqueIdentifier;
-        Debug.Log("deviceID = "+deviceID);
-        GetQuickLoginSucess(deviceID,"鲁力源小畜生");
+        //string deviceID=SystemInfo.deviceUniqueIdentifier;
+        //Debug.Log("deviceID = "+deviceID);
+        //GetQuickLoginSucess(deviceID,"鲁力源小畜生");
 
-
+        SceneSwitch.GetSceneSwitch().Switch(GameScene.Lobby);
     }
 
     public void MessageboxCallBack(bool result)
@@ -85,6 +84,7 @@ public class LoginController : MonoBehaviour
                 Debug.Log("PlayerBase.data ="+commonResult.data);
                 int status = commonResult.data.status;
                 PublicTimer.ResetServerTime(commonResult.data.curTime);
+                PlayerDataManager.GetInstance().GUID = commonResult.data.player.GUID;
                 //PlayerDataManager.GetInstance().SetPlayerInfo(commonResult.data.player);
                 switch (status)
                 {
@@ -99,28 +99,9 @@ public class LoginController : MonoBehaviour
                 }
                 if (status != -1)
                 {
-                    PlayerDataManager.GetInstance().m_guid = commonResult.data.player.GUID;
-                    buildingQuickReq = new BuildingDataQuickReq();
-                    buildingQuickReq.GetBuilingBase(PlayerDataManager.GetInstance().m_guid, BuildingEventCallback);
+                    
                 }
                 SceneSwitch.GetSceneSwitch().Switch(GameScene.Lobby);
-            }
-        }
-
-    }
-     private void BuildingEventCallback(EventBase eb)
-    {
-        string eventname = eb.eventName;
-        object obj = eb.eventValue;
-
-        if (CGNetConst.ROUTE_BUILDING_UPDATE.Equals(eventname))
-        {
-            if (obj != null)
-            {
-                CommonResult<BuildingBase> BB = (CommonResult<BuildingBase>)obj;
-                Debug.Log("BuildingBase.data =" + BB.data);
-
-                PlayerDataManager.GetInstance().SetBuilding(BB);
             }
         }
     }

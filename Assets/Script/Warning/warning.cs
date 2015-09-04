@@ -12,8 +12,7 @@ public class warning : MonoBehaviour{
     public GameObject m_CloseBut;
     public GameObject m_warning;
 
-    GameObject Obj;
-
+    bool Sw = false; //标记地图缩放与拖动是否是由warning框关闭的
     // Use this for initialization
 	void Start () 
     {
@@ -25,9 +24,9 @@ public class warning : MonoBehaviour{
 
     }
 
-    public void AddWarning(string WarningString)
+    public warning(string WarningString)
     {
-        Obj = Instantiate(Resources.Load("Prefab/Warning/Warning350")) as GameObject;//get perfab; 
+        GameObject Obj = Instantiate(Resources.Load("Prefab/Warning/Warning350")) as GameObject;//get perfab; 
         Obj.transform.parent = GameObject.Find("UI").transform;
         Obj.transform.localScale = Vector3.one;
         

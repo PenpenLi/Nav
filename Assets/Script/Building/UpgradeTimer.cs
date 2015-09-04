@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using System.Linq;
 
 public class UpgradeTimer : MonoBehaviour
 {
@@ -16,110 +17,108 @@ public class UpgradeTimer : MonoBehaviour
     public UILabel m_UpgradeTime;
     public UILabel m_Level;
 
-
-    private int FixedTime; //接收当前升级所需时间
     private int NowTime;
-    private int Stime = 60;
+    private int Stime;
     private string HouseName;
-    private bool Ft = false;//加速提示开关
+    private bool Ft = false;
 
+    List<B_Base> m_BB = MyApp.GetInstance().GetDataManager().BB();
 
     // Use this for initialization
     void Start()
     {
-
+        Debug.Log("开始升级！！！！！！");
+        
+        //点击动画显示建筑当前简略信息
         for (int i = 0; i < m_AnimationList.Count; i++)
         {
             UIEventListener.Get(m_AnimationList[i]).onClick = onAnimation;
         }
-        if (GlobalVar.GetInstance().AtlaseQueues == 1)
-        {
-            Debug.Log("你点击的是Sale地标！购买成功派出建筑队！");
-            HouseName = m_BuildingUpgraed.transform.parent.GetComponent<Building>().m_HouseMenu.GetComponent<HouseMenu>().HouseName;
-            FixedTime = 9;
-            NowTime = 9;
-            GlobalVar.GetInstance().BulidQueues = 1;
-            Debug.Log("加入建造队列！");
-        }
-        else
-        {
-            Debug.Log("你点击的是建筑！资源齐备派出装修队！");
-            HouseName = m_BuildingUpgraed.transform.parent.GetComponent<Building>().m_House.GetComponent<UISprite>().spriteName;
-            FixedTime = GlobalVar.GetInstance().UpgradeTime;
-            NowTime = GlobalVar.GetInstance().UpgradeTime;
-            GlobalVar.GetInstance().UpgradeQueues = 1;
-            Debug.Log("加入装修队列！");
-        }
-        
-        
-        TimeCount(FixedTime);
-        if (FixedTime > 0)
+        Stime = GlobalVar.GetInstance().UpgradeTime;
+
+        TimeCount(Stime);
+        if (Stime > 0)
         {
             m_AnimationList[0].SetActive(true);
         }
     }
 
-    void onAnimation(GameObject go)
+    void onAnimation(GameObject go)//点击动画查看信息
     {
-        for (int i = 0; i < m_AnimationList.Count; i++)
+        var BBase = from n in MyApp.GetInstance().GetDataManager().BB()
+                    where n.ID == GlobalVar.GetInstance().BID
+                    select new { n.B_LEV, n.B_NAME };
+        foreach (var bbase in BBase)
         {
-            if (m_AnimationList[i].GetHashCode() == go.gameObject.GetHashCode())
+            for (int i = 0; i < m_AnimationList.Count; i++)
             {
-                if (Ft == false)
+                if (m_AnimationList[i].GetHashCode() == go.gameObject.GetHashCode())
                 {
-                    m_TimeLine.transform.localPosition = new Vector3(0, 30f, 0);
-                    m_HouseName.SetActive(true);
-                    m_Buy.SetActive(true);
-                    m_HouseName.GetComponent<UILabel>().text = HouseName;
-                    m_Level.text = "等级 " + HouseName[HouseName.Length-1];
-                    Ft = true;
-                }
-                else if (Ft == true)
-                {
-                    m_TimeLine.transform.localPosition = new Vector3(0, 75f, 0);
-                    m_HouseName.SetActive(false);
-                    m_Buy.SetActive(false);
-                    m_HouseName.GetComponent<UILabel>().text = HouseName;
-                    Ft = false;
+                    if (Ft == false)
+                    {
+                        m_TimeLine.transform.localPosition = new Vector3(0, 30f, 0);
+                        m_HouseName.SetActive(true);
+                        m_Buy.SetActive(true);
+                        m_HouseName.GetComponent<UILabel>().text = bbase.B_NAME;
+                        m_Level.text =  bbase.B_LEV.ToString();
+                        Ft = true;
+                    }
+                    else if (Ft == true)
+                    {
+                        m_TimeLine.transform.localPosition = new Vector3(0, 75f, 0);
+                        m_HouseName.SetActive(false);
+                        m_Buy.SetActive(false);
+                        Ft = false;
+                    }
                 }
             }
         }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+
         MyTimer();
     }
-
     void MyTimer()
     {
-        //Debug.Log("NowTime;" + NowTime);
-        if (NowTime > 0)
+        long DTdiff = DateTime.Now.Ticks - GlobalVar.GetInstance().StartTime.Ticks;
+        int DTnow = Stime - Convert.ToInt32(DTdiff / 10000000);
+        TimeCount(DTnow);
+        m_ProgressBar.GetComponent<UISprite>().fillAmount = (1f / Stime) * (Stime - DTnow);
+
+        if (DTnow < Stime / 3 * 2)
         {
-            Stime--;
-            if (Stime <= 0)
-            {
-                //Debug.Log("过了一秒");
-                m_ProgressBar.GetComponent<UISprite>().fillAmount += 1f / FixedTime;
-                NowTime -= 1;
-                TimeCount(NowTime);
-                if (NowTime < FixedTime / 3 * 2) { DisplayCenter(); }
-                if (NowTime < FixedTime / 3) { DisplayEnd(); }
-                Stime = 60;
-            }
+            m_AnimationList[0].SetActive(false);
+            m_AnimationList[1].SetActive(true);
         }
-        else
+        if (DTnow < Stime / 3)
         {
-            UpGradeOver();
+            m_AnimationList[1].SetActive(false);
+            m_AnimationList[2].SetActive(true);
+        }
+        if (DTnow <= 0)
+        {
             m_ProgressBar.GetComponent<UISprite>().fillAmount = 0;
-            //NowTime = GlobalVar.GetInstance().UpgradeTime;
-            Debug.Log("升级结束！");
+
+            if (GlobalVar.GetInstance().UpType == 1) //建造
+            {
+                Debug.Log(GlobalVar.GetInstance().UpType);
+                BuildOver();
+            }
+            else if (GlobalVar.GetInstance().UpType == -1) //升级
+            {
+                Debug.Log(GlobalVar.GetInstance().UpType);
+                UpgradeOver();
+            }
             m_BuildingUpgraed.GetComponent<UpgradeTimer>().enabled = false;
+            Destroy(m_BuildingUpgraed);
         }
     }
 
-    void TimeCount(int TimeS)
+    void TimeCount(int TimeS) //倒计时显示换算
     {
         int H_TimeDay = TimeS / (60 * 60 * 24);
         int H_TimeHour = (TimeS / 60 - TimeS / (60 * 60 * 24) * 24 * 60) / 60;
@@ -153,55 +152,48 @@ public class UpgradeTimer : MonoBehaviour
         }
     }
 
-    void DisplayCenter()
-    {
-        m_AnimationList[0].SetActive(false);
-        m_AnimationList[1].SetActive(true);
-    }
 
-    void DisplayEnd()
+    void BuildOver()//购买建筑建造完成
     {
-        m_AnimationList[1].SetActive(false);
-        m_AnimationList[2].SetActive(true);
-    }
+        Debug.Log("当前需要@建造@的建筑图集是：" + GlobalVar.GetInstance().Bobjatlas);
+        m_BuildingUpgraed.transform.parent.GetComponent<Building>().m_House.GetComponent<UISprite>().atlas = GlobalVar.GetInstance().Bobjatlas;
+        m_BuildingUpgraed.transform.parent.GetComponent<Building>().m_House.GetComponent<UISprite>().spriteName = GlobalVar.GetInstance().Bobjicon;
 
-    void UpGradeOver()
-    {
-        Transform Tf = m_BuildingUpgraed.transform.parent;
-        m_AnimationList[2].SetActive(false);
-        m_TimeLine.SetActive(false);
-        char[] S = HouseName.ToCharArray();
-        int Y;
-        if (GlobalVar.GetInstance().AtlaseQueues == 1)
-        {
-            Debug.Log("当前建造的建筑图集是 =" + Tf.GetComponent<Building>().m_HouseMenu.GetComponent<HouseMenu>().HouseAtlas);
-            Tf.GetComponent<Building>().m_House.GetComponent<UISprite>().atlas = Tf.GetComponent<Building>().m_HouseMenu.GetComponent<HouseMenu>().HouseAtlas;
-            Y = Convert.ToInt32(S[S.Length - 1]);
-            GlobalVar.GetInstance().BulidQueues = 0;//建造完后队列清空
-            GlobalVar.GetInstance().AtlaseQueues = -1;//接收完图集后初始化
-        }
-        else
-        {
-            Y = Convert.ToInt32(S[S.Length - 1] + 1);
-            GlobalVar.GetInstance().UpgradeQueues = 0;//装修完后队列清空
-        }
-        S[S.Length - 1] = Convert.ToChar(Y);
-        string Str = new string(S);
-        Tf.GetComponent<Building>().m_House.GetComponent<UISprite>().spriteName = Str;
-        Tf.GetComponent<Building>().m_House.SetActive(true);
-        Tf.GetComponent<Building>().m_House.GetComponent<TweenColor>().enabled = false;
-        Tf.GetComponent<Building>().m_House.GetComponent<TweenColor>().ResetToBeginning();
-        m_BuildingUpgraed.GetComponent<UpgradeTimer>().enabled = false;
         m_BuildingUpgraed.transform.parent.GetComponent<Building>().m_House.SetActive(true);
+
+        GlobalVar.GetInstance().BulidQueues = 0; //清空升级列表
+
+
+        string WarningStr = "恭喜岛主" + GlobalVar.GetInstance().BName + " 已经顺利建成 ！";
+        warning Warning = new warning(WarningStr);
+
         Destroy(m_BuildingUpgraed);
-        //GlobalVar.GetInstance().UpgradeQueues = 0;//装修完后队列清空
-        //GlobalVar.GetInstance().BulidQueues = 0;//建造完后队列清空
-        GlobalVar.GetInstance().BobjS = 1;
-        //GlobalVar.GetInstance().AtlaseQueues = -1;//接收完图集后初始化
-        Debug.Log("建筑升级结束！" + Str);
     }
 
-    public void AddUpgraed(string Parent)
+    void UpgradeOver()//建筑升级结束
+    {
+        
+        GlobalVar.GetInstance().UpgradeQueues = 0; //清空升级列表
+        
+        var BBase = from n in MyApp.GetInstance().GetDataManager().BB()
+                       where n.ID == GlobalVar.GetInstance().BID + 1
+                       select new { n.B_ICON_NAME, n.B_LEV,n.ID};
+        foreach (var BIc in BBase)
+        {
+            m_BuildingUpgraed.transform.parent.GetComponent<Building>().m_House.GetComponent<UISprite>().spriteName = BIc.B_ICON_NAME;
+            m_BuildingUpgraed.transform.parent.GetComponent<Building>().m_BId.GetComponent<UILabel>().text = BIc.ID.ToString();
+            m_BuildingUpgraed.transform.parent.FindChild("UpgradeManager").GetComponent<BuildingUpgradeManager>().m_HLev.GetComponent<UILabel>().text = BIc.B_LEV.ToString();
+
+            string WarningStr = "恭喜岛主" + GlobalVar.GetInstance().BName + " 已经顺利升级到 " + BIc.B_LEV + " 等级！";
+            warning Warning = new warning(WarningStr);
+        }
+
+        m_BuildingUpgraed.transform.parent.GetComponent<Building>().m_House.SetActive(true);
+        GlobalVar.GetInstance().Bobjname = null;
+
+    }
+
+    public UpgradeTimer(string Parent)
     {
         GameObject Obj = Instantiate(Resources.Load("Prefab/Building/BuildingUpgraed")) as GameObject;//get perfab; 
         Obj.transform.parent = GameObject.Find(Parent).transform;

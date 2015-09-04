@@ -6,6 +6,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class PlayerDataManager {
 
@@ -15,11 +16,8 @@ public class PlayerDataManager {
     public List<ShipBase> m_fightShipList = new List<ShipBase>();
     
     //sq start----------------------------------------------------------
-
-    public CommonResult<BuildingBase> m_BuildingBase;
-    public List<BuildingInfo> m_bi;
-    public string m_guid;
-
+    public string GUID;
+    
     //sq end------------------------------------------------------------
 
     public static PlayerDataManager GetInstance()
@@ -63,10 +61,6 @@ public class PlayerDataManager {
     }
 
     //sq start---------------------------------------------------
-    public void SetBuilding(CommonResult<BuildingBase> BB)
-    {
-        List<BuildingInfo> m_bi = BB.data.BI;
-        m_BuildingBase = BB;
-    }
+    
     //sq end----------------------------------------------------
 }

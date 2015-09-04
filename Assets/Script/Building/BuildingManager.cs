@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using NetManager;
+using System;
+using System.Linq;
 
 public class BuilPosition
 {
@@ -11,119 +13,92 @@ public class BuildingManager : MonoBehaviour
 {
     // User GameObject
     public List<GameObject> m_BuildingList = new List<GameObject>();
-    public List<UIAtlas> m_AtlasList = new List<UIAtlas>();  //图集list
-    private List<BuilPosition> m_BP = new List<BuilPosition>();//get building perfab 
-    
     public GameObject m_BMHouseMenu;
     public GameObject m_BMCamera;
 
-    // User Parameters
-    private UIAtlas H_Hhousesa;          //get house icon atlas
-    private string H_Housesn;          //get house icon sprite name
+    //资源列表
+    public List<GameObject> m_BaseList = new List<GameObject>();
 
-    //-------------------------------------------------------------------
-
-    private List<BuildingInfo> m_Binfolist = new List<BuildingInfo>();
-    private List<BuildingInfo> m_BI;
+    //本地数据
+    List<BuildingInfo> m_BI = MyApp.GetInstance().GetDataManager().BI();
+    List<B_Base> m_BB = MyApp.GetInstance().GetDataManager().BB();
+    List<Item> m_Item = MyApp.GetInstance().GetDataManager().Item();
+    List<B_Pos> m_BP = MyApp.GetInstance().GetDataManager().BP();
 
     // Use this for initialization
     void Start()
     {
-        setBCloneList();
-        for (int i = 0; i < m_Binfolist.Count; i++)
+        for (int i = 0; i < m_BI.Count; i++)
         {
-            m_BuildingList.Add(NetAddBuild(i));
+           m_BuildingList.Add(NetAddBuild(i));
         }
-       
-        //m_Binfolist = PlayerDataManager.GetInstance().m_bi;
     }
 
     // Update is called once per frame
-    void Update()
+    void Update()//null
     {
 
     }
 
-     GameObject NetAddBuild(int BInd) //添加建筑
-     {
-         getHouseA(BInd);
-         GameObject m_building = Instantiate(Resources.Load("Prefab/Building/Building")) as GameObject;//get perfab
-         m_building.transform.parent = GameObject.Find("BuildingManager").transform;//set building parent
-         m_building.name = BInd.ToString();
-         m_building.transform.localScale = Vector3.one;
-
-         if (m_Binfolist[BInd].BuildingID == -1)
-         {
-             m_building.transform.GetComponent<Building>().m_House.SetActive(false);
-             m_building.transform.GetComponent<Building>().m_Sale.SetActive(true);
-         }
-         else
-         {
-             m_building.transform.GetComponent<Building>().m_House.SetActive(true);
-             m_building.transform.GetComponent<Building>().m_Sale.SetActive(false);
-
-             m_building.transform.FindChild("House").GetComponent<UISprite>().atlas = H_Hhousesa;
-             m_building.transform.FindChild("House").GetComponent<UISprite>().spriteName = H_Housesn;
-         }
-         m_building.transform.localPosition = m_BP[BInd].BuildPos;
-         m_building.GetComponent<Building>().m_HouseMenu = m_BMHouseMenu;
-         m_building.GetComponent<Building>().m_CameraMap = m_BMCamera;
-         
-         return m_building;
-     }
-    void setBCloneList()//建筑数据
+    GameObject NetAddBuild(int BInd) //添加建筑
     {
-        m_BP.Add(new BuilPosition() {  BuildPos = new Vector3(752.9f, -22.5f, 0) });
-        m_BP.Add(new BuilPosition() {  BuildPos = new Vector3(752.9f, 126f, 0) });
-        m_BP.Add(new BuilPosition() {  BuildPos = new Vector3(1036f, 126f, 0) });
-        m_BP.Add(new BuilPosition() {  BuildPos = new Vector3(903f, 42f, 0) });
-        m_BP.Add(new BuilPosition() {  BuildPos = new Vector3(903f, 210f, 0) });
-        m_BP.Add(new BuilPosition() {  BuildPos = new Vector3(1220f, 220f, 0) });
-        m_BP.Add(new BuilPosition() {  BuildPos = new Vector3(1070f, 300f, 0) });
-        m_BP.Add(new BuilPosition() {  BuildPos = new Vector3(920f, 380f, 0) });
+        GameObject m_BObj = Instantiate(Resources.Load("Prefab/Building/Building")) as GameObject;//get perfab
+        m_BObj.transform.parent = GameObject.Find("BuildingManager").transform;//set building parent
+        m_BObj.name = m_BI[BInd].PosID.ToString();
+        m_BObj.transform.localScale = Vector3.one;
 
-        m_Binfolist.Add(new BuildingInfo() { PosID = 0, BuildingID = 2, Lev = 2, UpTimes = -1, ProductID = -1, ItemNu = 0 });
-        m_Binfolist.Add(new BuildingInfo() { PosID = 1, BuildingID = -1, Lev = 1, UpTimes = -1, ProductID = -1, ItemNu = 0 });
-        m_Binfolist.Add(new BuildingInfo() { PosID = 2, BuildingID = 5, Lev = 1, UpTimes = -1, ProductID = -1, ItemNu = 0 });
-        m_Binfolist.Add(new BuildingInfo() { PosID = 3, BuildingID = 1, Lev = 2, UpTimes = -1, ProductID = -1, ItemNu = 0 });
-        m_Binfolist.Add(new BuildingInfo() { PosID = 4, BuildingID = 3, Lev = 2, UpTimes = -1, ProductID = -1, ItemNu = 0 });
-        m_Binfolist.Add(new BuildingInfo() { PosID = 5, BuildingID = -1, Lev = 3, UpTimes = -1, ProductID = -1, ItemNu = 0 });
-        m_Binfolist.Add(new BuildingInfo() { PosID = 6, BuildingID = 4, Lev = 2, UpTimes = -1, ProductID = -1, ItemNu = 0 });
-        m_Binfolist.Add(new BuildingInfo() { PosID = 7, BuildingID = -1, Lev = 2, UpTimes = -1, ProductID = -1, ItemNu = 0 });
+        //根据坐标索引查找并设置建筑坐标
+        var Pos = from n in m_BP
+                  where n.POS_ID == m_BI[BInd].PosID
+                  select new { n.POS_X, n.POS_Y };
+        foreach (var pos in Pos)
+            m_BObj.transform.localPosition = new Vector3((float)pos.POS_X,(float)pos.POS_Y, 0);
 
-    }
+        //挂载perfab外部GameObject
+        m_BObj.GetComponent<Building>().m_HouseMenu = m_BMHouseMenu;
+        m_BObj.GetComponent<Building>().m_CameraMap = m_BMCamera;
+        m_BObj.GetComponent<Building>().m_BaseList = m_BaseList;
 
-    void getHouseA(int AtlasId) //建筑资源名称
-    {
-        for (int i = 0; i < m_Binfolist.Count; i++)
+        //将建筑ID记录在每座对应的建筑上,以备后续查找调用
+        m_BObj.transform.FindChild("BuildingID").GetComponent<UILabel>().text = m_BI[BInd].BuildingID.ToString();
+
+        //判断当前位置是否已建造过建筑，-1 是无建筑
+        if (m_BI[BInd].BuildingID == -1)
         {
-            switch (AtlasId)
-            {
-                case 0:
-                    H_Hhousesa = m_AtlasList[AtlasId];
-                    H_Housesn = "ani_house_a_" + m_Binfolist[AtlasId].Lev;
-                    break;
-                case 1:
-                    H_Hhousesa = m_AtlasList[AtlasId];
-                    H_Housesn = "ani_house_b_" + m_Binfolist[AtlasId].Lev;
-                    break;
-                case 2:
-                    H_Hhousesa = m_AtlasList[AtlasId];
-                    H_Housesn = "ani_house_c_" + m_Binfolist[AtlasId].Lev;
-                    break;
-                case 3:
-                    H_Hhousesa = m_AtlasList[AtlasId];
-                    H_Housesn = "ani_house_d_" + m_Binfolist[AtlasId].Lev;
-                    break;
-                case 4:
-                    H_Hhousesa = m_AtlasList[AtlasId];
-                    H_Housesn = "ani_house_e_" + m_Binfolist[AtlasId].Lev;
-                    break;
-                default:
-                    break;
-            }
+            m_BObj.transform.GetComponent<Building>().m_House.SetActive(false);
+            m_BObj.transform.GetComponent<Building>().m_Sale.SetActive(true);
         }
-    }
+        else
+        {
 
-   
+            m_BObj.transform.GetComponent<Building>().m_House.SetActive(true);
+            m_BObj.transform.GetComponent<Building>().m_Sale.SetActive(false);
+
+            //更具建筑ID加载建筑数据
+            var BInfo = from n in m_BB
+                        where n.ID == m_BI[BInd].BuildingID
+                        select new { n.B_ATLAS_NAME, n.B_ICON_NAME, n.B_NAME, n.B_LEV, n.ITEM_ID };
+            foreach (var BBase in BInfo)
+            {
+                UIAtlas UA = Resources.Load("Atlas/House/" + BBase.B_ATLAS_NAME, typeof(UIAtlas)) as UIAtlas;
+                m_BObj.transform.FindChild("House").GetComponent<UISprite>().atlas = UA;
+                m_BObj.transform.FindChild("House").GetComponent<UISprite>().spriteName = BBase.B_ICON_NAME;
+
+                m_BObj.transform.FindChild("UpgradeManager").FindChild("HName").GetComponent<UILabel>().text = BBase.B_NAME;
+                m_BObj.transform.FindChild("UpgradeManager").FindChild("HLev").GetComponent<UILabel>().text = BBase.B_LEV.ToString();
+
+                var IInfo = from m in m_Item
+                            where m.ITEM_ID == BBase.ITEM_ID
+                            select new { m.ITEM_ATLAS_NAME, m.ITEM_ICON_NAME };
+                foreach (var IBase in IInfo)
+                {
+                    UIAtlas IUA = Resources.Load("Atlas/Lobby/" + IBase.ITEM_ATLAS_NAME, typeof(UIAtlas)) as UIAtlas;
+                    m_BObj.transform.FindChild("UpgradeManager").FindChild("Items").FindChild("2").GetComponent<UISprite>().atlas = IUA;
+                    m_BObj.transform.FindChild("UpgradeManager").FindChild("Items").FindChild("2").GetComponent<UISprite>().spriteName = IBase.ITEM_ICON_NAME;
+                }
+            }
+
+        }
+        return m_BObj;
+    }
 }

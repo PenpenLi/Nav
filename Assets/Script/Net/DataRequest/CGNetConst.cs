@@ -73,8 +73,9 @@ namespace NetManager
         public const string ROUTE_GMTOOL_ADD_POW = "connector.GMToolsHandler.addPower";
 
         //sq start----------------------------------------------------------
-        //登陆刷新建筑
+        //建筑
         public const string ROUTE_BUILDING_UPDATE = "";
+        public const string ROUTE_BUILDING_UPGRADE = "";
 
         //sq end------------------------------------------------------------
 
