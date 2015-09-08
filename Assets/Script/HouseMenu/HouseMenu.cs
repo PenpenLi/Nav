@@ -9,11 +9,13 @@ public class HouseMenu : MonoBehaviour
 {
 
     public List<GameObject> m_BList = new List<GameObject>(); //建筑list
+    public List<GameObject> m_ResList = new List<GameObject>();
     public GameObject m_CloseBut;
     public GameObject m_HouseMenu;
     public GameObject m_CameraMap;
     public GameObject m_Gold;
     public GameObject m_HouseInfo;
+
 
     // Use this for initialization
     void Start()
@@ -21,10 +23,7 @@ public class HouseMenu : MonoBehaviour
         float PosX = -272;
         int BListCount = (from n in MyApp.GetInstance().GetDataManager().BB()
                           where n.B_LEV == 1
-                          select n.B_ICON_NAME).Count();
-
-        Debug.Log("BListCount = " + BListCount);
-
+                          select n).Count();
         for (int i = 0; i < BListCount; i++)
         {
 
@@ -47,6 +46,7 @@ public class HouseMenu : MonoBehaviour
         m_HouseMenu.SetActive(false);
         m_CameraMap.GetComponent<CameraDragMove>().enabled = true;
         m_CameraMap.GetComponent<ScalingMap>().enabled = true;
+        GlobalVar.GetInstance().UpObjname = null;
     }
 
     GameObject NetAddBuild(int BInd, Vector3 VT) //添加Item perfab
@@ -56,16 +56,15 @@ public class HouseMenu : MonoBehaviour
         m_Obj.transform.localScale = Vector3.one;
         m_Obj.transform.localPosition = VT;
 
+        //挂在外部对象
         m_Obj.GetComponent<BuyBuilding>().m_HouseMenu = m_HouseMenu;
         m_Obj.GetComponent<BuyBuilding>().m_CameraMap = m_CameraMap;
-        m_Obj.GetComponent<BuyBuilding>().m_Gold = m_Gold;
-        //m_Obj.GetComponent<BuyBuilding>().m_HouseItem = m_HouseItem;
-
-
+        m_Obj.GetComponent<BuyBuilding>().m_ResList = m_ResList;
+        
         var BList = from n in MyApp.GetInstance().GetDataManager().BB()
                     where n.B_LEV == 1
                     where n.B_TYPE == BInd
-                    select new { n.B_ATLAS_NAME, n.B_ICON_NAME, n.B_NAME,n.BUILD_STR  };
+                    select new { n.B_ATLAS_NAME, n.B_ICON_NAME, n.B_NAME,n.BUILD_STR,n.ID  };
         foreach (var BLi in BList)
         {
             //Debug.Log("BLi.Batlasname = " + BLi.Batlasname);
@@ -75,9 +74,8 @@ public class HouseMenu : MonoBehaviour
             m_Obj.transform.FindChild("HouseIcon").GetComponent<UISprite>().atlas = UA;
             m_Obj.transform.FindChild("HouseIcon").GetComponent<UISprite>().spriteName = BLi.B_ICON_NAME;
             m_Obj.transform.FindChild("HouseName").GetComponent<UILabel>().text = BLi.B_NAME; ;
-            //m_Obj.transform.FindChild("Sell").GetComponentInChildren<UILabel>().text = BLi..ToString();
+            m_Obj.transform.FindChild("BID").GetComponentInChildren<UILabel>().text = BLi.ID.ToString();
             m_Obj.transform.FindChild("HouseInfo").GetComponent<UILabel>().text = BLi.BUILD_STR;
-
         }
 
         return m_Obj;

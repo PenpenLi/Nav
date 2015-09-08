@@ -41,16 +41,10 @@ public class warning : MonoBehaviour{
             Tf.GetComponent<warning>().m_CameraMap.GetComponent<ScalingMap>().enabled = false;
             GlobalVar.GetInstance().Sw = false;
         }
-        Debug.Log(Obj.name);
-        Debug.Log(Obj.transform.parent.name);
-        Debug.Log(GlobalVar.GetInstance().Sw);
     }
 
     void onClose(GameObject go)
     {
-        Debug.Log(GlobalVar.GetInstance().Sw);
-        Debug.Log(m_warning.name);
-        Destroy(m_warning);
         if (GlobalVar.GetInstance().Sw == false)
         {
             Debug.Log("现在由Warning自己打开拖动与缩放！");
@@ -58,6 +52,6 @@ public class warning : MonoBehaviour{
             m_warning.GetComponent<warning>().m_CameraMap.GetComponent<ScalingMap>().enabled = true;
             GlobalVar.GetInstance().Sw = true;
         }
-        
+        Destroy(m_warning);
     }
 }

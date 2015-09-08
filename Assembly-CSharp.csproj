@@ -189,10 +189,7 @@
      <Compile Include="Assets\Script\Building\BuildAnimation.cs" />
      <Compile Include="Assets\Script\Building\Building.cs" />
      <Compile Include="Assets\Script\Building\BuildingManager.cs" />
-     <Compile Include="Assets\Script\Building\BuildingUpgradeManager.cs" />
-     <Compile Include="Assets\Script\Building\HouseBut.cs" />
-     <Compile Include="Assets\Script\Building\SaleBut.cs" />
-     <Compile Include="Assets\Script\Building\UpgradeTimer.cs" />
+     <Compile Include="Assets\Script\Building\Upgrade.cs" />
      <Compile Include="Assets\Script\Camera\CameraDragMove.cs" />
      <Compile Include="Assets\Script\Camera\CloseBuildUpBut.cs" />
      <Compile Include="Assets\Script\Camera\ScalingMap.cs" />
@@ -284,9 +281,12 @@
      <Compile Include="Assets\Script\Net\PomeloSrc\transport\TransportState.cs" />
      <Compile Include="Assets\Script\Net\PomeloSrc\transport\Transporter.cs" />
      <Compile Include="Assets\Script\Net\PomeloSrc\transport\test\TransportTest.cs" />
+     <Compile Include="Assets\Script\Timer\BuildTimer.cs" />
+     <Compile Include="Assets\Script\Timer\UpgradeTimer.cs" />
      <Compile Include="Assets\Script\Utils\DBDataUtil.cs" />
      <Compile Include="Assets\Script\Warning\UIList.cs" />
      <Compile Include="Assets\Script\Warning\warning.cs" />
+     <Compile Include="Assets\ceshi.cs" />
      <Compile Include="Assets\spienSkeleton2D\spine-csharp\src\Animation.cs" />
      <Compile Include="Assets\spienSkeleton2D\spine-csharp\src\AnimationState.cs" />
      <Compile Include="Assets\spienSkeleton2D\spine-csharp\src\AnimationStateData.cs" />

@@ -8,22 +8,24 @@ public class BuyBuilding : MonoBehaviour
 {
 
     public List<GameObject> m_BuyButLise = new List<GameObject>();
+    public List<GameObject> m_ResList = new List<GameObject>();
 
-    public GameObject m_Gold;
     public GameObject m_NeedGold;
     public GameObject m_BuyBut;
     public GameObject m_HouseIcon;
     public GameObject m_HouseName;
-
+    public GameObject m_BId;
     public GameObject m_HouseMenu;
     public GameObject m_CameraMap;
 
+    private List<B_Base> m_MyBB = new List<B_Base>();
+    private int Ind;
     // Use this for initialization
     void Start()
     {
-
+        Ind = Convert.ToInt32(m_BId.GetComponent<UILabel>().text);
+        m_MyBB = MyApp.GetInstance().GetDataManager().BB();
         UIEventListener.Get(m_BuyBut).onClick = onBuyBut;
-
     }
 
     // Update is called once per frame
@@ -34,48 +36,44 @@ public class BuyBuilding : MonoBehaviour
 
     void onBuyBut(GameObject go)
     {
-        if (GlobalVar.GetInstance().BulidQueues == 0)
+        GlobalVar.GetInstance().BuildTime = m_MyBB[Ind].LEV_UP_TIME;
+        if (GlobalVar.GetInstance().BuildQueues == 0)
         {
-            GlobalVar.GetInstance().Bobjatlas = m_HouseIcon.GetComponent<UISprite>().atlas;
-            GlobalVar.GetInstance().Bobjicon = m_HouseIcon.GetComponent<UISprite>().spriteName;
-            Debug.Log("当前购买的建筑图集是→  " + GlobalVar.GetInstance().Bobjatlas);
-            Debug.Log("当前购买的建筑用地是→  " + GlobalVar.GetInstance().Bobjname);
+            //现有资源数量
+            int Item0 = Convert.ToInt32(m_ResList[0].GetComponentInChildren<UILabel>().text);
+            int Item1 = Convert.ToInt32(m_ResList[m_MyBB[Ind].NEED_TIME1].GetComponentInChildren<UILabel>().text);
+            int Item2 = Convert.ToInt32(m_ResList[m_MyBB[Ind].NEED_TIME2].GetComponentInChildren<UILabel>().text);
+            int Item3 = Convert.ToInt32(m_ResList[m_MyBB[Ind].NEED_TIME3].GetComponentInChildren<UILabel>().text);
 
-            var UpTime = from n in MyApp.GetInstance().GetDataManager().BB()
-                         where n.B_NAME == m_HouseIcon.GetComponent<UISprite>().spriteName
-                         where n.B_ICON_NAME == m_HouseIcon.GetComponent<UISprite>().spriteName
-                         select n.B_LEV;
-            foreach (var UT in UpTime)
-                GlobalVar.GetInstance().NowLev = UT;
-
-            int a = Convert.ToInt32(m_NeedGold.GetComponentInChildren<UILabel>().text);
-            int b = Convert.ToInt32(m_Gold.GetComponent<UILabel>().text);
-            if (a < b)
+            if (m_MyBB[Ind].BUY_NEED_GOLD < Item0 && m_MyBB[Ind].COUNT1 < Item1 && m_MyBB[Ind].COUNT2 < Item2 && m_MyBB[Ind].COUNT3 < Item3)
             {
-                Debug.Log("派遣建造队，进行建造！！");
-                string Str = GlobalVar.GetInstance().Bobjname;
-                UpgradeTimer UTime = new UpgradeTimer(Str);
-                 GlobalVar.GetInstance().StartTime = DateTime.Now; //记录开始时间
+                m_ResList[0].GetComponentInChildren<UILabel>().text = (Item0 - m_MyBB[Ind].BUY_NEED_GOLD).ToString();
+                m_ResList[m_MyBB[Ind].NEED_TIME1].GetComponentInChildren<UILabel>().text = (Item1 - m_MyBB[Ind].COUNT1).ToString();
+                m_ResList[m_MyBB[Ind].NEED_TIME2].GetComponentInChildren<UILabel>().text = (Item2 - m_MyBB[Ind].COUNT2).ToString();
+                m_ResList[m_MyBB[Ind].NEED_TIME3].GetComponentInChildren<UILabel>().text = (Item3 - m_MyBB[Ind].COUNT3).ToString();
 
-                m_Gold.GetComponent<UILabel>().text = (b - a).ToString();
+                //保值
+                GlobalVar.GetInstance().BuildStartTime = DateTime.Now;
+                GlobalVar.GetInstance().BuildID = Convert.ToInt32(m_BId.GetComponent<UILabel>().text);
+                GlobalVar.GetInstance().BuildQueues = 1;           
+
+                m_HouseMenu.SetActive(false);
                 m_CameraMap.GetComponent<CameraDragMove>().enabled = true;
                 m_CameraMap.GetComponent<ScalingMap>().enabled = true;
+                GlobalVar.GetInstance().BuildID = Convert.ToInt32(m_BId.GetComponent<UILabel>().text);
 
-                GlobalVar.GetInstance().BulidQueues = 1;
-                GlobalVar.GetInstance().BuySuccess = true; //购买成功
-                m_HouseMenu.SetActive(false);
+                BuildTimer UI = new BuildTimer(GlobalVar.GetInstance().BuildObjname); //派遣建造队
             }
             else
             {
-                string WarningStr = "岛主我们的现金不足，无法购买此建筑！您可以变卖宝石来快速获得现金！";
-                warning Warning = new warning(WarningStr);
-
+                string str = "岛主，金币不足目前无法对目标建筑进行升级！！";
+                warning warning = new warning(str);
             }
         }
-        else if (GlobalVar.GetInstance().BulidQueues == 1)
+        else
         {
-            string WarningStr = "岛主我们目前只能建造一座建筑";
-            warning Warning = new warning(WarningStr);
+            string Str = "岛主，当前没有闲置的建造队，所以无法进行装修！";
+            warning Warning = new warning(Str);
         }
 
     }
