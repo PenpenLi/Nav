@@ -26,7 +26,7 @@ public class CloseBuildUpBut : MonoBehaviour
             m_CloseBM.transform.GetComponent<BuildingManager>().m_BuildingList[i].GetComponent<Building>().m_BUManager.SetActive(false);
             m_CloseBM.transform.GetComponent<BuildingManager>().m_BuildingList[i].GetComponent<Building>().m_House.GetComponent<TweenColor>().ResetToBeginning();
             m_CloseBM.transform.GetComponent<BuildingManager>().m_BuildingList[i].GetComponent<Building>().m_House.GetComponent<TweenColor>().enabled = false;
-
+            m_CloseBM.transform.GetComponent<BuildingManager>().m_BuildingList[i].GetComponent<Building>().m_Items.transform.localPosition = new Vector3(18f, 93f, 0);
             GlobalVar.GetInstance().UpObjname = null;
 
         }

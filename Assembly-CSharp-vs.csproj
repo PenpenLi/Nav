@@ -238,7 +238,6 @@
      <Compile Include="Assets\Script\Net\DataRequest\ConnectionManager.cs" />
      <Compile Include="Assets\Script\Net\DataRequest\DataReceivedCallback.cs" />
      <Compile Include="Assets\Script\Net\Entity\BaseStruct\Player.cs" />
-     <Compile Include="Assets\Script\Net\Entity\BuildingInfo\BuildingBase.cs" />
      <Compile Include="Assets\Script\Net\Entity\BuildingInfo\BuildingInfo.cs" />
      <Compile Include="Assets\Script\Net\Entity\Common.cs" />
      <Compile Include="Assets\Script\Net\Entity\CommonResult.cs" />
@@ -282,6 +281,7 @@
      <Compile Include="Assets\Script\Net\PomeloSrc\transport\Transporter.cs" />
      <Compile Include="Assets\Script\Net\PomeloSrc\transport\test\TransportTest.cs" />
      <Compile Include="Assets\Script\Timer\BuildTimer.cs" />
+     <Compile Include="Assets\Script\Timer\ItemTimer.cs" />
      <Compile Include="Assets\Script\Timer\UpgradeTimer.cs" />
      <Compile Include="Assets\Script\Utils\DBDataUtil.cs" />
      <Compile Include="Assets\Script\Warning\UIList.cs" />

@@ -43,13 +43,10 @@ public class BuildingManager : MonoBehaviour
         m_BObj.name = m_BI[BInd].POSID.ToString();
         m_BObj.transform.localScale = Vector3.one;
 
-        //根据坐标索引查找并设置建筑坐标
-        var Pos = from n in m_BP
-                  where n.POS_ID == m_BI[BInd].POSID
-                  select new { n.POS_X, n.POS_Y };
-        foreach (var pos in Pos)
-            m_BObj.transform.localPosition = new Vector3((float)pos.POS_X,(float)pos.POS_Y, 0);
-
+        ////根据坐标索引查找并设置建筑坐标
+        float Px = (float)m_BP[m_BI[BInd].POSID].POS_X; //Debug.Log("Px → " + Px);
+        float Py = (float)m_BP[m_BI[BInd].POSID].POS_Y; //Debug.Log("Py → " + Py);
+        m_BObj.transform.localPosition = new Vector3(Px, Py, 0);
         //挂载perfab外部GameObject
         m_BObj.GetComponent<Building>().m_HouseMenu = m_BMHouseMenu;
         m_BObj.GetComponent<Building>().m_CameraMap = m_BMCamera;
@@ -66,34 +63,36 @@ public class BuildingManager : MonoBehaviour
         }
         else
         {
-
             m_BObj.transform.GetComponent<Building>().m_House.SetActive(true);
             m_BObj.transform.GetComponent<Building>().m_Sale.SetActive(false);
 
-            //更具建筑ID加载建筑数据
-            var BInfo = from n in m_BB
-                        where n.ID == m_BI[BInd].B_ID
-                        select new { n.B_ATLAS_NAME, n.B_ICON_NAME, n.B_NAME, n.B_LEV, n.ITEM_ID };
-            foreach (var BBase in BInfo)
+            int BBID = m_BI[BInd].B_ID;
+            //加载建筑信息
+            UIAtlas UA = Resources.Load("Atlas/House/" + m_BB[BBID].B_ATLAS_NAME, typeof(UIAtlas)) as UIAtlas;
+            m_BObj.transform.FindChild("House").GetComponent<UISprite>().atlas = UA;
+            m_BObj.transform.FindChild("House").GetComponent<UISprite>().spriteName = m_BB[BBID].B_ICON_NAME;
+
+            m_BObj.transform.FindChild("BUManager").FindChild("HName").GetComponent<UILabel>().text = m_BB[BBID].B_NAME;
+            m_BObj.transform.FindChild("BUManager").FindChild("HLev").GetComponent<UILabel>().text = m_BB[BBID].B_LEV.ToString();
+
+            int IID = m_BB[BBID].ITEM_ID;
+            //加载产物信息
+            UIAtlas IUA = Resources.Load("Atlas/Lobby/" + m_Item[IID].ITEM_ATLAS_NAME, typeof(UIAtlas)) as UIAtlas;
+            m_BObj.transform.FindChild("Items").FindChild("2").GetComponent<UISprite>().atlas = IUA;
+            m_BObj.transform.FindChild("Items").FindChild("2").GetComponent<UISprite>().spriteName = m_Item[IID].ITEM_ICON_NAME;
+            m_BObj.transform.FindChild("Items").FindChild("ItemID").GetComponent<UILabel>().text = IID.ToString();
+            m_BObj.transform.FindChild("Items").FindChild("ItemCount").GetComponent<UILabel>().text = m_BI[BInd].ITEM_COUNT.ToString();
+
+            //提示玩家可以收取产物
+            if (m_BI[BInd].ITEM_COUNT > 0)
             {
-                UIAtlas UA = Resources.Load("Atlas/House/" + BBase.B_ATLAS_NAME, typeof(UIAtlas)) as UIAtlas;
-                m_BObj.transform.FindChild("House").GetComponent<UISprite>().atlas = UA;
-                m_BObj.transform.FindChild("House").GetComponent<UISprite>().spriteName = BBase.B_ICON_NAME;
-
-                m_BObj.transform.FindChild("BUManager").FindChild("HName").GetComponent<UILabel>().text = BBase.B_NAME;
-                m_BObj.transform.FindChild("BUManager").FindChild("HLev").GetComponent<UILabel>().text = BBase.B_LEV.ToString();
-
-                var IInfo = from m in m_Item
-                            where m.ITEM_ID == BBase.ITEM_ID
-                            select new { m.ITEM_ATLAS_NAME, m.ITEM_ICON_NAME };
-                foreach (var IBase in IInfo)
-                {
-                    UIAtlas IUA = Resources.Load("Atlas/Lobby/" + IBase.ITEM_ATLAS_NAME, typeof(UIAtlas)) as UIAtlas;
-                    m_BObj.transform.FindChild("BUManager").FindChild("Items").FindChild("2").GetComponent<UISprite>().atlas = IUA;
-                    m_BObj.transform.FindChild("BUManager").FindChild("Items").FindChild("2").GetComponent<UISprite>().spriteName = IBase.ITEM_ICON_NAME;
-                }
+                m_BObj.GetComponent<Building>().m_Items.SetActive(true);
+                m_BObj.GetComponent<ItemTimer>().enabled = true;
             }
-
+            else
+            {
+                m_BObj.GetComponent<Building>().m_Items.SetActive(false);
+            }
         }
         return m_BObj;
     }

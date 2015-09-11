@@ -83,8 +83,8 @@ public class BuildTimer : MonoBehaviour {
     }
     void MyTimer()
     {
-        long DTdiff = DateTime.Now.Ticks - Dt.Ticks; //GlobalVar.GetInstance().BuildStartTime.Ticks;
-        long DTnow = Stime - Convert.ToInt32(DTdiff / 10000000);
+        long DTdiff = DateTime.Now.Ticks - Dt.Ticks; //Debug.Log("DTdiff " + DTdiff);
+        long DTnow = Stime - Convert.ToInt32(DTdiff / 10000000); //Debug.Log("DTnow " + DTnow);
         TimeCount(DTnow);
         m_ProgressBar.GetComponent<UISprite>().fillAmount = (1f / Stime) * (Stime - DTnow);
 
@@ -113,8 +113,8 @@ public class BuildTimer : MonoBehaviour {
 
             GlobalVar.GetInstance().ceshi = m_MyItem[m_MyBB[ID].ITEM_ID].ITEM_ATLAS_NAME;
             UIAtlas Uia = Resources.Load("Atlas/Lobby/" + m_MyItem[m_MyBB[ID].ITEM_ID].ITEM_ATLAS_NAME, typeof(UIAtlas)) as UIAtlas;
-            m_BuildingUpgraed.transform.parent.FindChild("BUManager").FindChild("Items").FindChild("2").GetComponent<UISprite>().atlas = Uia;
-            m_BuildingUpgraed.transform.parent.FindChild("BUManager").FindChild("Items").FindChild("2").GetComponent<UISprite>().spriteName = m_MyItem[m_MyBB[ID].ITEM_ID].ITEM_ICON_NAME;
+            m_BuildingUpgraed.transform.parent.FindChild("Items").FindChild("2").GetComponent<UISprite>().atlas = Uia;
+            m_BuildingUpgraed.transform.parent.FindChild("Items").FindChild("2").GetComponent<UISprite>().spriteName = m_MyItem[m_MyBB[ID].ITEM_ID].ITEM_ICON_NAME;
 
             string WarningStr = "恭喜岛主" + m_MyBB[ID].B_NAME + " 已经顺利建成！！";
             warning Warning = new warning(WarningStr);
