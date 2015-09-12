@@ -6,7 +6,7 @@ using System.Linq;
 public class BuildTimer : MonoBehaviour {
 
     public List<GameObject> m_AnimationList = new List<GameObject>();
-    private List<B_Base> m_MyBB = new List<B_Base>();
+    private List<bbase> m_MyBB = new List<bbase>();
     private List<Item> m_MyItem = new List<Item>();
     
     public GameObject m_BuildingUpgraed;
@@ -41,7 +41,7 @@ public class BuildTimer : MonoBehaviour {
         {
             UIEventListener.Get(m_AnimationList[i]).onClick = onAnimation;
         }
-        Stime = m_MyBB[ID].LEV_UP_TIME;
+        Stime = m_MyBB[ID].UpgradeTime;
 
         TimeCount(Stime);
         if (Stime > 0)
@@ -61,8 +61,8 @@ public class BuildTimer : MonoBehaviour {
                     m_TimeLine.transform.localPosition = new Vector3(0, 30f, 0);
                     m_HouseName.SetActive(true);
                     m_Buy.SetActive(true);
-                    m_HouseName.GetComponent<UILabel>().text = m_MyBB[ID].B_NAME;
-                    m_Level.text = m_MyBB[ID].B_LEV.ToString();
+                    m_HouseName.GetComponent<UILabel>().text = m_MyBB[ID].Name;
+                    m_Level.text = m_MyBB[ID].Lv.ToString();
                     Ft = true;
                 }
                 else if (Ft == true)
@@ -104,19 +104,19 @@ public class BuildTimer : MonoBehaviour {
 
             GlobalVar.GetInstance().BuildQueues = 0; //清空升级列表
 
-            UIAtlas Ua = Resources.Load("Atlas/House/" + m_MyBB[ID].B_ATLAS_NAME, typeof(UIAtlas)) as UIAtlas;
+            UIAtlas Ua = Resources.Load("Atlas/House/" + m_MyBB[ID].Atlas, typeof(UIAtlas)) as UIAtlas;
             m_BuildingUpgraed.transform.parent.GetComponent<Building>().m_House.GetComponent<UISprite>().atlas = Ua;
-            m_BuildingUpgraed.transform.parent.GetComponent<Building>().m_House.GetComponent<UISprite>().spriteName = m_MyBB[ID].B_ICON_NAME;
+            m_BuildingUpgraed.transform.parent.GetComponent<Building>().m_House.GetComponent<UISprite>().spriteName = m_MyBB[ID].Icon;
             m_BuildingUpgraed.transform.parent.GetComponent<Building>().m_BId.GetComponent<UILabel>().text = ID.ToString();
-            m_BuildingUpgraed.transform.parent.FindChild("BUManager").FindChild("HName").GetComponent<UILabel>().text = m_MyBB[ID].B_NAME;
-            m_BuildingUpgraed.transform.parent.FindChild("BUManager").GetComponent<Upgrade>().m_HLev.GetComponent<UILabel>().text = m_MyBB[ID].B_LEV.ToString();
+            m_BuildingUpgraed.transform.parent.FindChild("BUManager").FindChild("HName").GetComponent<UILabel>().text = m_MyBB[ID].Name;
+            m_BuildingUpgraed.transform.parent.FindChild("BUManager").GetComponent<Upgrade>().m_HLev.GetComponent<UILabel>().text = m_MyBB[ID].Lv.ToString();
 
-            GlobalVar.GetInstance().ceshi = m_MyItem[m_MyBB[ID].ITEM_ID].ITEM_ATLAS_NAME;
-            UIAtlas Uia = Resources.Load("Atlas/Lobby/" + m_MyItem[m_MyBB[ID].ITEM_ID].ITEM_ATLAS_NAME, typeof(UIAtlas)) as UIAtlas;
+            GlobalVar.GetInstance().ceshi = m_MyItem[m_MyBB[ID].ItemID].Atlas;
+            UIAtlas Uia = Resources.Load("Atlas/Lobby/" + m_MyItem[m_MyBB[ID].ItemID].Atlas, typeof(UIAtlas)) as UIAtlas;
             m_BuildingUpgraed.transform.parent.FindChild("Items").FindChild("2").GetComponent<UISprite>().atlas = Uia;
-            m_BuildingUpgraed.transform.parent.FindChild("Items").FindChild("2").GetComponent<UISprite>().spriteName = m_MyItem[m_MyBB[ID].ITEM_ID].ITEM_ICON_NAME;
+            m_BuildingUpgraed.transform.parent.FindChild("Items").FindChild("2").GetComponent<UISprite>().spriteName = m_MyItem[m_MyBB[ID].ItemID].Icon;
 
-            string WarningStr = "恭喜岛主" + m_MyBB[ID].B_NAME + " 已经顺利建成！！";
+            string WarningStr = "恭喜岛主" + m_MyBB[ID].Name + " 已经顺利建成！！";
             warning Warning = new warning(WarningStr);
 
             m_BuildingUpgraed.transform.parent.GetComponent<Building>().m_House.SetActive(true);            

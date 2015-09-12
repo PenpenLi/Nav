@@ -18,7 +18,7 @@ public class BuyBuilding : MonoBehaviour
     public GameObject m_HouseMenu;
     public GameObject m_CameraMap;
 
-    private List<B_Base> m_MyBB = new List<B_Base>();
+    private List<bbase> m_MyBB = new List<bbase>();
     private int Ind;
     // Use this for initialization
     void Start()
@@ -36,21 +36,21 @@ public class BuyBuilding : MonoBehaviour
 
     void onBuyBut(GameObject go)
     {
-        GlobalVar.GetInstance().BuildTime = m_MyBB[Ind].LEV_UP_TIME;
+        GlobalVar.GetInstance().BuildTime = m_MyBB[Ind].UpgradeTime;
         if (GlobalVar.GetInstance().BuildQueues == 0)
         {
             //现有资源数量
             int Item0 = Convert.ToInt32(m_ResList[0].GetComponentInChildren<UILabel>().text);
-            int Item1 = Convert.ToInt32(m_ResList[m_MyBB[Ind].NEED_TIME1].GetComponentInChildren<UILabel>().text);
-            int Item2 = Convert.ToInt32(m_ResList[m_MyBB[Ind].NEED_TIME2].GetComponentInChildren<UILabel>().text);
-            int Item3 = Convert.ToInt32(m_ResList[m_MyBB[Ind].NEED_TIME3].GetComponentInChildren<UILabel>().text);
+            int Item1 = Convert.ToInt32(m_ResList[m_MyBB[Ind].NeedID1].GetComponentInChildren<UILabel>().text);
+            int Item2 = Convert.ToInt32(m_ResList[m_MyBB[Ind].NeedID2].GetComponentInChildren<UILabel>().text);
+            int Item3 = Convert.ToInt32(m_ResList[m_MyBB[Ind].NeedID3].GetComponentInChildren<UILabel>().text);
 
-            if (m_MyBB[Ind].BUY_NEED_GOLD < Item0 && m_MyBB[Ind].COUNT1 < Item1 && m_MyBB[Ind].COUNT2 < Item2 && m_MyBB[Ind].COUNT3 < Item3)
+            if (m_MyBB[Ind].Cost < Item0 && m_MyBB[Ind].Count1 < Item1 && m_MyBB[Ind].Count2 < Item2 && m_MyBB[Ind].Count3 < Item3)
             {
-                m_ResList[0].GetComponentInChildren<UILabel>().text = (Item0 - m_MyBB[Ind].BUY_NEED_GOLD).ToString();
-                m_ResList[m_MyBB[Ind].NEED_TIME1].GetComponentInChildren<UILabel>().text = (Item1 - m_MyBB[Ind].COUNT1).ToString();
-                m_ResList[m_MyBB[Ind].NEED_TIME2].GetComponentInChildren<UILabel>().text = (Item2 - m_MyBB[Ind].COUNT2).ToString();
-                m_ResList[m_MyBB[Ind].NEED_TIME3].GetComponentInChildren<UILabel>().text = (Item3 - m_MyBB[Ind].COUNT3).ToString();
+                m_ResList[0].GetComponentInChildren<UILabel>().text = (Item0 - m_MyBB[Ind].Cost).ToString();
+                m_ResList[m_MyBB[Ind].NeedID1].GetComponentInChildren<UILabel>().text = (Item1 - m_MyBB[Ind].Count1).ToString();
+                m_ResList[m_MyBB[Ind].NeedID2].GetComponentInChildren<UILabel>().text = (Item2 - m_MyBB[Ind].Count2).ToString();
+                m_ResList[m_MyBB[Ind].NeedID3].GetComponentInChildren<UILabel>().text = (Item3 - m_MyBB[Ind].Count3).ToString();
 
                 //保值
                 GlobalVar.GetInstance().BuildStartTime = DateTime.Now;

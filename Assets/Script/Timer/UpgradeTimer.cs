@@ -7,7 +7,7 @@ using System.Linq;
 public class UpgradeTimer : MonoBehaviour
 {
     public List<GameObject> m_AnimationList = new List<GameObject>();
-    private List<B_Base> m_MyBB = new List<B_Base>();
+    private List<bbase> m_MyBB = new List<bbase>();
 
 
     public GameObject m_BuildingUpgraed;
@@ -34,7 +34,7 @@ public class UpgradeTimer : MonoBehaviour
 
         ID = GlobalVar.GetInstance().UpgradeID;
         Dt = GlobalVar.GetInstance().UpgradeStartTime;
-        Stime = m_MyBB[ID].LEV_UP_TIME;
+        Stime = m_MyBB[ID].UpgradeTime;
 
         GlobalVar.GetInstance().ceshi = ID.ToString();
 
@@ -60,8 +60,8 @@ public class UpgradeTimer : MonoBehaviour
                     m_TimeLine.transform.localPosition = new Vector3(0, 30f, 0);
                     m_HouseName.SetActive(true);
                     m_Buy.SetActive(true);
-                    m_HouseName.GetComponent<UILabel>().text = m_MyBB[ID].B_NAME;
-                    m_Level.text = m_MyBB[ID].B_LEV.ToString();
+                    m_HouseName.GetComponent<UILabel>().text = m_MyBB[ID].Name;
+                    m_Level.text = m_MyBB[ID].Lv.ToString();
                     Ft = true;
                 }
                 else if (Ft == true)
@@ -103,11 +103,11 @@ public class UpgradeTimer : MonoBehaviour
 
             GlobalVar.GetInstance().UpgradeQueues = 0; //清空升级列表
 
-            m_BuildingUpgraed.transform.parent.GetComponent<Building>().m_House.GetComponent<UISprite>().spriteName = m_MyBB[ID + 1].B_ICON_NAME;
+            m_BuildingUpgraed.transform.parent.GetComponent<Building>().m_House.GetComponent<UISprite>().spriteName = m_MyBB[ID + 1].Icon;
             m_BuildingUpgraed.transform.parent.GetComponent<Building>().m_BId.GetComponent<UILabel>().text = (ID + 1).ToString();
-            m_BuildingUpgraed.transform.parent.FindChild("BUManager").GetComponent<Upgrade>().m_HLev.GetComponent<UILabel>().text = m_MyBB[ID + 1].B_LEV.ToString();
+            m_BuildingUpgraed.transform.parent.FindChild("BUManager").GetComponent<Upgrade>().m_HLev.GetComponent<UILabel>().text = m_MyBB[ID + 1].Lv.ToString();
 
-            string WarningStr = "恭喜岛主" + m_MyBB[ID + 1].B_NAME + " 已经顺利升级到 " + m_MyBB[ID + 1].B_LEV + " 等级！";
+            string WarningStr = "恭喜岛主" + m_MyBB[ID + 1].Name + " 已经顺利升级到 " + m_MyBB[ID + 1].Lv + " 等级！";
             warning Warning = new warning(WarningStr);
 
             m_BuildingUpgraed.transform.parent.GetComponent<Building>().m_House.SetActive(true);

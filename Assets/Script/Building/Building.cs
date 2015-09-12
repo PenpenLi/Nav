@@ -5,7 +5,7 @@ using System;
 
 public class Building : MonoBehaviour
 {
-    public List<GameObject> m_BaseList = new List<GameObject>();
+    public List<UILabel> m_ResList = new List<UILabel>();
 
     public GameObject m_HouseMenu;
     public GameObject m_CameraMap;

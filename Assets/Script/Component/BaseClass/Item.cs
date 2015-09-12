@@ -5,8 +5,8 @@
 
 public class Item
 {
-    public int ITEM_ID { set; get; }
-    public string ITEM_NAME { set; get; }
-    public string ITEM_ICON_NAME { set; get; }
-    public string ITEM_ATLAS_NAME { set; get; }
+    public int ID { set; get; }
+    public string Name { set; get; }
+    public string Icon { set; get; }
+    public string Atlas { set; get; }
 }

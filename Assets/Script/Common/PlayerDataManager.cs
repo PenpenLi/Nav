@@ -17,6 +17,7 @@ public class PlayerDataManager {
     
     //sq start----------------------------------------------------------
     public string GUID;
+    public PlayerInfo m_PI ;
     
     //sq end------------------------------------------------------------
 
@@ -61,6 +62,9 @@ public class PlayerDataManager {
     }
 
     //sq start---------------------------------------------------
-    
+    public void SetPlayerInfo(PlayerInfo PI)
+    {
+        m_PI = PI;
+    }
     //sq end----------------------------------------------------
 }

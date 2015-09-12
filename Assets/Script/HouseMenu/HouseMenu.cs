@@ -22,7 +22,7 @@ public class HouseMenu : MonoBehaviour
     {
         float PosX = -272;
         int BListCount = (from n in MyApp.GetInstance().GetDataManager().BB()
-                          where n.B_LEV == 1
+                          where n.Lv == 1
                           select n).Count();
         for (int i = 0; i < BListCount; i++)
         {
@@ -62,9 +62,8 @@ public class HouseMenu : MonoBehaviour
         m_Obj.GetComponent<BuyBuilding>().m_ResList = m_ResList;
         
         var BList = from n in MyApp.GetInstance().GetDataManager().BB()
-                    where n.B_LEV == 1
-                    where n.B_TYPE == BInd
-                    select new { n.B_ATLAS_NAME, n.B_ICON_NAME, n.B_NAME,n.BUILD_STR,n.ID  };
+                    where n.Lv == 1
+                    select new { B_ATLAS_NAME = n.Atlas, B_ICON_NAME = n.Icon, B_NAME = n.Name,BUILD_STR = n.InfoStr,n.ID  };
         foreach (var BLi in BList)
         {
             //Debug.Log("BLi.Batlasname = " + BLi.Batlasname);

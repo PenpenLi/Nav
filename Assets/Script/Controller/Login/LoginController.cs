@@ -85,6 +85,8 @@ public class LoginController : MonoBehaviour
                 int status = commonResult.data.status;
                 PublicTimer.ResetServerTime(commonResult.data.curTime);
                 PlayerDataManager.GetInstance().GUID = commonResult.data.player.GUID;
+                PlayerDataManager.GetInstance().SetPlayerInfo(commonResult.data.player);
+                
                 //PlayerDataManager.GetInstance().SetPlayerInfo(commonResult.data.player);
                 switch (status)
                 {

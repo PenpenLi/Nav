@@ -10,17 +10,19 @@ public class ItemTimer : MonoBehaviour {
     public GameObject m_ItemCount;
     public GameObject m_BID;
 
-    private int IID;
     private Double ICount;
     private Double Diff;
     private int BID;
-    private List<B_Base> m_MyBB = new List<B_Base>();
+    private List<bbase> m_MyBB = new List<bbase>();
+    private List<UILabel> m_ResList = new List<UILabel>();
 
     private long Dt;
 	// Use this for initialization
 	void Start () {
         Debug.Log("生产开始！！！！！！");
         m_MyBB = MyApp.GetInstance().GetDataManager().BB();
+        Transform Tf = m_Items.transform.parent;
+        m_ResList = Tf.GetComponent<Building>().m_ResList;
         Dt = DateTime.Now.Ticks;
         UIEventListener.Get(m_Items).onClick = onItems;
 	}
@@ -28,20 +30,19 @@ public class ItemTimer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         BID = Convert.ToInt32(m_BID.GetComponent<UILabel>().text);
-        Debug.Log(m_ItemCount.GetComponent<UILabel>().text);
+        //Debug.Log(m_ItemCount.GetComponent<UILabel>().text);
         ICount = Convert.ToInt32(m_ItemCount.GetComponent<UILabel>().text);
-        
-        Diff = Convert.ToDouble(m_MyBB[BID].ITEMS_MAX_COUNT / m_MyBB[BID].ITEMS_NEED_TIME);
+        Diff = Convert.ToDouble(m_MyBB[BID].MaxItem / m_MyBB[BID].NeedTime);
 
         if (Dt ==0)
         {
             Dt = DateTime.Now.Ticks;
         }
         
-        if (ICount > m_MyBB[BID].ITEMS_MAX_COUNT)
+        if (ICount > m_MyBB[BID].MaxItem)
         {
             Debug.Log("产物长满了，关闭当前脚本！！！");
-            m_ItemCount.GetComponent<UILabel>().text = m_MyBB[BID].ITEMS_MAX_COUNT.ToString();
+            m_ItemCount.GetComponent<UILabel>().text = m_MyBB[BID].MaxItem.ToString();
             m_Items.transform.parent.GetComponent<ItemTimer>().enabled = false;
             Dt = 0;
         }
@@ -67,9 +68,12 @@ public class ItemTimer : MonoBehaviour {
 
     void onItems(GameObject go)
     {
+        int IID = Convert.ToInt32(m_ItemID.GetComponent<UILabel>().text);
+        int OldCount = Convert.ToInt32(m_ResList[IID].text);
+        int NewCount = Convert.ToInt32(m_ItemCount.GetComponent<UILabel>().text);
+        m_ResList[IID].text = (OldCount + NewCount).ToString();
         m_ItemCount.GetComponent<UILabel>().text = "0";
         m_Items.transform.parent.GetComponent<ItemTimer>().enabled = true;
         m_Items.SetActive(false);
-        
     }
 }

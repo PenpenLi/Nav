@@ -17,8 +17,8 @@ public class SQLiteDataManager
 
    // private List<SoldierBase> m_soldierList = new List<SoldierBase>();
     private  List<BuildingInfo> m_BI = new List<BuildingInfo>();
-    private List<B_Base> m_BB = new List<B_Base>();
-    private List<B_Pos> m_BP = new List<B_Pos>();
+    private List<bbase> m_BB = new List<bbase>();
+    private List<BuildingPos> m_BP = new List<BuildingPos>();
     private List<Item> m_Item = new List<Item>();
     
 
@@ -35,8 +35,8 @@ public class SQLiteDataManager
     /// </summary>
     public void initDbData()
     {
-        m_BB = DBDataUtil.getInstance().GetAllDataFromDB<B_Base>(new B_Base(), "bbase");
-        m_BP = DBDataUtil.getInstance().GetAllDataFromDB<B_Pos>(new B_Pos(), "bpos");
+        m_BB = DBDataUtil.getInstance().GetAllDataFromDB<bbase>(new bbase(), "bbase");
+        m_BP = DBDataUtil.getInstance().GetAllDataFromDB<BuildingPos>(new BuildingPos(), "bpos");
         m_Item = DBDataUtil.getInstance().GetAllDataFromDB<Item>(new Item(), "item");
         m_BI = DBDataUtil.getInstance().GetAllDataFromDB<BuildingInfo>(new BuildingInfo(), "binfo");
     }
@@ -45,9 +45,9 @@ public class SQLiteDataManager
     {
         Debug.Log("Test-------------------");
     }
-    public List<B_Base> BB()
+    public List<bbase> BB()
     {    return m_BB;    }
-    public List<B_Pos> BP()
+    public List<BuildingPos> BP()
     { return m_BP; }
     public List<Item> Item()
     { return m_Item; }

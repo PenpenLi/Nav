@@ -183,6 +183,7 @@
      <Compile Include="Assets\NGUI\Scripts\UI\UITexture.cs" />
      <Compile Include="Assets\NGUI\Scripts\UI\UITooltip.cs" />
      <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
+     <Compile Include="Assets\ResCount.cs" />
      <Compile Include="Assets\Resources\Script\Fight\Fight.cs" />
      <Compile Include="Assets\Resources\Script\Fight\Team.cs" />
      <Compile Include="Assets\Script\Architecture\Architecture.cs" />
@@ -209,8 +210,8 @@
      <Compile Include="Assets\Script\Common\SQLiteDataManager.cs" />
      <Compile Include="Assets\Script\Common\SceneSwitch.cs" />
      <Compile Include="Assets\Script\Common\SmoothCaculate.cs" />
-     <Compile Include="Assets\Script\Component\BaseClass\B_Base.cs" />
-     <Compile Include="Assets\Script\Component\BaseClass\B_Pos.cs" />
+     <Compile Include="Assets\Script\Component\BaseClass\BuildingBase.cs" />
+     <Compile Include="Assets\Script\Component\BaseClass\BuildingPos.cs" />
      <Compile Include="Assets\Script\Component\BaseClass\Item.cs" />
      <Compile Include="Assets\Script\Controller\BGSound\BGSound.cs" />
      <Compile Include="Assets\Script\Controller\Common\BackgroundMusicController.cs" />
@@ -238,7 +239,7 @@
      <Compile Include="Assets\Script\Net\DataRequest\ConnectionManager.cs" />
      <Compile Include="Assets\Script\Net\DataRequest\DataReceivedCallback.cs" />
      <Compile Include="Assets\Script\Net\Entity\BaseStruct\Player.cs" />
-     <Compile Include="Assets\Script\Net\Entity\BuildingInfo\BuildingInfo.cs" />
+     <Compile Include="Assets\Script\Net\Entity\Building\BuildingInfo.cs" />
      <Compile Include="Assets\Script\Net\Entity\Common.cs" />
      <Compile Include="Assets\Script\Net\Entity\CommonResult.cs" />
      <Compile Include="Assets\Script\Net\Entity\DBData\UpgradeCost.cs" />

@@ -8,7 +8,7 @@ using NetManager;
 
 public class Upgrade : MonoBehaviour
 {
-    public List<GameObject> m_ResList = new List<GameObject>();
+    public List<UILabel> m_ResList = new List<UILabel>();
     public GameObject m_BObj;
     public GameObject m_UpgradeManager;
     public GameObject m_House;
@@ -20,12 +20,12 @@ public class Upgrade : MonoBehaviour
     public GameObject m_Upgrade;
     public GameObject m_Items;
 
-    private List<B_Base> m_MyBB = new List<B_Base>();
+    private List<bbase> m_MyBB = new List<bbase>();
 
     // Use this for initialization
     void Start()
     {
-        m_ResList = m_BObj.GetComponent<Building>().m_BaseList;
+        m_ResList = m_BObj.GetComponent<Building>().m_ResList;
         m_MyBB = MyApp.GetInstance().GetDataManager().BB();
         UIEventListener.Get(m_Upgrade).onClick = onUpgrade;
     }
@@ -41,26 +41,26 @@ public class Upgrade : MonoBehaviour
         int Ind = Convert.ToInt32(m_BId.GetComponent<UILabel>().text);
         if (GlobalVar.GetInstance().UpgradeQueues == 0)
         { 
-            if (m_MyBB[Ind].B_LEV < m_MyBB[Ind].MAX_LEV)
+            if (m_MyBB[Ind].Lv < m_MyBB[Ind].MxaLv)
             {
                 //现有资源数量
                 int Item0 = Convert.ToInt32(m_ResList[0].GetComponentInChildren<UILabel>().text);
-                int Item1 = Convert.ToInt32(m_ResList[m_MyBB[Ind].NEED_TIME1].GetComponentInChildren<UILabel>().text);
-                int Item2 = Convert.ToInt32(m_ResList[m_MyBB[Ind].NEED_TIME2].GetComponentInChildren<UILabel>().text);
-                int Item3 = Convert.ToInt32(m_ResList[m_MyBB[Ind].NEED_TIME3].GetComponentInChildren<UILabel>().text);
+                int Item1 = Convert.ToInt32(m_ResList[m_MyBB[Ind].NeedID1].text);
+                int Item2 = Convert.ToInt32(m_ResList[m_MyBB[Ind].NeedID2].text);
+                int Item3 = Convert.ToInt32(m_ResList[m_MyBB[Ind].NeedID3].text);
 
-                if (m_MyBB[Ind].BUY_NEED_GOLD < Item0 && m_MyBB[Ind].COUNT1 < Item1 && m_MyBB[Ind].COUNT2 < Item2 && m_MyBB[Ind].COUNT3 < Item3)
+                if (m_MyBB[Ind].Cost < Item0 && m_MyBB[Ind].Count1 < Item1 && m_MyBB[Ind].Count2 < Item2 && m_MyBB[Ind].Count3 < Item3)
                 {
-                    m_ResList[0].GetComponentInChildren<UILabel>().text = (Item0 - m_MyBB[Ind].BUY_NEED_GOLD).ToString();
-                    m_ResList[m_MyBB[Ind].NEED_TIME1].GetComponentInChildren<UILabel>().text = (Item1 - m_MyBB[Ind].COUNT1).ToString();
-                    m_ResList[m_MyBB[Ind].NEED_TIME2].GetComponentInChildren<UILabel>().text = (Item2 - m_MyBB[Ind].COUNT2).ToString();
-                    m_ResList[m_MyBB[Ind].NEED_TIME3].GetComponentInChildren<UILabel>().text = (Item3 - m_MyBB[Ind].COUNT3).ToString();
+                    m_ResList[0].GetComponentInChildren<UILabel>().text = (Item0 - m_MyBB[Ind].Cost).ToString();
+                    m_ResList[m_MyBB[Ind].NeedID1].text = (Item1 - m_MyBB[Ind].Count1).ToString();
+                    m_ResList[m_MyBB[Ind].NeedID2].text = (Item2 - m_MyBB[Ind].Count2).ToString();
+                    m_ResList[m_MyBB[Ind].NeedID3].text = (Item3 - m_MyBB[Ind].Count3).ToString();
 
                     //保值
                     GlobalVar.GetInstance().UpgradeStartTime = DateTime.Now;
                     GlobalVar.GetInstance().UpgradeID = Convert.ToInt32(m_BId.GetComponent<UILabel>().text);
                     GlobalVar.GetInstance().UpgradeQueues = 1;
-                    GlobalVar.GetInstance().UpgradeTime = m_MyBB[Ind].LEV_UP_TIME;
+                    GlobalVar.GetInstance().UpgradeTime = m_MyBB[Ind].UpgradeTime;
 
                     m_UpgradeManager.SetActive(false);
                     m_House.SetActive(false);
