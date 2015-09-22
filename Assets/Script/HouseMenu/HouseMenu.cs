@@ -24,6 +24,7 @@ public class HouseMenu : MonoBehaviour
         int BListCount = (from n in MyApp.GetInstance().GetDataManager().BB()
                           where n.Lv == 1
                           select n).Count();
+        Debug.Log("等级为一的数据个数:" + BListCount);
         for (int i = 0; i < BListCount; i++)
         {
 
@@ -46,7 +47,7 @@ public class HouseMenu : MonoBehaviour
         m_HouseMenu.SetActive(false);
         m_CameraMap.GetComponent<CameraDragMove>().enabled = true;
         m_CameraMap.GetComponent<ScalingMap>().enabled = true;
-        GlobalVar.GetInstance().UpObjname = null;
+        GlobalVar.GetInstance().BuildObjname = null;
     }
 
     GameObject NetAddBuild(int BInd, Vector3 VT) //添加Item perfab
@@ -55,6 +56,7 @@ public class HouseMenu : MonoBehaviour
         m_Obj.transform.parent = GameObject.Find("HouseList").transform;
         m_Obj.transform.localScale = Vector3.one;
         m_Obj.transform.localPosition = VT;
+        m_Obj.name = "B" + BInd.ToString();
 
         //挂在外部对象
         m_Obj.GetComponent<BuyBuilding>().m_HouseMenu = m_HouseMenu;
@@ -62,6 +64,7 @@ public class HouseMenu : MonoBehaviour
         m_Obj.GetComponent<BuyBuilding>().m_ResList = m_ResList;
         
         var BList = from n in MyApp.GetInstance().GetDataManager().BB()
+                    where n.BType == BInd
                     where n.Lv == 1
                     select new { B_ATLAS_NAME = n.Atlas, B_ICON_NAME = n.Icon, B_NAME = n.Name,BUILD_STR = n.InfoStr,n.ID  };
         foreach (var BLi in BList)

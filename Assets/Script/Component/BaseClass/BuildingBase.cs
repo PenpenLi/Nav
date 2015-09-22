@@ -7,6 +7,7 @@
 public class bbase
 {
     public int ID { set; get; }
+    public int BType { set; get; } //建筑类型
     public string Name { set; get; }//建筑名字
     public string Icon { set; get; }//建筑图标名字
     public string Atlas { set; get; }//建筑图集名字

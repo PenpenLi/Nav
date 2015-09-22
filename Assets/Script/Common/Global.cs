@@ -25,7 +25,7 @@ public class GlobalVar {
     public int BuildID = 0;//建造对象ID
     public long BuildTime = 0; //建造耗时
 
-    public string UpObjname = null;//建造对象索引
+    public string UpObjname = null;//升级对象索引
     public int UpgradeQueues = 0;//升级队列
     public DateTime UpgradeStartTime;//升级开始时间
     public int UpgradeID = 0;//升级对象ID

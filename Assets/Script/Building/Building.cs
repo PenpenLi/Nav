@@ -80,28 +80,23 @@ public class Building : MonoBehaviour
     }
     void onSale(GameObject go)
     {
-        if (GlobalVar.GetInstance().BuildObjname == null)
+        if (GlobalVar.GetInstance().UpObjname != null)
         {
-            m_HouseMenu.SetActive(true);
-            m_CameraMap.GetComponent<CameraDragMove>().enabled = false;
-            m_CameraMap.GetComponent<ScalingMap>().enabled = false;
-            GlobalVar.GetInstance().BuildObjname = m_BObj.name;
-        }
-        else
-        {
-            //关闭上次打开的
-            Transform Tf = m_BObj.transform.parent.FindChild(GlobalVar.GetInstance().UpObjname);
+            Transform Tf = m_BObj.transform.parent.Find(GlobalVar.GetInstance().UpObjname);
+            Debug.Log("Tf名字 = " + Tf.name);
             Tf.GetComponent<Building>().m_BUManager.SetActive(false);
+            Tf.GetComponent<Building>().m_Items.transform.localPosition = new Vector3(18f, 93f, 0);
             Tf.GetComponent<Building>().m_House.GetComponent<TweenColor>().enabled = false;
             Tf.GetComponent<Building>().m_House.GetComponent<TweenColor>().ResetToBeginning();
-     
-
-            //打开自己
+            GlobalVar.GetInstance().UpObjname = null;
+        }
+        
             m_HouseMenu.SetActive(true);
             m_CameraMap.GetComponent<CameraDragMove>().enabled = false;
             m_CameraMap.GetComponent<ScalingMap>().enabled = false;
             GlobalVar.GetInstance().BuildObjname = m_BObj.name;
-        }
+       
+        
     }
     void onItems(GameObject go)
     {

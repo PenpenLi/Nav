@@ -47,7 +47,7 @@ public class warning : MonoBehaviour{
     {
         if (GlobalVar.GetInstance().Sw == false)
         {
-            Debug.Log("现在由Warning自己打开拖动与缩放！");
+            //Debug.Log("现在由Warning自己打开拖动与缩放！");
             m_warning.GetComponent<warning>().m_CameraMap.GetComponent<CameraDragMove>().enabled = true;
             m_warning.GetComponent<warning>().m_CameraMap.GetComponent<ScalingMap>().enabled = true;
             GlobalVar.GetInstance().Sw = true;

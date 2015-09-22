@@ -55,12 +55,13 @@ public class BuyBuilding : MonoBehaviour
                 //保值
                 GlobalVar.GetInstance().BuildStartTime = DateTime.Now;
                 GlobalVar.GetInstance().BuildID = Convert.ToInt32(m_BId.GetComponent<UILabel>().text);
+
                 GlobalVar.GetInstance().BuildQueues = 1;           
 
                 m_HouseMenu.SetActive(false);
                 m_CameraMap.GetComponent<CameraDragMove>().enabled = true;
                 m_CameraMap.GetComponent<ScalingMap>().enabled = true;
-                GlobalVar.GetInstance().BuildID = Convert.ToInt32(m_BId.GetComponent<UILabel>().text);
+                
 
                 BuildTimer UI = new BuildTimer(GlobalVar.GetInstance().BuildObjname); //派遣建造队
             }

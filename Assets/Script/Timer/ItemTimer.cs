@@ -69,8 +69,10 @@ public class ItemTimer : MonoBehaviour {
     void onItems(GameObject go)
     {
         int IID = Convert.ToInt32(m_ItemID.GetComponent<UILabel>().text);
+        string NowCount = m_ItemCount.GetComponent<UILabel>().text;
         int OldCount = Convert.ToInt32(m_ResList[IID].text);
-        int NewCount = Convert.ToInt32(m_ItemCount.GetComponent<UILabel>().text);
+        int NewCount = Convert.ToInt32(NowCount);
+        //Debug.Log(OldCount + NewCount);
         m_ResList[IID].text = (OldCount + NewCount).ToString();
         m_ItemCount.GetComponent<UILabel>().text = "0";
         m_Items.transform.parent.GetComponent<ItemTimer>().enabled = true;

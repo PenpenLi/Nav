@@ -100,28 +100,40 @@ public class BuildTimer : MonoBehaviour {
         }
         if (DTnow <= 0)
         {
-            m_ProgressBar.GetComponent<UISprite>().fillAmount = 0;
-
-            GlobalVar.GetInstance().BuildQueues = 0; //清空升级列表
-
-            UIAtlas Ua = Resources.Load("Atlas/House/" + m_MyBB[ID].Atlas, typeof(UIAtlas)) as UIAtlas;
-            m_BuildingUpgraed.transform.parent.GetComponent<Building>().m_House.GetComponent<UISprite>().atlas = Ua;
-            m_BuildingUpgraed.transform.parent.GetComponent<Building>().m_House.GetComponent<UISprite>().spriteName = m_MyBB[ID].Icon;
-            m_BuildingUpgraed.transform.parent.GetComponent<Building>().m_BId.GetComponent<UILabel>().text = ID.ToString();
-            m_BuildingUpgraed.transform.parent.FindChild("BUManager").FindChild("HName").GetComponent<UILabel>().text = m_MyBB[ID].Name;
-            m_BuildingUpgraed.transform.parent.FindChild("BUManager").GetComponent<Upgrade>().m_HLev.GetComponent<UILabel>().text = m_MyBB[ID].Lv.ToString();
-
             GlobalVar.GetInstance().ceshi = m_MyItem[m_MyBB[ID].ItemID].Atlas;
+
+            //建造结束初始化数据记录
+            m_ProgressBar.GetComponent<UISprite>().fillAmount = 0;//进度条归零
+            GlobalVar.GetInstance().BuildQueues = 0; //清空升级列表
+            GlobalVar.GetInstance().BuildObjname = null;//当前建造建筑对象归零
+
+            //为建造完成的建筑加载建筑数据
+            UIAtlas Ua = Resources.Load("Atlas/House/" + m_MyBB[ID].Atlas, typeof(UIAtlas)) as UIAtlas;
+            m_BuildingUpgraed.transform.parent.GetComponent<Building>().m_House.GetComponent<UISprite>().atlas = Ua;//图集
+            m_BuildingUpgraed.transform.parent.GetComponent<Building>().m_House.GetComponent<UISprite>().spriteName = m_MyBB[ID].Icon;//图标
+            m_BuildingUpgraed.transform.parent.GetComponent<Building>().m_BId.GetComponent<UILabel>().text = ID.ToString();//建筑ID
+            m_BuildingUpgraed.transform.parent.FindChild("BUManager").FindChild("HName").GetComponent<UILabel>().text = m_MyBB[ID].Name;//建筑名称
+            m_BuildingUpgraed.transform.parent.FindChild("BUManager").GetComponent<Upgrade>().m_HLev.GetComponent<UILabel>().text = m_MyBB[ID].Lv.ToString();//建筑等级
+
+            //为建造完成的建筑加载产出数据
             UIAtlas Uia = Resources.Load("Atlas/Lobby/" + m_MyItem[m_MyBB[ID].ItemID].Atlas, typeof(UIAtlas)) as UIAtlas;
             m_BuildingUpgraed.transform.parent.FindChild("Items").FindChild("2").GetComponent<UISprite>().atlas = Uia;
             m_BuildingUpgraed.transform.parent.FindChild("Items").FindChild("2").GetComponent<UISprite>().spriteName = m_MyItem[m_MyBB[ID].ItemID].Icon;
+            m_BuildingUpgraed.transform.parent.FindChild("Items").FindChild("ItemID").GetComponent<UILabel>().text = m_MyBB[ID].ItemID.ToString();//产物ID
+ 
+            m_BuildingUpgraed.transform.parent.GetComponent<Building>().m_House.SetActive(true);
 
+            //启动产物生产脚本
+            m_BuildingUpgraed.transform.parent.GetComponent<ItemTimer>().enabled = true;  
+           
+            //关闭建造脚本
+            m_BuildingUpgraed.GetComponent<BuildTimer>().enabled = false;
+            
+            //弹出建造成功提示框
             string WarningStr = "恭喜岛主" + m_MyBB[ID].Name + " 已经顺利建成！！";
             warning Warning = new warning(WarningStr);
 
-            m_BuildingUpgraed.transform.parent.GetComponent<Building>().m_House.SetActive(true);            
-           
-            m_BuildingUpgraed.GetComponent<UpgradeTimer>().enabled = false;
+            //销毁建造perfab
             Destroy(m_BuildingUpgraed);
         }
     }
