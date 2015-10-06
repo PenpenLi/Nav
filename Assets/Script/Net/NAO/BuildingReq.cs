@@ -11,7 +11,7 @@ using System.Collections.Generic;
 
 namespace NetManager
 {
-    class BuildingReq
+    public class BuildingReq
     {
         private const string GUID = "guID";
         private const string PosID = "posID";

@@ -25,14 +25,12 @@ namespace NetManager
 	public class LoginDataQuickReq
 	{
 		private const string DEVICE_ID = "deviceID";
-		private const string NICKNAME = "nickname";
 
-		public void GetQuickLoginInf(string deviceID, string nickName, EventDispatcher.EventCallback eventCallback)
+		public void GetQuickLoginInf(string deviceID, EventDispatcher.EventCallback eventCallback)
 		{
 			JsonObject msg = new JsonObject();
 			msg[DEVICE_ID] = deviceID;
-			msg[NICKNAME] = nickName;
-			ConnectionManager.GetInstance().RequestData<LoginData>(CGNetConst.ROUTE_QUICKLOGIN, msg, eventCallback);
+            ConnectionManager.GetInstance().RequestData<LoginData>(CGNetConst.ROUTE_QUICKLOGIN, msg, eventCallback);
 		}
 	}
 }

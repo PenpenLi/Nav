@@ -19,7 +19,6 @@ public class ItemTimer : MonoBehaviour {
     private long Dt;
 	// Use this for initialization
 	void Start () {
-        Debug.Log("生产开始！！！！！！");
         m_MyBB = MyApp.GetInstance().GetDataManager().BB();
         Transform Tf = m_Items.transform.parent;
         m_ResList = Tf.GetComponent<Building>().m_ResList;
@@ -30,7 +29,6 @@ public class ItemTimer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         BID = Convert.ToInt32(m_BID.GetComponent<UILabel>().text);
-        //Debug.Log(m_ItemCount.GetComponent<UILabel>().text);
         ICount = Convert.ToInt32(m_ItemCount.GetComponent<UILabel>().text);
         Diff = Convert.ToDouble(m_MyBB[BID].MaxItem / m_MyBB[BID].NeedTime);
 
@@ -72,7 +70,6 @@ public class ItemTimer : MonoBehaviour {
         string NowCount = m_ItemCount.GetComponent<UILabel>().text;
         int OldCount = Convert.ToInt32(m_ResList[IID].text);
         int NewCount = Convert.ToInt32(NowCount);
-        //Debug.Log(OldCount + NewCount);
         m_ResList[IID].text = (OldCount + NewCount).ToString();
         m_ItemCount.GetComponent<UILabel>().text = "0";
         m_Items.transform.parent.GetComponent<ItemTimer>().enabled = true;

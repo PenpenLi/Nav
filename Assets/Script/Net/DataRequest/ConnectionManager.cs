@@ -427,6 +427,11 @@ public class ConnectionManager : MonoBehaviour
             
             if(reqInfo.dataType == RequestInfo.DataType.Type_JsonObject)
             {
+                //Debug.Log("(JsonObject)reqInfo.data =" + (JsonObject)reqInfo.data);
+                //Debug.Log("reqInfo.route =" + reqInfo.route);
+                //Debug.Log("requestCallback =" + requestCallback);
+                //Debug.Log("this =" + this);
+                //Debug.Log("pclient =" + pclient);
                 pclient.request(reqInfo.route,(JsonObject)reqInfo.data,requestCallback);
             }else if(reqInfo.dataType == RequestInfo.DataType.Type_String)
             {

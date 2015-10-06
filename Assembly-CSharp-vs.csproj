@@ -221,6 +221,7 @@
      <Compile Include="Assets\Script\Controller\Common\PublicTimer.cs" />
      <Compile Include="Assets\Script\Controller\Common\UIMessageBox.cs" />
      <Compile Include="Assets\Script\Controller\Common\UITipBar.cs" />
+     <Compile Include="Assets\Script\Controller\Login\GetIntoLobby.cs" />
      <Compile Include="Assets\Script\Controller\Login\LoginController.cs" />
      <Compile Include="Assets\Script\Fight\Base\ShipBase.cs" />
      <Compile Include="Assets\Script\Fight\Shell.cs" />
@@ -498,7 +499,7 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="SimpleJson">
- <HintPath>C:/myworks/Nav/Assets/Script/Net/SimpleJson.dll</HintPath>
+ <HintPath>C:/Myworks/Nav/Assets/Script/Net/SimpleJson.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

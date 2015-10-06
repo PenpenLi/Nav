@@ -67,7 +67,7 @@ public class Upgrade : MonoBehaviour
                     m_House.GetComponent<TweenColor>().enabled = false;
                     m_House.GetComponent<TweenColor>().ResetToBeginning();
 
-                    UpgradeTimer UI = new UpgradeTimer(m_BObj.name); //派遣装修队
+                    UpgradeTimer Ui = new UpgradeTimer(m_BObj.name); //派遣装修队
                 }
                 else
                 {
@@ -98,7 +98,6 @@ public class Upgrade : MonoBehaviour
             if (obj != null)
             {
                 CommonResult<PlayerInfo> commonResult = (CommonResult<PlayerInfo>)obj;
-
             }
         }
     }

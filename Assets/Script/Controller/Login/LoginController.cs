@@ -10,7 +10,8 @@ public class LoginController : MonoBehaviour
     private LoginDataQuickReq loginQuickReq;
     private LoginData loginData;
 
-    
+    public GameObject m_LoginBox;
+
     void Awake()
     {
         //UICamera.mainCamera.GetComponent<UICamera>().eventReceiverMask = ~(1<<LayerMask.NameToLayer("UI"));
@@ -19,13 +20,13 @@ public class LoginController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        //loginQuickReq=new LoginDataQuickReq();
-        //ConnectionManager.GetInstance().Connect(delegate (bool isSuc)
-        //{
-        //    if(isSuc)
-        //    {
-        //    }
-        //});
+        loginQuickReq=new LoginDataQuickReq();
+        ConnectionManager.GetInstance().Connect(delegate(bool isSuc)
+        {
+            if (isSuc)
+            {
+            }
+        });
         BackgroundMusicController.PlayMusic(6);
       
     }
@@ -38,12 +39,9 @@ public class LoginController : MonoBehaviour
 
     public void ClickQuickLogin()
     {
-
-        //string deviceID=SystemInfo.deviceUniqueIdentifier;
-        //Debug.Log("deviceID = "+deviceID);
-        //GetQuickLoginSucess(deviceID,"鲁力源小畜生");
-
-        SceneSwitch.GetSceneSwitch().Switch(GameScene.Lobby);
+        string deviceID = SystemInfo.deviceUniqueIdentifier;
+        Debug.Log("deviceID = " + deviceID);
+        GetQuickLoginSucess(deviceID);
     }
 
     public void MessageboxCallBack(bool result)
@@ -64,10 +62,10 @@ public class LoginController : MonoBehaviour
         UIMessageBox.ShowMessageBox("ClickLogin",null);
     }
 
-    void GetQuickLoginSucess(string deviceID,string nickName)
+    void GetQuickLoginSucess(string deviceID)
     {
         Debug.Log("GetQuickLoginSucess");
-        loginQuickReq.GetQuickLoginInf(deviceID,nickName,LoginEventCallback);
+        loginQuickReq.GetQuickLoginInf(deviceID,LoginEventCallback);
     }
 
     private void LoginEventCallback(EventBase eb)
@@ -81,29 +79,28 @@ public class LoginController : MonoBehaviour
             if(obj!=null)
             {
                 CommonResult<LoginData> commonResult=(CommonResult<LoginData>)obj;
-                Debug.Log("PlayerBase.data ="+commonResult.data);
-                int status = commonResult.data.status;
-                PublicTimer.ResetServerTime(commonResult.data.curTime);
-                PlayerDataManager.GetInstance().GUID = commonResult.data.player.GUID;
-                PlayerDataManager.GetInstance().SetPlayerInfo(commonResult.data.player);
-                
-                //PlayerDataManager.GetInstance().SetPlayerInfo(commonResult.data.player);
-                switch (status)
+                if (commonResult.errcode == -1)
                 {
-                    case 0: //新注册用户
-                        Debug.Log("新注册用户");
-                        break;
-                    case 1://登录成功
-                        Debug.Log("登录成功");
-                        break;
-                    default:
-                        break;
+                    Debug.Log("PlayerBase.data =" + commonResult.data.playerData);
+                    int status = commonResult.data.loginStatus;
+                    PublicTimer.ResetServerTime(commonResult.data.curTime);
+                    //PlayerDataManager.GetInstance().GUID = commonResult.GUID;
+                    PlayerDataManager.GetInstance().SetPlayerInfo(commonResult.data.playerData);
+
+                    //PlayerDataManager.GetInstance().SetPlayerInfo(commonResult.data.player);
+                    switch (status)
+                    {
+                        case 0: //新注册用户
+                            Debug.Log("新注册用户");
+                            break;
+                        case 1://登录成功
+                            Debug.Log("登录成功");
+                            break;
+                        default:
+                            break;
+                    }
+                    SceneSwitch.GetSceneSwitch().Switch(GameScene.Lobby);
                 }
-                if (status != -1)
-                {
-                    
-                }
-                SceneSwitch.GetSceneSwitch().Switch(GameScene.Lobby);
             }
         }
     }

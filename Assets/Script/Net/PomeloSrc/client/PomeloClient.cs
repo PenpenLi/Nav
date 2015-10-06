@@ -66,7 +66,7 @@ namespace Pomelo.DotNetClient
             timeoutEvent.Reset();
             eventManager = new EventManager();
             NetWorkChanged(NetWorkState.CONNECTING);
-
+            
             IPAddress ipAddress = null;
 
             try
@@ -95,7 +95,7 @@ namespace Pomelo.DotNetClient
 
             this.socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             IPEndPoint ie = new IPEndPoint(ipAddress, port);
-
+            
             socket.BeginConnect(ie, new AsyncCallback((result) =>
             {
                 try
@@ -103,7 +103,7 @@ namespace Pomelo.DotNetClient
                     this.socket.EndConnect(result);
                     this.protocol = new Protocol(this, this.socket);
                     NetWorkChanged(NetWorkState.CONNECTED);
-
+                    
                     if (callback != null)
                     {
                         callback();
@@ -184,6 +184,10 @@ namespace Pomelo.DotNetClient
 
         public void request(string route, JsonObject msg, Action<JsonObject> action)
         {
+            Debug.Log("route =" + route);
+            Debug.Log("msg =" + msg);
+            Debug.Log("action =" + action);
+            Debug.Log("protocol =" + protocol);
             this.eventManager.AddCallBack(reqId, action);
             protocol.send(route, reqId, msg);
 
